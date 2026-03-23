@@ -945,6 +945,8 @@ function ChildComponent({ onButtonClick }) {
     </button>
   );
 }
+      {isOn ? 'ON' : 'OFF'}
+    </button>
 Children Prop (Special Prop)
 The children prop allows you to pass components/elements as content.
 
