@@ -63,8 +63,8 @@ Best Practices for Clean Code
 Next Steps in Your React Journey
 
 1. Introduction to React
-What Exactly is React?
-React is a JavaScript library for building user interfaces. Let's break that down:
+   What Exactly is React?
+   React is a JavaScript library for building user interfaces. Let's break that down:
 
 JavaScript Library: It's a collection of pre-written JavaScript code that helps you build websites faster
 
@@ -82,8 +82,8 @@ const counter = document.getElementById('counter');
 let count = 0;
 
 button.addEventListener('click', () => {
-  count++;
-  counter.innerHTML = count; // Manually update the DOM
+count++;
+counter.innerHTML = count; // Manually update the DOM
 });
 Hard to Reuse Code: If you wanted the same button on multiple pages, you had to copy-paste code
 
@@ -95,17 +95,17 @@ Problem 1: Keeping UI in Sync with Data
 jsx
 // React way - Declarative
 function Counter() {
-  const [count, setCount] = useState(0);
-  
-  // React automatically updates the UI when count changes
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+const [count, setCount] = useState(0);
+
+// React automatically updates the UI when count changes
+return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 Problem 2: Code Reusability
 
 jsx
 // Create once, use anywhere
 function Button({ text, color }) {
-  return <button style={{ backgroundColor: color }}>{text}</button>;
+return <button style={{ backgroundColor: color }}>{text}</button>;
 }
 
 // Use in many places
@@ -132,14 +132,13 @@ Hooks: Functions that let you use React features
 JSX: JavaScript + HTML combined
 
 Why React is So Popular Today
-Reason	Explanation
-Easy to Learn	If you know JavaScript and HTML, you can learn React
-Huge Community	Millions of developers use React, so help is everywhere
-Great Job Market	React skills are in high demand globally
-Facebook Backed	Created and maintained by Meta (Facebook)
-Flexible	Works with any backend (Node.js, Python, PHP, etc.)
-Mobile Apps	React Native lets you build mobile apps with React skills
-2. Setting Up Your Development Environment
+Reason Explanation
+Easy to Learn If you know JavaScript and HTML, you can learn React
+Huge Community Millions of developers use React, so help is everywhere
+Great Job Market React skills are in high demand globally
+Facebook Backed Created and maintained by Meta (Facebook)
+Flexible Works with any backend (Node.js, Python, PHP, etc.)
+Mobile Apps React Native lets you build mobile apps with React skills 2. Setting Up Your Development Environment
 Step 1: Install Node.js
 What is Node.js?
 Node.js allows JavaScript to run outside the browser. We need it to:
@@ -163,13 +162,19 @@ Open your terminal/command prompt
 Verify installation:
 
 bash
+
 # Check Node.js version
+
 node --version
+
 # Should show something like: v18.17.0
 
 # Check npm version (npm comes with Node.js)
+
 npm --version
+
 # Should show something like: 9.6.7
+
 Step 2: Choose a Code Editor
 Visual Studio Code (VS Code) is the best choice for React development.
 
@@ -201,58 +206,85 @@ We'll use Vite - it's faster and more modern than Create React App.
 Open terminal and run these commands:
 
 bash
+
 # Create a new React project
+
 npm create vite@latest my-react-app -- --template react
 
 # What this does:
+
 # - Downloads Vite
+
 # - Creates a folder called 'my-react-app'
+
 # - Sets up a React project with all necessary files
+
 bash
+
 # Navigate into your project folder
+
 cd my-react-app
 
 # What this does:
+
 # - Changes directory to your project folder
+
 # - You need to be in this folder to run commands
+
 bash
+
 # Install all dependencies
+
 npm install
 
 # What this does:
+
 # - Reads package.json file
+
 # - Downloads all required packages into node_modules folder
+
 # - This might take 1-2 minutes
+
 bash
+
 # Install Tailwind CSS for styling
+
 npm install -D tailwindcss postcss autoprefixer
 
 # What this does:
+
 # - Installs Tailwind CSS for easy styling
+
 # - We'll use Tailwind for all our projects
+
 bash
+
 # Initialize Tailwind CSS
+
 npx tailwindcss init -p
 
 # What this does:
+
 # - Creates tailwind.config.js file
+
 # - Sets up PostCSS configuration
+
 Step 4: Configure Tailwind CSS
+
 1. Update tailwind.config.js:
 
 javascript
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} \*/
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-2. Replace content of src/index.css:
+content: [
+"./index.html",
+"./src/**/\*.{js,ts,jsx,tsx}",
+],
+theme: {
+extend: {},
+},
+plugins: [],
+} 2. Replace content of src/index.css:
 
 css
 @tailwind base;
@@ -273,38 +305,39 @@ You should see: "Welcome to React!" in your browser
 
 Understanding the Terminal Output
 text
-VITE v4.4.0  ready in 300 ms
+VITE v4.4.0 ready in 300 ms
 
-➜  Local:   http://localhost:5173/
-➜  Network: use --host to expose
+➜ Local: http://localhost:5173/
+➜ Network: use --host to expose
 Local: The URL to open in your browser
 
 Network: How to access from other devices on your network
 
 3. Understanding the Project Structure
-Let's explore every file and folder in your React project:
+   Let's explore every file and folder in your React project:
 
 text
 my-react-app/
-├── node_modules/              # All installed packages (don't touch this)
-├── public/                    # Static files (images, icons)
-│   └── vite.svg              # Logo icon
-├── src/                       # Your source code (you work here)
-│   ├── assets/               # Images, fonts, etc.
-│   ├── components/           # Reusable components (create this)
-│   ├── pages/                # Page components (create this)
-│   ├── App.jsx              # Main component
-│   ├── App.css              # Styles for App (optional)
-│   ├── main.jsx             # Entry point
-│   └── index.css            # Global styles
-├── .gitignore               # Files to ignore in Git
-├── index.html               # Main HTML file
-├── package.json             # Project dependencies and scripts
-├── vite.config.js           # Vite configuration
-└── README.md                # Project documentation
+├── node_modules/ # All installed packages (don't touch this)
+├── public/ # Static files (images, icons)
+│ └── vite.svg # Logo icon
+├── src/ # Your source code (you work here)
+│ ├── assets/ # Images, fonts, etc.
+│ ├── components/ # Reusable components (create this)
+│ ├── pages/ # Page components (create this)
+│ ├── App.jsx # Main component
+│ ├── App.css # Styles for App (optional)
+│ ├── main.jsx # Entry point
+│ └── index.css # Global styles
+├── .gitignore # Files to ignore in Git
+├── index.html # Main HTML file
+├── package.json # Project dependencies and scripts
+├── vite.config.js # Vite configuration
+└── README.md # Project documentation
 Detailed File Explanations
 index.html - The Starting Point
 html
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -1412,23 +1445,25 @@ function UserProfile() {
       <button onClick={incrementAge}>Have Birthday</button>
       
       <pre>{JSON.stringify(user, null, 2)}</pre>
+
     </div>
-  );
+
+);
 }
 Multiple State Variables
 jsx
 function RegistrationForm() {
-  // Multiple state variables for different concerns
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({});
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
+// Multiple state variables for different concerns
+const [username, setUsername] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [isLoading, setIsLoading] = useState(false);
+const [errors, setErrors] = useState({});
+
+const handleSubmit = async (e) => {
+e.preventDefault();
+setIsLoading(true);
+
     try {
       // Submit form data
       console.log({ username, email, password });
@@ -1439,31 +1474,32 @@ function RegistrationForm() {
     } finally {
       setIsLoading(false);
     }
-  };
-  
-  return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input 
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Registering...' : 'Register'}
-      </button>
-    </form>
-  );
+
+};
+
+return (
+<form onSubmit={handleSubmit}>
+<input
+value={username}
+onChange={(e) => setUsername(e.target.value)}
+placeholder="Username"
+/>
+<input
+value={email}
+onChange={(e) => setEmail(e.target.value)}
+placeholder="Email"
+/>
+<input
+type="password"
+value={password}
+onChange={(e) => setPassword(e.target.value)}
+placeholder="Password"
+/>
+<button type="submit" disabled={isLoading}>
+{isLoading ? 'Registering...' : 'Register'}
+</button>
+</form>
+);
 }
 Complete State Example with Detailed Notes
 jsx
@@ -1473,21 +1509,21 @@ jsx
 import { useState } from 'react';
 
 function ShoppingCart() {
-  // State: cart items array
-  // Each item has: id, name, price, quantity
-  const [cart, setCart] = useState([]);
-  
-  // State: show checkout form or not
-  const [showCheckout, setShowCheckout] = useState(false);
-  
-  // State: loading state for API calls
-  const [isProcessing, setIsProcessing] = useState(false);
-  
-  // Add item to cart
-  const addToCart = (product) => {
-    // Check if item already exists in cart
-    const existingItem = cart.find(item => item.id === product.id);
-    
+// State: cart items array
+// Each item has: id, name, price, quantity
+const [cart, setCart] = useState([]);
+
+// State: show checkout form or not
+const [showCheckout, setShowCheckout] = useState(false);
+
+// State: loading state for API calls
+const [isProcessing, setIsProcessing] = useState(false);
+
+// Add item to cart
+const addToCart = (product) => {
+// Check if item already exists in cart
+const existingItem = cart.find(item => item.id === product.id);
+
     if (existingItem) {
       // If exists, increase quantity
       setCart(cart.map(item =>
@@ -1499,42 +1535,43 @@ function ShoppingCart() {
       // If new, add with quantity 1
       setCart([...cart, { ...product, quantity: 1 }]);
     }
-  };
-  
-  // Remove item completely from cart
-  const removeFromCart = (id) => {
-    setCart(cart.filter(item => item.id !== id));
-  };
-  
-  // Update quantity of an item
-  const updateQuantity = (id, newQuantity) => {
-    if (newQuantity <= 0) {
-      // If quantity becomes 0 or negative, remove item
-      removeFromCart(id);
-    } else {
-      // Otherwise update quantity
-      setCart(cart.map(item =>
-        item.id === id
-          ? { ...item, quantity: newQuantity }
-          : item
-      ));
-    }
-  };
-  
-  // Calculate total price
-  const calculateTotal = () => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
-  
-  // Handle checkout
-  const handleCheckout = async () => {
-    setIsProcessing(true);
-    
+
+};
+
+// Remove item completely from cart
+const removeFromCart = (id) => {
+setCart(cart.filter(item => item.id !== id));
+};
+
+// Update quantity of an item
+const updateQuantity = (id, newQuantity) => {
+if (newQuantity <= 0) {
+// If quantity becomes 0 or negative, remove item
+removeFromCart(id);
+} else {
+// Otherwise update quantity
+setCart(cart.map(item =>
+item.id === id
+? { ...item, quantity: newQuantity }
+: item
+));
+}
+};
+
+// Calculate total price
+const calculateTotal = () => {
+return cart.reduce((total, item) => total + (item.price \* item.quantity), 0);
+};
+
+// Handle checkout
+const handleCheckout = async () => {
+setIsProcessing(true);
+
     try {
       // Simulate API call to submit order
       await new Promise(resolve => setTimeout(resolve, 2000));
       alert(`Order placed! Total: $${calculateTotal().toFixed(2)}`);
-      
+
       // Clear cart after successful order
       setCart([]);
       setShowCheckout(false);
@@ -1543,12 +1580,13 @@ function ShoppingCart() {
     } finally {
       setIsProcessing(false);
     }
-  };
-  
-  return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
-      
+
+};
+
+return (
+<div className="max-w-2xl mx-auto p-4">
+<h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
+
       {/* Product listing - just for demo */}
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Products</h2>
@@ -1573,19 +1611,19 @@ function ShoppingCart() {
           ))}
         </div>
       </div>
-      
+
       {/* Cart display */}
       {cart.length > 0 && (
         <div className="border rounded-lg p-4">
           <h2 className="text-xl font-semibold mb-3">Your Cart ({cart.length} items)</h2>
-          
+
           {cart.map(item => (
             <div key={item.id} className="flex justify-between items-center mb-3 pb-3 border-b">
               <div className="flex-1">
                 <p className="font-semibold">{item.name}</p>
                 <p className="text-gray-600">${item.price}</p>
               </div>
-              
+
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -1609,12 +1647,12 @@ function ShoppingCart() {
               </div>
             </div>
           ))}
-          
+
           <div className="mt-4 pt-3 border-t">
             <p className="text-xl font-bold text-right">
               Total: ${calculateTotal().toFixed(2)}
             </p>
-            
+
             <button
               onClick={() => setShowCheckout(true)}
               className="mt-3 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
@@ -1624,13 +1662,13 @@ function ShoppingCart() {
           </div>
         </div>
       )}
-      
+
       {/* Checkout Modal */}
       {showCheckout && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
             <h2 className="text-xl font-bold mb-4">Checkout</h2>
-            
+
             <div className="mb-4">
               <p className="mb-2">Total Amount: ${calculateTotal().toFixed(2)}</p>
               <input
@@ -1644,7 +1682,7 @@ function ShoppingCart() {
                 className="w-full border p-2 rounded"
               />
             </div>
-            
+
             <div className="flex gap-2">
               <button
                 onClick={handleCheckout}
@@ -1664,11 +1702,11 @@ function ShoppingCart() {
         </div>
       )}
     </div>
-  );
+
+);
 }
 
-export default ShoppingCart;
-8. Events - Handling User Interactions
+export default ShoppingCart; 8. Events - Handling User Interactions
 What Are Events?
 Events are actions that happen when users interact with your app:
 
@@ -1683,73 +1721,72 @@ Submitting a form
 Basic Event Handling
 jsx
 function EventExample() {
-  // Define event handler functions
-  const handleClick = () => {
-    alert('Button was clicked!');
-  };
-  
-  const handleMouseEnter = () => {
-    console.log('Mouse entered the button');
-  };
-  
-  const handleMouseLeave = () => {
-    console.log('Mouse left the button');
-  };
-  
-  return (
-    <button
-      onClick={handleClick}          // Click event
-      onMouseEnter={handleMouseEnter} // Mouse enter event
-      onMouseLeave={handleMouseLeave} // Mouse leave event
-      className="bg-blue-500 text-white px-4 py-2 rounded"
-    >
-      Hover or Click Me
-    </button>
-  );
+// Define event handler functions
+const handleClick = () => {
+alert('Button was clicked!');
+};
+
+const handleMouseEnter = () => {
+console.log('Mouse entered the button');
+};
+
+const handleMouseLeave = () => {
+console.log('Mouse left the button');
+};
+
+return (
+<button
+onClick={handleClick} // Click event
+onMouseEnter={handleMouseEnter} // Mouse enter event
+onMouseLeave={handleMouseLeave} // Mouse leave event
+className="bg-blue-500 text-white px-4 py-2 rounded" >
+Hover or Click Me
+</button>
+);
 }
 Different Types of Events
 jsx
 function AllEvents() {
-  // Click events
-  const handleClick = (e) => {
-    console.log('Clicked!', e.target);
-  };
-  
-  // Change events (input, select, textarea)
-  const handleChange = (e) => {
-    console.log('Value changed to:', e.target.value);
-  };
-  
-  // Submit events (forms)
-  const handleSubmit = (e) => {
-    e.preventDefault(); // IMPORTANT: Prevents page refresh
-    console.log('Form submitted');
-  };
-  
-  // Keyboard events
-  const handleKeyDown = (e) => {
-    console.log(`Key pressed: ${e.key}`);
-    if (e.key === 'Enter') {
-      console.log('Enter key pressed!');
-    }
-  };
-  
-  // Focus events
-  const handleFocus = () => {
-    console.log('Input focused');
-  };
-  
-  const handleBlur = () => {
-    console.log('Input lost focus');
-  };
-  
-  return (
-    <div className="space-y-4">
-      {/* Click event */}
-      <button onClick={handleClick} className="bg-blue-500 text-white p-2 rounded">
-        Click Me
-      </button>
-      
+// Click events
+const handleClick = (e) => {
+console.log('Clicked!', e.target);
+};
+
+// Change events (input, select, textarea)
+const handleChange = (e) => {
+console.log('Value changed to:', e.target.value);
+};
+
+// Submit events (forms)
+const handleSubmit = (e) => {
+e.preventDefault(); // IMPORTANT: Prevents page refresh
+console.log('Form submitted');
+};
+
+// Keyboard events
+const handleKeyDown = (e) => {
+console.log(`Key pressed: ${e.key}`);
+if (e.key === 'Enter') {
+console.log('Enter key pressed!');
+}
+};
+
+// Focus events
+const handleFocus = () => {
+console.log('Input focused');
+};
+
+const handleBlur = () => {
+console.log('Input lost focus');
+};
+
+return (
+<div className="space-y-4">
+{/_ Click event _/}
+<button onClick={handleClick} className="bg-blue-500 text-white p-2 rounded">
+Click Me
+</button>
+
       {/* Change event */}
       <input
         type="text"
@@ -1757,14 +1794,14 @@ function AllEvents() {
         className="border p-2 rounded block w-full"
         placeholder="Type something..."
       />
-      
+
       {/* Form submit */}
       <form onSubmit={handleSubmit}>
         <button type="submit" className="bg-green-500 text-white p-2 rounded">
           Submit Form
         </button>
       </form>
-      
+
       {/* Keyboard event */}
       <input
         type="text"
@@ -1772,7 +1809,7 @@ function AllEvents() {
         className="border p-2 rounded block w-full"
         placeholder="Press any key..."
       />
-      
+
       {/* Focus/Blur events */}
       <input
         type="text"
@@ -1782,41 +1819,41 @@ function AllEvents() {
         placeholder="Click me then click outside"
       />
     </div>
-  );
+
+);
 }
 Passing Parameters to Event Handlers
 jsx
 function ParameterExample() {
-  // Method 1: Using arrow function in onClick
-  const handleClick = (name) => {
-    alert(`Hello, ${name}!`);
-  };
-  
-  // Method 2: Using bind
-  const handleClickWithBind = (name) => {
-    alert(`Hello, ${name}!`);
-  };
-  
-  return (
-    <div className="space-y-4">
-      {/* Arrow function method - most common */}
-      <button 
-        onClick={() => handleClick('John')}
-        className="bg-blue-500 text-white p-2 rounded"
-      >
-        Say Hello to John
-      </button>
-      
+// Method 1: Using arrow function in onClick
+const handleClick = (name) => {
+alert(`Hello, ${name}!`);
+};
+
+// Method 2: Using bind
+const handleClickWithBind = (name) => {
+alert(`Hello, ${name}!`);
+};
+
+return (
+<div className="space-y-4">
+{/_ Arrow function method - most common _/}
+<button
+onClick={() => handleClick('John')}
+className="bg-blue-500 text-white p-2 rounded" >
+Say Hello to John
+</button>
+
       {/* Bind method */}
-      <button 
+      <button
         onClick={handleClickWithBind.bind(null, 'Jane')}
         className="bg-green-500 text-white p-2 rounded"
       >
         Say Hello to Jane
       </button>
-      
+
       {/* Passing event object AND parameters */}
-      <button 
+      <button
         onClick={(e) => {
           console.log('Event:', e);
           handleClick('Bob');
@@ -1826,78 +1863,79 @@ function ParameterExample() {
         Log Event and Say Hello
       </button>
     </div>
-  );
+
+);
 }
 Common Event Patterns
 jsx
 // 1. Toggle State on Click
 function ToggleButton() {
-  const [isActive, setIsActive] = useState(false);
-  
-  const handleToggle = () => {
-    setIsActive(!isActive);
-  };
-  
-  return (
-    <button
-      onClick={handleToggle}
-      className={`px-4 py-2 rounded ${isActive ? 'bg-green-500' : 'bg-gray-500'} text-white`}
-    >
-      {isActive ? 'Active' : 'Inactive'}
-    </button>
-  );
+const [isActive, setIsActive] = useState(false);
+
+const handleToggle = () => {
+setIsActive(!isActive);
+};
+
+return (
+<button
+onClick={handleToggle}
+className={`px-4 py-2 rounded ${isActive ? 'bg-green-500' : 'bg-gray-500'} text-white`} >
+{isActive ? 'Active' : 'Inactive'}
+</button>
+);
 }
 
 // 2. Input Change with Validation
 function ValidatedInput() {
-  const [value, setValue] = useState('');
-  const [error, setError] = useState('');
-  
-  const handleChange = (e) => {
-    const newValue = e.target.value;
-    setValue(newValue);
-    
+const [value, setValue] = useState('');
+const [error, setError] = useState('');
+
+const handleChange = (e) => {
+const newValue = e.target.value;
+setValue(newValue);
+
     // Validate while typing
     if (newValue.length < 3) {
       setError('Must be at least 3 characters');
     } else {
       setError('');
     }
-  };
-  
-  return (
-    <div>
-      <input
-        value={value}
-        onChange={handleChange}
-        className={`border p-2 rounded ${error ? 'border-red-500' : 'border-gray-300'}`}
-      />
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-    </div>
-  );
+
+};
+
+return (
+<div>
+<input
+value={value}
+onChange={handleChange}
+className={`border p-2 rounded ${error ? 'border-red-500' : 'border-gray-300'}`}
+/>
+{error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+</div>
+);
 }
 
 // 3. Form Submit with Multiple Fields
 function LoginForm() {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent page refresh
-    
+const [formData, setFormData] = useState({
+username: '',
+password: ''
+});
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+const handleChange = (e) => {
+const { name, value } = e.target;
+setFormData(prev => ({
+...prev,
+[name]: value
+}));
+};
+
+const handleSubmit = async (e) => {
+e.preventDefault(); // Prevent page refresh
+
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -1908,13 +1946,14 @@ function LoginForm() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-  
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block mb-1">Username:</label>
-        <input
+
+};
+
+return (
+<form onSubmit={handleSubmit} className="space-y-4">
+<div>
+<label className="block mb-1">Username:</label>
+<input
           type="text"
           name="username"
           value={formData.username}
@@ -1922,8 +1961,8 @@ function LoginForm() {
           className="border p-2 rounded w-full"
           required
         />
-      </div>
-      
+</div>
+
       <div>
         <label className="block mb-1">Password:</label>
         <input
@@ -1935,7 +1974,7 @@ function LoginForm() {
           required
         />
       </div>
-      
+
       <button
         type="submit"
         disabled={isSubmitting}
@@ -1944,94 +1983,96 @@ function LoginForm() {
         {isSubmitting ? 'Logging in...' : 'Login'}
       </button>
     </form>
-  );
+
+);
 }
 
 // 4. Keyboard Shortcuts
 function KeyboardShortcut() {
-  const [count, setCount] = useState(0);
-  
-  const handleKeyDown = (e) => {
-    // Check if Ctrl + Shift + K is pressed
-    if (e.ctrlKey && e.shiftKey && e.key === 'K') {
-      setCount(prev => prev + 1);
-      alert('Keyboard shortcut activated!');
-    }
-    
+const [count, setCount] = useState(0);
+
+const handleKeyDown = (e) => {
+// Check if Ctrl + Shift + K is pressed
+if (e.ctrlKey && e.shiftKey && e.key === 'K') {
+setCount(prev => prev + 1);
+alert('Keyboard shortcut activated!');
+}
+
     // Check if Escape key is pressed
     if (e.key === 'Escape') {
       setCount(0);
     }
-  };
-  
-  return (
-    <div 
-      onKeyDown={handleKeyDown}
-      tabIndex="0" // Make div focusable
-      className="border p-8 text-center"
-    >
-      <p>Count: {count}</p>
-      <p className="text-sm text-gray-500">Press Ctrl+Shift+K to increment</p>
-      <p className="text-sm text-gray-500">Press Escape to reset</p>
-    </div>
-  );
+
+};
+
+return (
+<div
+onKeyDown={handleKeyDown}
+tabIndex="0" // Make div focusable
+className="border p-8 text-center" >
+<p>Count: {count}</p>
+<p className="text-sm text-gray-500">Press Ctrl+Shift+K to increment</p>
+<p className="text-sm text-gray-500">Press Escape to reset</p>
+</div>
+);
 }
 
 // 5. Double Click Event
 function DoubleClickExample() {
-  const [clickCount, setClickCount] = useState(0);
-  
-  const handleDoubleClick = () => {
-    setClickCount(prev => prev + 1);
-  };
-  
-  return (
-    <div>
-      <button
+const [clickCount, setClickCount] = useState(0);
+
+const handleDoubleClick = () => {
+setClickCount(prev => prev + 1);
+};
+
+return (
+<div>
+<button
         onDoubleClick={handleDoubleClick}
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-        Double Click Me
-      </button>
-      <p className="mt-2">Double clicks: {clickCount}</p>
-    </div>
-  );
+Double Click Me
+</button>
+<p className="mt-2">Double clicks: {clickCount}</p>
+</div>
+);
 }
 The Event Object (e) Explained
 jsx
 function EventObjectExplained() {
-  const handleClick = (e) => {
-    // e is the synthetic event object
-    console.log('Event type:', e.type);           // "click"
-    console.log('Target element:', e.target);     // The button element
-    console.log('Mouse X position:', e.clientX);  // X coordinate
-    console.log('Mouse Y position:', e.clientY);  // Y coordinate
-    console.log('Alt key pressed:', e.altKey);    // Boolean
-    console.log('Ctrl key pressed:', e.ctrlKey);  // Boolean
-    console.log('Shift key pressed:', e.shiftKey); // Boolean
-  };
-  
-  const handleInput = (e) => {
-    console.log('Input value:', e.target.value);
-    console.log('Input name:', e.target.name);
-    console.log('Input type:', e.target.type);
-  };
-  
-  const handleForm = (e) => {
-    e.preventDefault(); // Stop page refresh
-    console.log('Form submitted');
-    
+const handleClick = (e) => {
+// e is the synthetic event object
+console.log('Event type:', e.type); // "click"
+console.log('Target element:', e.target); // The button element
+console.log('Mouse X position:', e.clientX); // X coordinate
+console.log('Mouse Y position:', e.clientY); // Y coordinate
+console.log('Alt key pressed:', e.altKey); // Boolean
+console.log('Ctrl key pressed:', e.ctrlKey); // Boolean
+console.log('Shift key pressed:', e.shiftKey); // Boolean
+};
+
+const handleInput = (e) => {
+console.log('Input value:', e.target.value);
+console.log('Input name:', e.target.name);
+console.log('Input type:', e.target.type);
+};
+
+const handleForm = (e) => {
+e.preventDefault(); // Stop page refresh
+console.log('Form submitted');
+
     // Get form data
     const formData = new FormData(e.target);
     console.log('Form data:', Object.fromEntries(formData));
-  };
-  
-  return (
-    <div>
-      <button onClick={handleClick} className="bg-blue-500 text-white p-2 rounded m-2">
-        Click me with modifier keys
-      </button>
-      
+
+};
+
+return (
+<div>
+<button onClick={handleClick} className="bg-blue-500 text-white p-2 rounded m-2">
+Click me with modifier keys
+</button>
+
       <input
         name="email"
         type="email"
@@ -2039,100 +2080,100 @@ function EventObjectExplained() {
         className="border p-2 rounded m-2"
         placeholder="Type something..."
       />
-      
+
       <form onSubmit={handleForm} className="m-2">
         <input name="username" placeholder="Username" className="border p-2 rounded m-2" />
         <button type="submit" className="bg-green-500 text-white p-2 rounded">Submit</button>
       </form>
     </div>
-  );
-}
-9. Lists and Keys - Rendering Multiple Items
+
+);
+} 9. Lists and Keys - Rendering Multiple Items
 Why We Need Keys
 When rendering lists, React needs a way to identify which items have changed, been added, or been removed. Keys give each item a stable identity.
 
 Basic List Rendering
 jsx
 function FruitList() {
-  const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
-  
-  return (
-    <ul className="list-disc pl-5">
-      {/* map() creates a new array of JSX elements */}
-      {fruits.map((fruit, index) => (
-        // Use index as key ONLY if list is static (won't change)
-        <li key={index} className="mb-1">
-          {fruit}
-        </li>
-      ))}
-    </ul>
-  );
+const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+
+return (
+<ul className="list-disc pl-5">
+{/_ map() creates a new array of JSX elements _/}
+{fruits.map((fruit, index) => (
+// Use index as key ONLY if list is static (won't change)
+<li key={index} className="mb-1">
+{fruit}
+</li>
+))}
+</ul>
+);
 }
 Using Unique IDs as Keys (Best Practice)
 jsx
 function UserList() {
-  // Each user has a unique ID - perfect for keys
-  const users = [
-    { id: 1, name: 'John', email: 'john@example.com' },
-    { id: 2, name: 'Jane', email: 'jane@example.com' },
-    { id: 3, name: 'Bob', email: 'bob@example.com' }
-  ];
-  
-  return (
-    <div className="space-y-2">
-      {users.map(user => (
-        // Use unique ID as key - BEST PRACTICE
-        <div key={user.id} className="border p-3 rounded">
-          <p className="font-bold">{user.name}</p>
-          <p className="text-gray-600">{user.email}</p>
-        </div>
-      ))}
-    </div>
-  );
+// Each user has a unique ID - perfect for keys
+const users = [
+{ id: 1, name: 'John', email: 'john@example.com' },
+{ id: 2, name: 'Jane', email: 'jane@example.com' },
+{ id: 3, name: 'Bob', email: 'bob@example.com' }
+];
+
+return (
+<div className="space-y-2">
+{users.map(user => (
+// Use unique ID as key - BEST PRACTICE
+<div key={user.id} className="border p-3 rounded">
+<p className="font-bold">{user.name}</p>
+<p className="text-gray-600">{user.email}</p>
+</div>
+))}
+</div>
+);
 }
 Dynamic List with Add/Remove
 jsx
 function DynamicList() {
-  const [items, setItems] = useState([
-    { id: 1, text: 'Learn React' },
-    { id: 2, text: 'Build a project' },
-    { id: 3, text: 'Master JavaScript' }
-  ]);
-  const [newItem, setNewItem] = useState('');
-  
-  // Add new item with unique ID
-  const addItem = () => {
-    if (newItem.trim()) {
-      setItems([
-        ...items,
-        { id: Date.now(), text: newItem } // Date.now() gives unique ID
-      ]);
-      setNewItem('');
-    }
-  };
-  
-  // Remove item by ID
-  const removeItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-  
-  return (
-    <div className="max-w-md">
-      <div className="flex gap-2 mb-4">
-        <input
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-          className="border p-2 rounded flex-1"
-          placeholder="Add new item..."
-        />
-        <button
+const [items, setItems] = useState([
+{ id: 1, text: 'Learn React' },
+{ id: 2, text: 'Build a project' },
+{ id: 3, text: 'Master JavaScript' }
+]);
+const [newItem, setNewItem] = useState('');
+
+// Add new item with unique ID
+const addItem = () => {
+if (newItem.trim()) {
+setItems([
+...items,
+{ id: Date.now(), text: newItem } // Date.now() gives unique ID
+]);
+setNewItem('');
+}
+};
+
+// Remove item by ID
+const removeItem = (id) => {
+setItems(items.filter(item => item.id !== id));
+};
+
+return (
+<div className="max-w-md">
+<div className="flex gap-2 mb-4">
+<input
+value={newItem}
+onChange={(e) => setNewItem(e.target.value)}
+className="border p-2 rounded flex-1"
+placeholder="Add new item..."
+/>
+<button
           onClick={addItem}
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
-          Add
-        </button>
-      </div>
-      
+Add
+</button>
+</div>
+
       <ul className="space-y-2">
         {items.map(item => (
           <li key={item.id} className="flex justify-between items-center bg-gray-100 p-2 rounded">
@@ -2147,39 +2188,40 @@ function DynamicList() {
         ))}
       </ul>
     </div>
-  );
+
+);
 }
 List with Complex Objects
 jsx
 function ProductCatalog() {
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Laptop', price: 999, category: 'Electronics', inStock: true },
-    { id: 2, name: 'Shirt', price: 29, category: 'Clothing', inStock: true },
-    { id: 3, name: 'Book', price: 19, category: 'Books', inStock: false },
-    { id: 4, name: 'Phone', price: 699, category: 'Electronics', inStock: true }
-  ]);
-  
-  const [filter, setFilter] = useState('all');
-  const [sortBy, setSortBy] = useState('name');
-  
-  // Filter products
-  const filteredProducts = products.filter(product => {
-    if (filter === 'inStock') return product.inStock;
-    if (filter === 'outOfStock') return !product.inStock;
-    return true;
-  });
-  
-  // Sort products
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (sortBy === 'price') return a.price - b.price;
-    if (sortBy === 'name') return a.name.localeCompare(b.name);
-    return 0;
-  });
-  
-  return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Product Catalog</h1>
-      
+const [products, setProducts] = useState([
+{ id: 1, name: 'Laptop', price: 999, category: 'Electronics', inStock: true },
+{ id: 2, name: 'Shirt', price: 29, category: 'Clothing', inStock: true },
+{ id: 3, name: 'Book', price: 19, category: 'Books', inStock: false },
+{ id: 4, name: 'Phone', price: 699, category: 'Electronics', inStock: true }
+]);
+
+const [filter, setFilter] = useState('all');
+const [sortBy, setSortBy] = useState('name');
+
+// Filter products
+const filteredProducts = products.filter(product => {
+if (filter === 'inStock') return product.inStock;
+if (filter === 'outOfStock') return !product.inStock;
+return true;
+});
+
+// Sort products
+const sortedProducts = [...filteredProducts].sort((a, b) => {
+if (sortBy === 'price') return a.price - b.price;
+if (sortBy === 'name') return a.name.localeCompare(b.name);
+return 0;
+});
+
+return (
+<div className="max-w-4xl mx-auto p-4">
+<h1 className="text-2xl font-bold mb-4">Product Catalog</h1>
+
       {/* Filters */}
       <div className="flex gap-4 mb-4">
         <select
@@ -2191,7 +2233,7 @@ function ProductCatalog() {
           <option value="inStock">In Stock</option>
           <option value="outOfStock">Out of Stock</option>
         </select>
-        
+
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -2201,7 +2243,7 @@ function ProductCatalog() {
           <option value="price">Sort by Price</option>
         </select>
       </div>
-      
+
       {/* Product List */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sortedProducts.map(product => (
@@ -2210,8 +2252,8 @@ function ProductCatalog() {
             <p className="text-gray-600">${product.price}</p>
             <p className="text-sm text-gray-500 mb-2">{product.category}</p>
             <span className={`inline-block px-2 py-1 rounded text-xs ${
-              product.inStock 
-                ? 'bg-green-100 text-green-700' 
+              product.inStock
+                ? 'bg-green-100 text-green-700'
                 : 'bg-red-100 text-red-700'
             }`}>
               {product.inStock ? 'In Stock' : 'Out of Stock'}
@@ -2219,7 +2261,7 @@ function ProductCatalog() {
           </div>
         ))}
       </div>
-      
+
       {/* Statistics */}
       <div className="mt-6 p-4 bg-gray-100 rounded">
         <p>Total Products: {products.length}</p>
@@ -2227,65 +2269,65 @@ function ProductCatalog() {
         <p>Out of Stock: {products.filter(p => !p.inStock).length}</p>
       </div>
     </div>
-  );
+
+);
 }
 List Rendering Patterns
 jsx
 function ListPatterns() {
-  const [items, setItems] = useState([
-    { id: 1, text: 'Item 1', completed: false },
-    { id: 2, text: 'Item 2', completed: true },
-    { id: 3, text: 'Item 3', completed: false }
-  ]);
-  
-  // Pattern 1: Separate component for list item
-  const TodoItem = ({ item, onToggle, onDelete }) => {
-    return (
-      <li className="flex items-center gap-2 p-2 border rounded">
-        <input
-          type="checkbox"
-          checked={item.completed}
-          onChange={() => onToggle(item.id)}
-        />
-        <span className={item.completed ? 'line-through text-gray-500 flex-1' : 'flex-1'}>
-          {item.text}
-        </span>
-        <button
-          onClick={() => onDelete(item.id)}
-          className="text-red-500"
-        >
-          Delete
-        </button>
-      </li>
-    );
-  };
-  
-  // Pattern 2: Conditional rendering within list
-  const getItemClass = (completed) => {
-    return completed ? 'line-through text-gray-500' : '';
-  };
-  
-  // Pattern 3: Empty state handling
-  const EmptyState = () => (
-    <div className="text-center py-8 text-gray-500">
-      No items to display. Add some items!
-    </div>
-  );
-  
-  const handleToggle = (id) => {
-    setItems(items.map(item =>
-      item.id === id ? { ...item, completed: !item.completed } : item
-    ));
-  };
-  
-  const handleDelete = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-  
-  return (
-    <div className="max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">Todo List</h2>
-      
+const [items, setItems] = useState([
+{ id: 1, text: 'Item 1', completed: false },
+{ id: 2, text: 'Item 2', completed: true },
+{ id: 3, text: 'Item 3', completed: false }
+]);
+
+// Pattern 1: Separate component for list item
+const TodoItem = ({ item, onToggle, onDelete }) => {
+return (
+<li className="flex items-center gap-2 p-2 border rounded">
+<input
+type="checkbox"
+checked={item.completed}
+onChange={() => onToggle(item.id)}
+/>
+<span className={item.completed ? 'line-through text-gray-500 flex-1' : 'flex-1'}>
+{item.text}
+</span>
+<button
+onClick={() => onDelete(item.id)}
+className="text-red-500" >
+Delete
+</button>
+</li>
+);
+};
+
+// Pattern 2: Conditional rendering within list
+const getItemClass = (completed) => {
+return completed ? 'line-through text-gray-500' : '';
+};
+
+// Pattern 3: Empty state handling
+const EmptyState = () => (
+<div className="text-center py-8 text-gray-500">
+No items to display. Add some items!
+</div>
+);
+
+const handleToggle = (id) => {
+setItems(items.map(item =>
+item.id === id ? { ...item, completed: !item.completed } : item
+));
+};
+
+const handleDelete = (id) => {
+setItems(items.filter(item => item.id !== id));
+};
+
+return (
+<div className="max-w-md mx-auto">
+<h2 className="text-xl font-bold mb-4">Todo List</h2>
+
       {/* List with conditional empty state */}
       {items.length === 0 ? (
         <EmptyState />
@@ -2301,7 +2343,7 @@ function ListPatterns() {
           ))}
         </ul>
       )}
-      
+
       {/* Statistics */}
       <div className="mt-4 text-sm text-gray-600">
         <p>Total: {items.length}</p>
@@ -2309,111 +2351,111 @@ function ListPatterns() {
         <p>Pending: {items.filter(i => !i.completed).length}</p>
       </div>
     </div>
-  );
+
+);
 }
 Key Rules and Best Practices
 jsx
 function KeyRules() {
-  const items = [
-    { id: 1, name: 'Item 1' },
-    { id: 2, name: 'Item 2' },
-    { id: 3, name: 'Item 3' }
-  ];
-  
-  // ✅ GOOD: Using unique IDs
-  const goodExample = items.map(item => (
-    <div key={item.id}>{item.name}</div>
-  ));
-  
-  // ⚠️ OK: Using index (only if list never changes)
-  const okayExample = items.map((item, index) => (
-    <div key={index}>{item.name}</div>
-  ));
-  
-  // ❌ BAD: Using random values
-  const badExample = items.map(item => (
-    <div key={Math.random()}>{item.name}</div> // New key on every render!
-  ));
-  
-  // ❌ BAD: Using array index when list can change
-  const [dynamicItems, setDynamicItems] = useState(items);
-  // If you delete the first item, keys shift and React gets confused
-  
-  return null;
-}
-10. Conditional Rendering - Showing/Hiding Content
+const items = [
+{ id: 1, name: 'Item 1' },
+{ id: 2, name: 'Item 2' },
+{ id: 3, name: 'Item 3' }
+];
+
+// ✅ GOOD: Using unique IDs
+const goodExample = items.map(item => (
+<div key={item.id}>{item.name}</div>
+));
+
+// ⚠️ OK: Using index (only if list never changes)
+const okayExample = items.map((item, index) => (
+<div key={index}>{item.name}</div>
+));
+
+// ❌ BAD: Using random values
+const badExample = items.map(item => (
+<div key={Math.random()}>{item.name}</div> // New key on every render!
+));
+
+// ❌ BAD: Using array index when list can change
+const [dynamicItems, setDynamicItems] = useState(items);
+// If you delete the first item, keys shift and React gets confused
+
+return null;
+} 10. Conditional Rendering - Showing/Hiding Content
 What is Conditional Rendering?
 Conditional rendering means showing different UI based on certain conditions (like if a user is logged in, if data is loading, etc.)
 
 5 Ways to Conditionally Render
 jsx
 function ConditionalRendering() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [userRole, setUserRole] = useState('guest');
-  const [items, setItems] = useState([]);
-  
-  // 1. If/Else Statement (for complex logic)
-  const renderHeader = () => {
-    if (isLoggedIn) {
-      return <div>Welcome back, User!</div>;
-    } else {
-      return <div>Please log in</div>;
-    }
-  };
-  
-  // 2. Ternary Operator (for simple conditions)
-  const renderLoginButton = () => {
-    return (
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        {isLoggedIn ? 'Logout' : 'Login'}
-      </button>
-    );
-  };
-  
-  // 3. && Operator (show/hide based on condition)
-  const renderLoading = () => {
-    return isLoading && <div className="spinner">Loading...</div>;
-  };
-  
-  // 4. Switch Statement (multiple conditions)
-  const renderRoleMessage = () => {
-    switch(userRole) {
-      case 'admin':
-        return <div className="text-red-500">Admin Access: Full permissions</div>;
-      case 'editor':
-        return <div className="text-blue-500">Editor Access: Can edit content</div>;
-      case 'viewer':
-        return <div className="text-green-500">Viewer Access: Read only</div>;
-      default:
-        return <div className="text-gray-500">Guest Access: Limited features</div>;
-    }
-  };
-  
-  // 5. Variable Assignment (store JSX in variable)
-  const getMessage = () => {
-    let message;
-    if (items.length === 0) {
-      message = <p>No items found. Add some items!</p>;
-    } else if (items.length < 5) {
-      message = <p>You have {items.length} items. Add more!</p>;
-    } else {
-      message = <p>Great! You have plenty of items.</p>;
-    }
-    return message;
-  };
-  
-  return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Conditional Rendering Examples</h1>
-      
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
+const [userRole, setUserRole] = useState('guest');
+const [items, setItems] = useState([]);
+
+// 1. If/Else Statement (for complex logic)
+const renderHeader = () => {
+if (isLoggedIn) {
+return <div>Welcome back, User!</div>;
+} else {
+return <div>Please log in</div>;
+}
+};
+
+// 2. Ternary Operator (for simple conditions)
+const renderLoginButton = () => {
+return (
+<button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+{isLoggedIn ? 'Logout' : 'Login'}
+</button>
+);
+};
+
+// 3. && Operator (show/hide based on condition)
+const renderLoading = () => {
+return isLoading && <div className="spinner">Loading...</div>;
+};
+
+// 4. Switch Statement (multiple conditions)
+const renderRoleMessage = () => {
+switch(userRole) {
+case 'admin':
+return <div className="text-red-500">Admin Access: Full permissions</div>;
+case 'editor':
+return <div className="text-blue-500">Editor Access: Can edit content</div>;
+case 'viewer':
+return <div className="text-green-500">Viewer Access: Read only</div>;
+default:
+return <div className="text-gray-500">Guest Access: Limited features</div>;
+}
+};
+
+// 5. Variable Assignment (store JSX in variable)
+const getMessage = () => {
+let message;
+if (items.length === 0) {
+message = <p>No items found. Add some items!</p>;
+} else if (items.length < 5) {
+message = <p>You have {items.length} items. Add more!</p>;
+} else {
+message = <p>Great! You have plenty of items.</p>;
+}
+return message;
+};
+
+return (
+<div className="p-4 space-y-4">
+<h1 className="text-2xl font-bold">Conditional Rendering Examples</h1>
+
       {/* Example 1: If/Else */}
       <div className="border p-4 rounded">
         <h2 className="font-bold">1. If/Else</h2>
         {renderHeader()}
         {renderLoginButton()}
       </div>
-      
+
       {/* Example 2: Ternary */}
       <div className="border p-4 rounded">
         <h2 className="font-bold">2. Ternary Operator</h2>
@@ -2429,7 +2471,7 @@ function ConditionalRendering() {
           <div className="mt-2 text-green-600">Data loaded!</div>
         )}
       </div>
-      
+
       {/* Example 3: && Operator */}
       <div className="border p-4 rounded">
         <h2 className="font-bold">3. && Operator</h2>
@@ -2445,7 +2487,7 @@ function ConditionalRendering() {
           </div>
         )}
       </div>
-      
+
       {/* Example 4: Switch */}
       <div className="border p-4 rounded">
         <h2 className="font-bold">4. Switch Statement</h2>
@@ -2457,7 +2499,7 @@ function ConditionalRendering() {
         </div>
         {renderRoleMessage()}
       </div>
-      
+
       {/* Example 5: Variable Assignment */}
       <div className="border p-4 rounded">
         <h2 className="font-bold">5. Variable Assignment</h2>
@@ -2481,22 +2523,23 @@ function ConditionalRendering() {
         </ul>
       </div>
     </div>
-  );
+
+);
 }
 Real-World Conditional Rendering Examples
 jsx
 function RealWorldExamples() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  // Simulate API call
-  const fetchData = async () => {
-    setIsLoading(true);
-    setError(null);
-    
+const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
+const [error, setError] = useState(null);
+const [data, setData] = useState(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+// Simulate API call
+const fetchData = async () => {
+setIsLoading(true);
+setError(null);
+
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
       // Simulate random error
@@ -2509,36 +2552,35 @@ function RealWorldExamples() {
     } finally {
       setIsLoading(false);
     }
-  };
-  
-  return (
-    <div className="max-w-2xl mx-auto p-4 space-y-6">
-      {/* Example 1: Authentication */}
-      <div className="border rounded-lg p-4">
-        <h2 className="font-bold mb-2">1. Authentication State</h2>
-        {!isAuthenticated ? (
-          <div>
-            <p className="mb-2">You are not logged in.</p>
-            <button
-              onClick={() => setIsAuthenticated(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Login
-            </button>
-          </div>
-        ) : (
-          <div>
-            <p className="mb-2 text-green-600">Welcome back! You are logged in.</p>
-            <button
-              onClick={() => setIsAuthenticated(false)}
-              className="bg-red-500 text-white px-4 py-2 rounded"
-            >
-              Logout
-            </button>
-          </div>
-        )}
-      </div>
-      
+
+};
+
+return (
+<div className="max-w-2xl mx-auto p-4 space-y-6">
+{/_ Example 1: Authentication _/}
+<div className="border rounded-lg p-4">
+<h2 className="font-bold mb-2">1. Authentication State</h2>
+{!isAuthenticated ? (
+<div>
+<p className="mb-2">You are not logged in.</p>
+<button
+onClick={() => setIsAuthenticated(true)}
+className="bg-blue-500 text-white px-4 py-2 rounded" >
+Login
+</button>
+</div>
+) : (
+<div>
+<p className="mb-2 text-green-600">Welcome back! You are logged in.</p>
+<button
+onClick={() => setIsAuthenticated(false)}
+className="bg-red-500 text-white px-4 py-2 rounded" >
+Logout
+</button>
+</div>
+)}
+</div>
+
       {/* Example 2: Loading/Error/Success States */}
       <div className="border rounded-lg p-4">
         <h2 className="font-bold mb-2">2. Data Fetching States</h2>
@@ -2549,14 +2591,14 @@ function RealWorldExamples() {
         >
           {isLoading ? 'Loading...' : 'Fetch Data'}
         </button>
-        
+
         {/* Loading State */}
         {isLoading && (
           <div className="bg-blue-100 text-blue-700 p-3 rounded">
             Loading data, please wait...
           </div>
         )}
-        
+
         {/* Error State */}
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded">
@@ -2569,7 +2611,7 @@ function RealWorldExamples() {
             </button>
           </div>
         )}
-        
+
         {/* Success State */}
         {data && !isLoading && !error && (
           <div className="bg-green-100 text-green-700 p-3 rounded">
@@ -2577,7 +2619,7 @@ function RealWorldExamples() {
           </div>
         )}
       </div>
-      
+
       {/* Example 3: Modal with Conditional */}
       <div className="border rounded-lg p-4">
         <h2 className="font-bold mb-2">3. Modal Dialog</h2>
@@ -2587,7 +2629,7 @@ function RealWorldExamples() {
         >
           Open Modal
         </button>
-        
+
         {/* Modal - Only renders when isModalOpen is true */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -2604,7 +2646,7 @@ function RealWorldExamples() {
           </div>
         )}
       </div>
-      
+
       {/* Example 4: Feature Flags */}
       <div className="border rounded-lg p-4">
         <h2 className="font-bold mb-2">4. Feature Flags (A/B Testing)</h2>
@@ -2614,7 +2656,7 @@ function RealWorldExamples() {
               ⚠️ Development Mode: Extra debugging info shown
             </div>
           )}
-          
+
           {/* Only show beta features to certain users */}
           {isAuthenticated && (
             <div className="bg-purple-100 text-purple-700 p-2 rounded">
@@ -2623,88 +2665,88 @@ function RealWorldExamples() {
           )}
         </div>
       </div>
-      
+
       {/* Example 5: Multi-step Form */}
       <div className="border rounded-lg p-4">
         <h2 className="font-bold mb-2">5. Multi-step Form</h2>
         <MultiStepForm />
       </div>
     </div>
-  );
+
+);
 }
 
 // Multi-step Form Component
 function MultiStepForm() {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    interests: []
-  });
-  
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
-  
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === 'checkbox') {
-      if (checked) {
-        setFormData({
-          ...formData,
-          interests: [...formData.interests, value]
-        });
-      } else {
-        setFormData({
-          ...formData,
-          interests: formData.interests.filter(i => i !== value)
-        });
-      }
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
-  
-  const handleSubmit = () => {
-    alert('Form submitted: ' + JSON.stringify(formData, null, 2));
-    setStep(1);
-    setFormData({ name: '', email: '', interests: [] });
-  };
-  
-  return (
-    <div>
-      {/* Step 1: Personal Info */}
-      {step === 1 && (
-        <div className="space-y-4">
-          <div>
-            <label className="block mb-1">Name:</label>
-            <input
+const [step, setStep] = useState(1);
+const [formData, setFormData] = useState({
+name: '',
+email: '',
+interests: []
+});
+
+const nextStep = () => setStep(step + 1);
+const prevStep = () => setStep(step - 1);
+
+const handleChange = (e) => {
+const { name, value, type, checked } = e.target;
+if (type === 'checkbox') {
+if (checked) {
+setFormData({
+...formData,
+interests: [...formData.interests, value]
+});
+} else {
+setFormData({
+...formData,
+interests: formData.interests.filter(i => i !== value)
+});
+}
+} else {
+setFormData({ ...formData, [name]: value });
+}
+};
+
+const handleSubmit = () => {
+alert('Form submitted: ' + JSON.stringify(formData, null, 2));
+setStep(1);
+setFormData({ name: '', email: '', interests: [] });
+};
+
+return (
+<div>
+{/_ Step 1: Personal Info _/}
+{step === 1 && (
+<div className="space-y-4">
+<div>
+<label className="block mb-1">Name:</label>
+<input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               className="border p-2 rounded w-full"
             />
-          </div>
-          <div>
-            <label className="block mb-1">Email:</label>
-            <input
+</div>
+<div>
+<label className="block mb-1">Email:</label>
+<input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               className="border p-2 rounded w-full"
             />
-          </div>
-          <button
-            onClick={nextStep}
-            disabled={!formData.name || !formData.email}
-            className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
-          >
-            Next
-          </button>
-        </div>
-      )}
-      
+</div>
+<button
+onClick={nextStep}
+disabled={!formData.name || !formData.email}
+className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50" >
+Next
+</button>
+</div>
+)}
+
       {/* Step 2: Interests */}
       {step === 2 && (
         <div className="space-y-4">
@@ -2735,7 +2777,7 @@ function MultiStepForm() {
           </div>
         </div>
       )}
-      
+
       {/* Step 3: Review */}
       {step === 3 && (
         <div className="space-y-4">
@@ -2754,7 +2796,7 @@ function MultiStepForm() {
           </div>
         </div>
       )}
-      
+
       {/* Progress indicator */}
       <div className="mt-4 flex gap-2">
         {[1, 2, 3].map(s => (
@@ -2767,9 +2809,9 @@ function MultiStepForm() {
         ))}
       </div>
     </div>
-  );
-}
-11. Forms and User Input - Collecting Data
+
+);
+} 11. Forms and User Input - Collecting Data
 Complete Form Handling Guide
 Forms are how users interact with your app - logging in, signing up, searching, etc.
 
@@ -2778,33 +2820,33 @@ Controlled components have their value controlled by React state.
 
 jsx
 function ControlledForm() {
-  // State for each form field
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    age: '',
-    country: '',
-    agreeToTerms: false
-  });
-  
-  // State for validation errors
-  const [errors, setErrors] = useState({});
-  
-  // State for submission
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    
+// State for each form field
+const [formData, setFormData] = useState({
+username: '',
+email: '',
+password: '',
+confirmPassword: '',
+age: '',
+country: '',
+agreeToTerms: false
+});
+
+// State for validation errors
+const [errors, setErrors] = useState({});
+
+// State for submission
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+// Handle input changes
+const handleChange = (e) => {
+const { name, value, type, checked } = e.target;
+
     // Update state based on input type
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value
     });
-    
+
     // Clear error for this field when user types
     if (errors[name]) {
       setErrors({
@@ -2812,70 +2854,72 @@ function ControlledForm() {
         [name]: ''
       });
     }
-  };
-  
-  // Validate form
-  const validateForm = () => {
-    const newErrors = {};
-    
+
+};
+
+// Validate form
+const validateForm = () => {
+const newErrors = {};
+
     // Username validation
     if (!formData.username) {
       newErrors.username = 'Username is required';
     } else if (formData.username.length < 3) {
       newErrors.username = 'Username must be at least 3 characters';
     }
-    
+
     // Email validation
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     // Password validation
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
-    
+
     // Confirm password validation
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
-    
+
     // Age validation
     if (formData.age && (formData.age < 18 || formData.age > 100)) {
       newErrors.age = 'Age must be between 18 and 100';
     }
-    
+
     // Terms validation
     if (!formData.agreeToTerms) {
       newErrors.agreeToTerms = 'You must agree to the terms';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-  
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // IMPORTANT: Prevent page refresh
-    
+
+};
+
+// Handle form submission
+const handleSubmit = async (e) => {
+e.preventDefault(); // IMPORTANT: Prevent page refresh
+
     // Validate before submitting
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       console.log('Form submitted:', formData);
       alert('Registration successful!');
-      
+
       // Reset form after successful submission
       setFormData({
         username: '',
@@ -2891,12 +2935,13 @@ function ControlledForm() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-  
-  return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Register Account</h2>
-      
+
+};
+
+return (
+<form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+<h2 className="text-2xl font-bold mb-6 text-center">Register Account</h2>
+
       {/* Username Field */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Username *</label>
@@ -2914,7 +2959,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.username}</p>
         )}
       </div>
-      
+
       {/* Email Field */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Email *</label>
@@ -2932,7 +2977,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.email}</p>
         )}
       </div>
-      
+
       {/* Password Field */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Password *</label>
@@ -2950,7 +2995,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.password}</p>
         )}
       </div>
-      
+
       {/* Confirm Password Field */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Confirm Password *</label>
@@ -2968,7 +3013,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
         )}
       </div>
-      
+
       {/* Age Field */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Age (Optional)</label>
@@ -2984,7 +3029,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.age}</p>
         )}
       </div>
-      
+
       {/* Country Select */}
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Country</label>
@@ -3001,7 +3046,7 @@ function ControlledForm() {
           <option value="australia">Australia</option>
         </select>
       </div>
-      
+
       {/* Terms Checkbox */}
       <div className="mb-6">
         <label className="flex items-center">
@@ -3018,7 +3063,7 @@ function ControlledForm() {
           <p className="text-red-500 text-sm mt-1">{errors.agreeToTerms}</p>
         )}
       </div>
-      
+
       {/* Submit Button */}
       <button
         type="submit"
@@ -3028,45 +3073,46 @@ function ControlledForm() {
         {isSubmitting ? 'Registering...' : 'Register'}
       </button>
     </form>
-  );
+
+);
 }
 Different Input Types
 jsx
 function InputTypes() {
-  const [form, setForm] = useState({
-    text: '',
-    email: '',
-    password: '',
-    number: 0,
-    tel: '',
-    url: '',
-    date: '',
-    time: '',
-    datetime: '',
-    month: '',
-    week: '',
-    color: '#000000',
-    range: 50,
-    checkbox: false,
-    radio: '',
-    textarea: '',
-    select: ''
-  });
-  
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm({
-      ...form,
-      [name]: type === 'checkbox' ? checked : value
-    });
-  };
-  
-  return (
-    <div className="max-w-md mx-auto p-4 space-y-4">
-      {/* Text Input */}
-      <div>
-        <label className="block mb-1">Text Input:</label>
-        <input
+const [form, setForm] = useState({
+text: '',
+email: '',
+password: '',
+number: 0,
+tel: '',
+url: '',
+date: '',
+time: '',
+datetime: '',
+month: '',
+week: '',
+color: '#000000',
+range: 50,
+checkbox: false,
+radio: '',
+textarea: '',
+select: ''
+});
+
+const handleChange = (e) => {
+const { name, value, type, checked } = e.target;
+setForm({
+...form,
+[name]: type === 'checkbox' ? checked : value
+});
+};
+
+return (
+<div className="max-w-md mx-auto p-4 space-y-4">
+{/_ Text Input _/}
+<div>
+<label className="block mb-1">Text Input:</label>
+<input
           type="text"
           name="text"
           value={form.text}
@@ -3074,8 +3120,8 @@ function InputTypes() {
           className="border p-2 rounded w-full"
           placeholder="Enter text"
         />
-      </div>
-      
+</div>
+
       {/* Email Input */}
       <div>
         <label className="block mb-1">Email Input:</label>
@@ -3088,7 +3134,7 @@ function InputTypes() {
           placeholder="example@email.com"
         />
       </div>
-      
+
       {/* Password Input */}
       <div>
         <label className="block mb-1">Password Input:</label>
@@ -3101,7 +3147,7 @@ function InputTypes() {
           placeholder="Enter password"
         />
       </div>
-      
+
       {/* Number Input */}
       <div>
         <label className="block mb-1">Number Input:</label>
@@ -3115,7 +3161,7 @@ function InputTypes() {
           max="100"
         />
       </div>
-      
+
       {/* Date Input */}
       <div>
         <label className="block mb-1">Date Input:</label>
@@ -3127,7 +3173,7 @@ function InputTypes() {
           className="border p-2 rounded w-full"
         />
       </div>
-      
+
       {/* Color Input */}
       <div>
         <label className="block mb-1">Color Input:</label>
@@ -3139,7 +3185,7 @@ function InputTypes() {
           className="border p-2 rounded w-full h-10"
         />
       </div>
-      
+
       {/* Range Input */}
       <div>
         <label className="block mb-1">Range Input: {form.range}</label>
@@ -3153,7 +3199,7 @@ function InputTypes() {
           max="100"
         />
       </div>
-      
+
       {/* Checkbox */}
       <div>
         <label className="flex items-center">
@@ -3167,7 +3213,7 @@ function InputTypes() {
           Checkbox
         </label>
       </div>
-      
+
       {/* Radio Buttons */}
       <div>
         <label className="block mb-1">Radio Buttons:</label>
@@ -3194,7 +3240,7 @@ function InputTypes() {
           Option 2
         </label>
       </div>
-      
+
       {/* Textarea */}
       <div>
         <label className="block mb-1">Textarea:</label>
@@ -3207,7 +3253,7 @@ function InputTypes() {
           placeholder="Enter multiple lines..."
         />
       </div>
-      
+
       {/* Select Dropdown */}
       <div>
         <label className="block mb-1">Select Dropdown:</label>
@@ -3223,16 +3269,16 @@ function InputTypes() {
           <option value="option3">Option 3</option>
         </select>
       </div>
-      
+
       {/* Display current form data */}
       <div className="bg-gray-100 p-4 rounded mt-4">
         <h3 className="font-bold mb-2">Current Form Data:</h3>
         <pre className="text-sm">{JSON.stringify(form, null, 2)}</pre>
       </div>
     </div>
-  );
-}
-12. useEffect - Side Effects in Components
+
+);
+} 12. useEffect - Side Effects in Components
 What is useEffect?
 useEffect is a hook that lets you perform side effects in functional components. Side effects are things like:
 
@@ -3251,40 +3297,41 @@ jsx
 import { useState, useEffect } from 'react';
 
 function UseEffectBasics() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState('');
-  
-  // 1. Effect runs after EVERY render (including the first one)
-  useEffect(() => {
-    console.log('This runs after every render');
-  });
-  
-  // 2. Effect runs ONLY ONCE (when component mounts)
-  useEffect(() => {
-    console.log('This runs only once when component first renders');
-    
+const [count, setCount] = useState(0);
+const [name, setName] = useState('');
+
+// 1. Effect runs after EVERY render (including the first one)
+useEffect(() => {
+console.log('This runs after every render');
+});
+
+// 2. Effect runs ONLY ONCE (when component mounts)
+useEffect(() => {
+console.log('This runs only once when component first renders');
+
     // Optional cleanup function (runs when component unmounts)
     return () => {
       console.log('Cleanup: component is unmounting');
     };
-  }, []); // Empty dependency array = run once
-  
-  // 3. Effect runs when specific dependencies change
-  useEffect(() => {
-    console.log(`Count changed to: ${count}`);
-    document.title = `Count: ${count}`;
-  }, [count]); // Only runs when count changes
-  
-  // 4. Effect runs when multiple dependencies change
-  useEffect(() => {
-    console.log('Either count or name changed');
-  }, [count, name]); // Runs when count OR name changes
-  
-  return (
-    <div className="p-4">
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      
+
+}, []); // Empty dependency array = run once
+
+// 3. Effect runs when specific dependencies change
+useEffect(() => {
+console.log(`Count changed to: ${count}`);
+document.title = `Count: ${count}`;
+}, [count]); // Only runs when count changes
+
+// 4. Effect runs when multiple dependencies change
+useEffect(() => {
+console.log('Either count or name changed');
+}, [count, name]); // Runs when count OR name changes
+
+return (
+<div className="p-4">
+<p>Count: {count}</p>
+<button onClick={() => setCount(count + 1)}>Increment</button>
+
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -3292,101 +3339,107 @@ function UseEffectBasics() {
         className="border p-2 rounded ml-2"
       />
     </div>
-  );
+
+);
 }
 Common useEffect Patterns
 jsx
 function UseEffectPatterns() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedTerm, setDebouncedTerm] = useState('');
-  const [seconds, setSeconds] = useState(0);
-  
-  // Pattern 1: Data fetching on mount
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-        const result = await response.json();
-        setData(result);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    
+const [data, setData] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+const [searchTerm, setSearchTerm] = useState('');
+const [debouncedTerm, setDebouncedTerm] = useState('');
+const [seconds, setSeconds] = useState(0);
+
+// Pattern 1: Data fetching on mount
+useEffect(() => {
+const fetchData = async () => {
+try {
+setLoading(true);
+const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+const result = await response.json();
+setData(result);
+} catch (err) {
+setError(err.message);
+} finally {
+setLoading(false);
+}
+};
+
     fetchData();
-  }, []); // Empty array = runs once on mount
-  
-  // Pattern 2: Debounced search (wait for user to stop typing)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedTerm(searchTerm);
-    }, 500); // Wait 500ms after user stops typing
-    
+
+}, []); // Empty array = runs once on mount
+
+// Pattern 2: Debounced search (wait for user to stop typing)
+useEffect(() => {
+const timer = setTimeout(() => {
+setDebouncedTerm(searchTerm);
+}, 500); // Wait 500ms after user stops typing
+
     return () => clearTimeout(timer); // Cleanup previous timeout
-  }, [searchTerm]);
-  
-  // Pattern 3: Timer with cleanup
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-    
+
+}, [searchTerm]);
+
+// Pattern 3: Timer with cleanup
+useEffect(() => {
+const interval = setInterval(() => {
+setSeconds(prev => prev + 1);
+}, 1000);
+
     return () => clearInterval(interval); // Cleanup interval
-  }, []);
-  
-  // Pattern 4: Event listener
-  useEffect(() => {
-    const handleResize = () => {
-      console.log('Window resized:', window.innerWidth);
-    };
-    
+
+}, []);
+
+// Pattern 4: Event listener
+useEffect(() => {
+const handleResize = () => {
+console.log('Window resized:', window.innerWidth);
+};
+
     window.addEventListener('resize', handleResize);
-    
+
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  
-  // Pattern 5: Local storage sync
-  useEffect(() => {
-    const savedData = localStorage.getItem('myData');
-    if (savedData) {
-      setData(JSON.parse(savedData));
-    }
-  }, []);
-  
-  useEffect(() => {
-    if (data) {
-      localStorage.setItem('myData', JSON.stringify(data));
-    }
-  }, [data]);
-  
-  // Pattern 6: Fetch when search term changes
-  useEffect(() => {
-    if (debouncedTerm) {
-      const fetchSearch = async () => {
-        const response = await fetch(`https://api.example.com/search?q=${debouncedTerm}`);
-        const results = await response.json();
-        console.log('Search results:', results);
-      };
-      
+
+}, []);
+
+// Pattern 5: Local storage sync
+useEffect(() => {
+const savedData = localStorage.getItem('myData');
+if (savedData) {
+setData(JSON.parse(savedData));
+}
+}, []);
+
+useEffect(() => {
+if (data) {
+localStorage.setItem('myData', JSON.stringify(data));
+}
+}, [data]);
+
+// Pattern 6: Fetch when search term changes
+useEffect(() => {
+if (debouncedTerm) {
+const fetchSearch = async () => {
+const response = await fetch(`https://api.example.com/search?q=${debouncedTerm}`);
+const results = await response.json();
+console.log('Search results:', results);
+};
+
       fetchSearch();
     }
-  }, [debouncedTerm]);
-  
-  return (
-    <div className="p-4 space-y-4">
-      <div>
-        <h2 className="font-bold">Data Fetching:</h2>
-        {loading && <p>Loading...</p>}
-        {error && <p className="text-red-500">Error: {error}</p>}
-        {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-      </div>
-      
+
+}, [debouncedTerm]);
+
+return (
+<div className="p-4 space-y-4">
+<div>
+<h2 className="font-bold">Data Fetching:</h2>
+{loading && <p>Loading...</p>}
+{error && <p className="text-red-500">Error: {error}</p>}
+{data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+</div>
+
       <div>
         <h2 className="font-bold">Search with Debounce:</h2>
         <input
@@ -3400,43 +3453,45 @@ function UseEffectPatterns() {
           Searching for: {debouncedTerm || 'nothing yet'}
         </p>
       </div>
-      
+
       <div>
         <h2 className="font-bold">Timer:</h2>
         <p>Seconds elapsed: {seconds}</p>
       </div>
     </div>
-  );
+
+);
 }
 Real-World useEffect Examples
 jsx
 function RealWorldUseEffect() {
-  const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [selectedUserId, setSelectedUserId] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
-  // Example 1: Fetch users on component mount
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-    
+const [users, setUsers] = useState([]);
+const [posts, setPosts] = useState([]);
+const [selectedUserId, setSelectedUserId] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+const [isOnline, setIsOnline] = useState(navigator.onLine);
+const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+// Example 1: Fetch users on component mount
+useEffect(() => {
+const fetchUsers = async () => {
+try {
+const response = await fetch('https://jsonplaceholder.typicode.com/users');
+const data = await response.json();
+setUsers(data);
+} catch (error) {
+console.error('Error fetching users:', error);
+}
+};
+
     fetchUsers();
-  }, []); // Runs once
-  
-  // Example 2: Fetch posts when selected user changes
-  useEffect(() => {
-    if (!selectedUserId) return;
-    
+
+}, []); // Runs once
+
+// Example 2: Fetch posts when selected user changes
+useEffect(() => {
+if (!selectedUserId) return;
+
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
@@ -3449,64 +3504,67 @@ function RealWorldUseEffect() {
         setIsLoading(false);
       }
     };
-    
+
     fetchPosts();
-  }, [selectedUserId]); // Runs when selectedUserId changes
-  
-  // Example 3: Online/offline status
-  useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
-    
+
+}, [selectedUserId]); // Runs when selectedUserId changes
+
+// Example 3: Online/offline status
+useEffect(() => {
+const handleOnline = () => setIsOnline(true);
+const handleOffline = () => setIsOnline(false);
+
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
-    
+
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, []);
-  
-  // Example 4: Track mouse position
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
+
+}, []);
+
+// Example 4: Track mouse position
+useEffect(() => {
+const handleMouseMove = (e) => {
+setMousePosition({ x: e.clientX, y: e.clientY });
+};
+
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-  
-  // Example 5: Save to localStorage when posts change
-  useEffect(() => {
-    if (posts.length > 0) {
-      localStorage.setItem('cachedPosts', JSON.stringify(posts));
-    }
-  }, [posts]);
-  
-  // Example 6: Load cached posts from localStorage on mount
-  useEffect(() => {
-    const cachedPosts = localStorage.getItem('cachedPosts');
-    if (cachedPosts) {
-      setPosts(JSON.parse(cachedPosts));
-    }
-  }, []);
-  
-  return (
-    <div className="max-w-4xl mx-auto p-4">
-      {/* Online Status Indicator */}
-      <div className={`mb-4 p-2 rounded text-center ${
+
+}, []);
+
+// Example 5: Save to localStorage when posts change
+useEffect(() => {
+if (posts.length > 0) {
+localStorage.setItem('cachedPosts', JSON.stringify(posts));
+}
+}, [posts]);
+
+// Example 6: Load cached posts from localStorage on mount
+useEffect(() => {
+const cachedPosts = localStorage.getItem('cachedPosts');
+if (cachedPosts) {
+setPosts(JSON.parse(cachedPosts));
+}
+}, []);
+
+return (
+<div className="max-w-4xl mx-auto p-4">
+{/_ Online Status Indicator _/}
+<div className={`mb-4 p-2 rounded text-center ${
         isOnline ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
       }`}>
-        {isOnline ? '🟢 Online' : '🔴 Offline'}
-      </div>
-      
+{isOnline ? '🟢 Online' : '🔴 Offline'}
+</div>
+
       {/* Mouse Position */}
       <div className="mb-4 text-sm text-gray-600">
         Mouse Position: ({mousePosition.x}, {mousePosition.y})
       </div>
-      
+
       {/* User List */}
       <div className="mb-6">
         <h2 className="text-xl font-bold mb-3">Users</h2>
@@ -3526,14 +3584,14 @@ function RealWorldUseEffect() {
           ))}
         </div>
       </div>
-      
+
       {/* Posts for Selected User */}
       {selectedUserId && (
         <div>
           <h2 className="text-xl font-bold mb-3">
             Posts by {users.find(u => u.id === selectedUserId)?.name}
           </h2>
-          
+
           {isLoading ? (
             <div className="text-center py-8">Loading posts...</div>
           ) : posts.length === 0 ? (
@@ -3551,56 +3609,57 @@ function RealWorldUseEffect() {
         </div>
       )}
     </div>
-  );
+
+);
 }
 useEffect Cleanup Examples
 jsx
 function UseEffectCleanup() {
-  const [showTimer, setShowTimer] = useState(true);
-  
-  return (
-    <div className="p-4">
-      <button
-        onClick={() => setShowTimer(!showTimer)}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
-      >
-        {showTimer ? 'Hide' : 'Show'} Timer
-      </button>
-      
+const [showTimer, setShowTimer] = useState(true);
+
+return (
+<div className="p-4">
+<button
+onClick={() => setShowTimer(!showTimer)}
+className="bg-blue-500 text-white px-4 py-2 rounded mb-4" >
+{showTimer ? 'Hide' : 'Show'} Timer
+</button>
+
       {showTimer && <TimerComponent />}
     </div>
-  );
+
+);
 }
 
 function TimerComponent() {
-  const [seconds, setSeconds] = useState(0);
-  
-  useEffect(() => {
-    console.log('Timer component mounted');
-    
+const [seconds, setSeconds] = useState(0);
+
+useEffect(() => {
+console.log('Timer component mounted');
+
     // Set up interval
     const interval = setInterval(() => {
       setSeconds(prev => prev + 1);
       console.log('Timer tick:', seconds + 1);
     }, 1000);
-    
+
     // Cleanup function - runs when component unmounts
     return () => {
       console.log('Timer component unmounting - cleaning up interval');
       clearInterval(interval);
     };
-  }, []); // Empty dependency array
-  
-  return (
-    <div className="border p-4 rounded">
-      <h2 className="text-xl font-bold">Timer: {seconds} seconds</h2>
-      <p className="text-sm text-gray-500">
-        This timer will be cleaned up when component unmounts
-      </p>
-    </div>
-  );
-}
-13. Fetching Data from APIs - Getting External Data
+
+}, []); // Empty dependency array
+
+return (
+<div className="border p-4 rounded">
+<h2 className="text-xl font-bold">Timer: {seconds} seconds</h2>
+<p className="text-sm text-gray-500">
+This timer will be cleaned up when component unmounts
+</p>
+</div>
+);
+} 13. Fetching Data from APIs - Getting External Data
 What is API Fetching?
 API fetching is how your React app gets data from servers (like getting user profiles, posts, weather data, etc.)
 
@@ -3609,89 +3668,89 @@ jsx
 import { useState, useEffect } from 'react';
 
 function SimpleAPIFetching() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  // Fetch data when component loads
-  useEffect(() => {
-    // Using fetch API (built into browser)
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        // Check if response is ok
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // Parse JSON
-      })
-      .then(data => {
-        setUsers(data); // Save data to state
-        setLoading(false); // Stop loading
-      })
-      .catch(error => {
-        setError(error.message); // Save error
-        setLoading(false); // Stop loading
-      });
-  }, []); // Empty array = run once
-  
-  // Show loading state
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-xl">Loading users...</div>
-      </div>
-    );
-  }
-  
-  // Show error state
-  if (error) {
-    return (
-      <div className="bg-red-100 text-red-700 p-4 rounded">
-        Error: {error}
-      </div>
-    );
-  }
-  
-  // Show data
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Users</h1>
-      <div className="grid gap-4 md:grid-cols-2">
-        {users.map(user => (
-          <div key={user.id} className="border rounded-lg p-4">
-            <h2 className="font-bold text-lg">{user.name}</h2>
-            <p className="text-gray-600">Email: {user.email}</p>
-            <p className="text-gray-600">Phone: {user.phone}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+const [users, setUsers] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+// Fetch data when component loads
+useEffect(() => {
+// Using fetch API (built into browser)
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(response => {
+// Check if response is ok
+if (!response.ok) {
+throw new Error('Network response was not ok');
+}
+return response.json(); // Parse JSON
+})
+.then(data => {
+setUsers(data); // Save data to state
+setLoading(false); // Stop loading
+})
+.catch(error => {
+setError(error.message); // Save error
+setLoading(false); // Stop loading
+});
+}, []); // Empty array = run once
+
+// Show loading state
+if (loading) {
+return (
+<div className="flex justify-center items-center h-64">
+<div className="text-xl">Loading users...</div>
+</div>
+);
+}
+
+// Show error state
+if (error) {
+return (
+<div className="bg-red-100 text-red-700 p-4 rounded">
+Error: {error}
+</div>
+);
+}
+
+// Show data
+return (
+<div className="p-4">
+<h1 className="text-2xl font-bold mb-4">Users</h1>
+<div className="grid gap-4 md:grid-cols-2">
+{users.map(user => (
+<div key={user.id} className="border rounded-lg p-4">
+<h2 className="font-bold text-lg">{user.name}</h2>
+<p className="text-gray-600">Email: {user.email}</p>
+<p className="text-gray-600">Phone: {user.phone}</p>
+</div>
+))}
+</div>
+</div>
+);
 }
 Async/Await Syntax (Cleaner)
 jsx
 function AsyncAwaitFetching() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    // Async function inside useEffect
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        
+const [posts, setPosts] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+// Async function inside useEffect
+const fetchPosts = async () => {
+try {
+setLoading(true);
+
         // Wait for fetch to complete
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-        
+
         // Check if response is ok
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         // Wait for JSON parsing
         const data = await response.json();
-        
+
         // Save data
         setPosts(data.slice(0, 10)); // Get first 10 posts
         setError(null);
@@ -3703,42 +3762,43 @@ function AsyncAwaitFetching() {
         setLoading(false);
       }
     };
-    
+
     fetchPosts(); // Call the function
-  }, []);
-  
-  if (loading) return <div className="text-center p-8">Loading posts...</div>;
-  if (error) return <div className="text-red-500 p-8">Error: {error}</div>;
-  
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Posts</h1>
-      <div className="space-y-4">
-        {posts.map(post => (
-          <div key={post.id} className="border rounded-lg p-4">
-            <h2 className="font-bold text-lg mb-2">{post.title}</h2>
-            <p className="text-gray-600">{post.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+
+}, []);
+
+if (loading) return <div className="text-center p-8">Loading posts...</div>;
+if (error) return <div className="text-red-500 p-8">Error: {error}</div>;
+
+return (
+<div className="p-4">
+<h1 className="text-2xl font-bold mb-4">Posts</h1>
+<div className="space-y-4">
+{posts.map(post => (
+<div key={post.id} className="border rounded-lg p-4">
+<h2 className="font-bold text-lg mb-2">{post.title}</h2>
+<p className="text-gray-600">{post.body}</p>
+</div>
+))}
+</div>
+</div>
+);
 }
 POST Request (Sending Data)
 jsx
 function CreatePost() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
+const [title, setTitle] = useState('');
+const [body, setBody] = useState('');
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [response, setResponse] = useState(null);
+const [error, setError] = useState(null);
+
+const handleSubmit = async (e) => {
+e.preventDefault();
+
     setIsSubmitting(true);
     setError(null);
-    
+
     try {
       // Send POST request
       const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -3752,29 +3812,30 @@ function CreatePost() {
           userId: 1,
         }),
       });
-      
+
       if (!res.ok) {
         throw new Error('Failed to create post');
       }
-      
+
       const data = await res.json();
       setResponse(data);
-      
+
       // Clear form
       setTitle('');
       setBody('');
-      
+
     } catch (err) {
       setError(err.message);
     } finally {
       setIsSubmitting(false);
     }
-  };
-  
-  return (
-    <div className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create New Post</h1>
-      
+
+};
+
+return (
+<div className="max-w-md mx-auto p-4">
+<h1 className="text-2xl font-bold mb-4">Create New Post</h1>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-1">Title:</label>
@@ -3786,7 +3847,7 @@ function CreatePost() {
             required
           />
         </div>
-        
+
         <div>
           <label className="block mb-1">Content:</label>
           <textarea
@@ -3797,7 +3858,7 @@ function CreatePost() {
             required
           />
         </div>
-        
+
         <button
           type="submit"
           disabled={isSubmitting}
@@ -3805,13 +3866,13 @@ function CreatePost() {
         >
           {isSubmitting ? 'Creating...' : 'Create Post'}
         </button>
-        
+
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded">
             Error: {error}
           </div>
         )}
-        
+
         {response && (
           <div className="bg-green-100 text-green-700 p-3 rounded">
             Post created successfully! ID: {response.id}
@@ -3819,7 +3880,8 @@ function CreatePost() {
         )}
       </form>
     </div>
-  );
+
+);
 }
 Custom Fetch Hook (Reusable)
 jsx
@@ -3827,26 +3889,26 @@ jsx
 import { useState, useEffect } from 'react';
 
 function useFetch(url, options = {}) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    let isMounted = true; // Prevent state update if component unmounts
-    
+const [data, setData] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+let isMounted = true; // Prevent state update if component unmounts
+
     const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         const response = await fetch(url, options);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const result = await response.json();
-        
+
         if (isMounted) {
           setData(result);
         }
@@ -3860,74 +3922,76 @@ function useFetch(url, options = {}) {
         }
       }
     };
-    
+
     fetchData();
-    
+
     // Cleanup function
     return () => {
       isMounted = false;
     };
-  }, [url, JSON.stringify(options)]); // Re-fetch if URL or options change
-  
-  return { data, loading, error };
+
+}, [url, JSON.stringify(options)]); // Re-fetch if URL or options change
+
+return { data, loading, error };
 }
 
 // Using the custom hook
 function UserList() {
-  const { data: users, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
-  
-  if (loading) return <div>Loading users...</div>;
-  if (error) return <div>Error: {error}</div>;
-  
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Users</h1>
-      <div className="grid gap-2">
-        {users?.map(user => (
-          <div key={user.id} className="border p-3 rounded">
-            <p className="font-bold">{user.name}</p>
-            <p className="text-gray-600">{user.email}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+const { data: users, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
+
+if (loading) return <div>Loading users...</div>;
+if (error) return <div>Error: {error}</div>;
+
+return (
+<div className="p-4">
+<h1 className="text-2xl font-bold mb-4">Users</h1>
+<div className="grid gap-2">
+{users?.map(user => (
+<div key={user.id} className="border p-3 rounded">
+<p className="font-bold">{user.name}</p>
+<p className="text-gray-600">{user.email}</p>
+</div>
+))}
+</div>
+</div>
+);
 }
 Search with API
 jsx
 function SearchWithAPI() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  
-  // Debounce search to avoid too many API calls
-  useEffect(() => {
-    if (searchTerm.length < 2) {
-      setResults([]);
-      return;
-    }
-    
+const [searchTerm, setSearchTerm] = useState('');
+const [results, setResults] = useState([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+// Debounce search to avoid too many API calls
+useEffect(() => {
+if (searchTerm.length < 2) {
+setResults([]);
+return;
+}
+
     const timer = setTimeout(() => {
       performSearch();
     }, 500); // Wait 500ms after user stops typing
-    
+
     return () => clearTimeout(timer);
-  }, [searchTerm]);
-  
-  const performSearch = async () => {
-    setLoading(true);
-    setError(null);
-    
+
+}, [searchTerm]);
+
+const performSearch = async () => {
+setLoading(true);
+setError(null);
+
     try {
       const response = await fetch(
         `https://jsonplaceholder.typicode.com/posts?q=${searchTerm}`
       );
-      
+
       if (!response.ok) {
         throw new Error('Search failed');
       }
-      
+
       const data = await response.json();
       setResults(data);
     } catch (err) {
@@ -3935,12 +3999,13 @@ function SearchWithAPI() {
     } finally {
       setLoading(false);
     }
-  };
-  
-  return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Search Posts</h1>
-      
+
+};
+
+return (
+<div className="max-w-2xl mx-auto p-4">
+<h1 className="text-2xl font-bold mb-4">Search Posts</h1>
+
       <div className="mb-4">
         <input
           type="text"
@@ -3953,17 +4018,17 @@ function SearchWithAPI() {
           {searchTerm.length < 2 && 'Type at least 2 characters to search'}
         </p>
       </div>
-      
+
       {loading && (
         <div className="text-center py-8">Searching...</div>
       )}
-      
+
       {error && (
         <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
           Error: {error}
         </div>
       )}
-      
+
       {results.length > 0 && (
         <div className="space-y-4">
           <p className="font-semibold">Found {results.length} results:</p>
@@ -3975,69 +4040,69 @@ function SearchWithAPI() {
           ))}
         </div>
       )}
-      
+
       {searchTerm.length >= 2 && !loading && results.length === 0 && !error && (
         <div className="text-center py-8 text-gray-500">
           No results found for "{searchTerm}"
         </div>
       )}
     </div>
-  );
-}
-14. Local Storage - Saving Data in Browser
+
+);
+} 14. Local Storage - Saving Data in Browser
 What is Local Storage?
 Local Storage is a way to save data in the user's browser. Data stays even after closing the browser or restarting the computer.
 
 Basic Local Storage Operations
 jsx
 function LocalStorageBasics() {
-  const [name, setName] = useState(() => {
-    // Get saved name from localStorage when component loads
-    const saved = localStorage.getItem('name');
-    return saved || '';
-  });
-  
-  const [count, setCount] = useState(() => {
-    const saved = localStorage.getItem('count');
-    return saved ? parseInt(saved) : 0;
-  });
-  
-  // Save name whenever it changes
-  useEffect(() => {
-    localStorage.setItem('name', name);
-    console.log('Saved name to localStorage');
-  }, [name]);
-  
-  // Save count whenever it changes
-  useEffect(() => {
-    localStorage.setItem('count', count.toString());
-    console.log('Saved count to localStorage');
-  }, [count]);
-  
-  const clearStorage = () => {
-    localStorage.removeItem('name');
-    localStorage.removeItem('count');
-    setName('');
-    setCount(0);
-    console.log('Cleared localStorage');
-  };
-  
-  return (
-    <div className="max-w-md mx-auto p-4 space-y-4">
-      <div>
-        <label className="block mb-1">Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="border p-2 rounded w-full"
-          placeholder="Enter your name"
-        />
-        <p className="text-sm text-gray-500 mt-1">
-          Your name is saved automatically
-        </p>
-      </div>
-      
+const [name, setName] = useState(() => {
+// Get saved name from localStorage when component loads
+const saved = localStorage.getItem('name');
+return saved || '';
+});
+
+const [count, setCount] = useState(() => {
+const saved = localStorage.getItem('count');
+return saved ? parseInt(saved) : 0;
+});
+
+// Save name whenever it changes
+useEffect(() => {
+localStorage.setItem('name', name);
+console.log('Saved name to localStorage');
+}, [name]);
+
+// Save count whenever it changes
+useEffect(() => {
+localStorage.setItem('count', count.toString());
+console.log('Saved count to localStorage');
+}, [count]);
+
+const clearStorage = () => {
+localStorage.removeItem('name');
+localStorage.removeItem('count');
+setName('');
+setCount(0);
+console.log('Cleared localStorage');
+};
+
+return (
+<div className="max-w-md mx-auto p-4 space-y-4">
+<div>
+<label className="block mb-1">Name:</label>
+<input
+type="text"
+value={name}
+onChange={(e) => setName(e.target.value)}
+className="border p-2 rounded w-full"
+placeholder="Enter your name"
+/>
+<p className="text-sm text-gray-500 mt-1">
+Your name is saved automatically
+</p>
+</div>
+
       <div>
         <p className="mb-2">Count: {count}</p>
         <button
@@ -4053,14 +4118,14 @@ function LocalStorageBasics() {
           Decrement
         </button>
       </div>
-      
+
       <button
         onClick={clearStorage}
         className="bg-gray-500 text-white px-4 py-2 rounded"
       >
         Clear All Saved Data
       </button>
-      
+
       <div className="bg-gray-100 p-4 rounded">
         <h3 className="font-bold mb-2">Current localStorage:</h3>
         <pre className="text-sm">
@@ -4070,7 +4135,8 @@ function LocalStorageBasics() {
         </pre>
       </div>
     </div>
-  );
+
+);
 }
 Custom useLocalStorage Hook
 jsx
@@ -4078,59 +4144,59 @@ jsx
 import { useState, useEffect } from 'react';
 
 function useLocalStorage(key, initialValue) {
-  // Get from localStorage on initial load
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error('Error reading from localStorage:', error);
-      return initialValue;
-    }
-  });
-  
-  // Save to localStorage whenever storedValue changes
-  useEffect(() => {
-    try {
-      localStorage.setItem(key, JSON.stringify(storedValue));
-    } catch (error) {
-      console.error('Error saving to localStorage:', error);
-    }
-  }, [key, storedValue]);
-  
-  return [storedValue, setStoredValue];
+// Get from localStorage on initial load
+const [storedValue, setStoredValue] = useState(() => {
+try {
+const item = localStorage.getItem(key);
+return item ? JSON.parse(item) : initialValue;
+} catch (error) {
+console.error('Error reading from localStorage:', error);
+return initialValue;
+}
+});
+
+// Save to localStorage whenever storedValue changes
+useEffect(() => {
+try {
+localStorage.setItem(key, JSON.stringify(storedValue));
+} catch (error) {
+console.error('Error saving to localStorage:', error);
+}
+}, [key, storedValue]);
+
+return [storedValue, setStoredValue];
 }
 
 // Using the custom hook
 function TodoAppWithStorage() {
-  const [todos, setTodos] = useLocalStorage('todos', []);
-  const [input, setInput] = useState('');
-  
-  const addTodo = () => {
-    if (input.trim()) {
-      setTodos([...todos, { id: Date.now(), text: input, completed: false }]);
-      setInput('');
-    }
-  };
-  
-  const toggleTodo = (id) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
-  };
-  
-  const deleteTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
-  
-  const clearAllTodos = () => {
-    setTodos([]);
-  };
-  
-  return (
-    <div className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Todo List (with LocalStorage)</h1>
-      
+const [todos, setTodos] = useLocalStorage('todos', []);
+const [input, setInput] = useState('');
+
+const addTodo = () => {
+if (input.trim()) {
+setTodos([...todos, { id: Date.now(), text: input, completed: false }]);
+setInput('');
+}
+};
+
+const toggleTodo = (id) => {
+setTodos(todos.map(todo =>
+todo.id === id ? { ...todo, completed: !todo.completed } : todo
+));
+};
+
+const deleteTodo = (id) => {
+setTodos(todos.filter(todo => todo.id !== id));
+};
+
+const clearAllTodos = () => {
+setTodos([]);
+};
+
+return (
+<div className="max-w-md mx-auto p-4">
+<h1 className="text-2xl font-bold mb-4">Todo List (with LocalStorage)</h1>
+
       <div className="flex gap-2 mb-4">
         <input
           value={input}
@@ -4146,7 +4212,7 @@ function TodoAppWithStorage() {
           Add
         </button>
       </div>
-      
+
       {todos.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
           No todos yet. Add one above!
@@ -4174,7 +4240,7 @@ function TodoAppWithStorage() {
           ))}
         </ul>
       )}
-      
+
       {todos.length > 0 && (
         <button
           onClick={clearAllTodos}
@@ -4183,29 +4249,30 @@ function TodoAppWithStorage() {
           Clear All Todos
         </button>
       )}
-      
+
       <div className="mt-4 text-sm text-gray-500">
         <p>Your todos are saved automatically!</p>
         <p>Close the browser and reopen - your todos will still be here.</p>
       </div>
     </div>
-  );
+
+);
 }
 Complete Notes App with LocalStorage
 jsx
 function NotesApp() {
-  const [notes, setNotes] = useLocalStorage('notes', []);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [editingId, setEditingId] = useState(null);
-  const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  
-  const categories = ['all', 'work', 'personal', 'ideas', 'todo'];
-  
-  const addOrUpdateNote = () => {
-    if (!title.trim()) return;
-    
+const [notes, setNotes] = useLocalStorage('notes', []);
+const [title, setTitle] = useState('');
+const [content, setContent] = useState('');
+const [editingId, setEditingId] = useState(null);
+const [search, setSearch] = useState('');
+const [selectedCategory, setSelectedCategory] = useState('all');
+
+const categories = ['all', 'work', 'personal', 'ideas', 'todo'];
+
+const addOrUpdateNote = () => {
+if (!title.trim()) return;
+
     if (editingId) {
       // Update existing note
       setNotes(notes.map(note =>
@@ -4225,45 +4292,46 @@ function NotesApp() {
         updatedAt: new Date().toISOString()
       }]);
     }
-    
+
     // Clear form
     setTitle('');
     setContent('');
     setSelectedCategory('all');
-  };
-  
-  const editNote = (note) => {
-    setTitle(note.title);
-    setContent(note.content);
-    setSelectedCategory(note.category);
-    setEditingId(note.id);
-  };
-  
-  const deleteNote = (id) => {
-    if (confirm('Are you sure you want to delete this note?')) {
-      setNotes(notes.filter(note => note.id !== id));
-    }
-  };
-  
-  const cancelEdit = () => {
-    setEditingId(null);
-    setTitle('');
-    setContent('');
-    setSelectedCategory('all');
-  };
-  
-  // Filter notes based on search and category
-  const filteredNotes = notes.filter(note => {
-    const matchesSearch = note.title.toLowerCase().includes(search.toLowerCase()) ||
-                          note.content.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || note.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-  
-  return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">📝 Notes App</h1>
-      
+
+};
+
+const editNote = (note) => {
+setTitle(note.title);
+setContent(note.content);
+setSelectedCategory(note.category);
+setEditingId(note.id);
+};
+
+const deleteNote = (id) => {
+if (confirm('Are you sure you want to delete this note?')) {
+setNotes(notes.filter(note => note.id !== id));
+}
+};
+
+const cancelEdit = () => {
+setEditingId(null);
+setTitle('');
+setContent('');
+setSelectedCategory('all');
+};
+
+// Filter notes based on search and category
+const filteredNotes = notes.filter(note => {
+const matchesSearch = note.title.toLowerCase().includes(search.toLowerCase()) ||
+note.content.toLowerCase().includes(search.toLowerCase());
+const matchesCategory = selectedCategory === 'all' || note.category === selectedCategory;
+return matchesSearch && matchesCategory;
+});
+
+return (
+<div className="max-w-6xl mx-auto p-4">
+<h1 className="text-3xl font-bold mb-6">📝 Notes App</h1>
+
       <div className="grid md:grid-cols-3 gap-6">
         {/* Form Section */}
         <div className="md:col-span-1">
@@ -4271,7 +4339,7 @@ function NotesApp() {
             <h2 className="text-xl font-bold mb-4">
               {editingId ? 'Edit Note' : 'Create New Note'}
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block mb-1">Title *</label>
@@ -4283,7 +4351,7 @@ function NotesApp() {
                   placeholder="Note title..."
                 />
               </div>
-              
+
               <div>
                 <label className="block mb-1">Category</label>
                 <select
@@ -4296,7 +4364,7 @@ function NotesApp() {
                   ))}
                 </select>
               </div>
-              
+
               <div>
                 <label className="block mb-1">Content</label>
                 <textarea
@@ -4307,7 +4375,7 @@ function NotesApp() {
                   placeholder="Write your note here..."
                 />
               </div>
-              
+
               <div className="flex gap-2">
                 <button
                   onClick={addOrUpdateNote}
@@ -4327,7 +4395,7 @@ function NotesApp() {
             </div>
           </div>
         </div>
-        
+
         {/* Notes List Section */}
         <div className="md:col-span-2">
           {/* Search and Filter */}
@@ -4351,12 +4419,12 @@ function NotesApp() {
               ))}
             </select>
           </div>
-          
+
           {/* Notes Grid */}
           {filteredNotes.length === 0 ? (
             <div className="text-center py-12 text-gray-500">
-              {search || selectedCategory !== 'all' 
-                ? 'No notes match your filters' 
+              {search || selectedCategory !== 'all'
+                ? 'No notes match your filters'
                 : 'No notes yet. Create your first note!'}
             </div>
           ) : (
@@ -4393,18 +4461,18 @@ function NotesApp() {
               ))}
             </div>
           )}
-          
+
           {/* Stats */}
           <div className="mt-4 p-3 bg-gray-100 rounded text-sm text-gray-600">
-            Total: {notes.length} notes | 
+            Total: {notes.length} notes |
             Showing: {filteredNotes.length} notes
           </div>
         </div>
       </div>
     </div>
-  );
-}
-15. React Router - Navigation Without Refresh
+
+);
+} 15. React Router - Navigation Without Refresh
 What is React Router?
 React Router allows you to create multi-page apps without refreshing the browser. It handles navigation between different views in your app.
 
@@ -4421,11 +4489,11 @@ import App from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>  {/* Wrap app with BrowserRouter */}
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+<React.StrictMode>
+<BrowserRouter> {/_ Wrap app with BrowserRouter _/}
+<App />
+</BrowserRouter>
+</React.StrictMode>,
 )
 jsx
 // App.jsx
@@ -4438,36 +4506,36 @@ import UserDetail from './pages/UserDetail';
 import NotFound from './pages/NotFound';
 
 function App() {
-  const navigate = useNavigate();
-  
-  return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Navigation Bar */}
-      <nav className="bg-white shadow-md p-4">
-        <div className="container mx-auto flex gap-4">
-          {/* Link - basic navigation */}
-          <Link to="/" className="text-blue-500 hover:text-blue-700">
-            Home
-          </Link>
-          
+const navigate = useNavigate();
+
+return (
+<div className="min-h-screen bg-gray-100">
+{/_ Navigation Bar _/}
+<nav className="bg-white shadow-md p-4">
+<div className="container mx-auto flex gap-4">
+{/_ Link - basic navigation _/}
+<Link to="/" className="text-blue-500 hover:text-blue-700">
+Home
+</Link>
+
           {/* NavLink - adds active class */}
-          <NavLink 
-            to="/about" 
-            className={({ isActive }) => 
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
               isActive ? 'text-blue-700 font-bold' : 'text-blue-500 hover:text-blue-700'
             }
           >
             About
           </NavLink>
-          
+
           <Link to="/contact" className="text-blue-500 hover:text-blue-700">
             Contact
           </Link>
-          
+
           <Link to="/users" className="text-blue-500 hover:text-blue-700">
             Users
           </Link>
-          
+
           {/* Programmatic navigation button */}
           <button
             onClick={() => navigate('/about')}
@@ -4477,7 +4545,7 @@ function App() {
           </button>
         </div>
       </nav>
-      
+
       {/* Page Content */}
       <div className="container mx-auto p-4">
         <Routes>
@@ -4490,7 +4558,8 @@ function App() {
         </Routes>
       </div>
     </div>
-  );
+
+);
 }
 
 export default App;
@@ -4500,44 +4569,43 @@ jsx
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const navigate = useNavigate();
-  
-  return (
-    <div className="text-center py-12">
-      <h1 className="text-4xl font-bold mb-4">Welcome to My App</h1>
-      <p className="text-gray-600 mb-6">This is the home page</p>
-      <button
-        onClick={() => navigate('/about')}
-        className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
-      >
-        Learn More
-      </button>
-    </div>
-  );
+const navigate = useNavigate();
+
+return (
+<div className="text-center py-12">
+<h1 className="text-4xl font-bold mb-4">Welcome to My App</h1>
+<p className="text-gray-600 mb-6">This is the home page</p>
+<button
+onClick={() => navigate('/about')}
+className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600" >
+Learn More
+</button>
+</div>
+);
 }
 
 export default Home;
 jsx
 // pages/About.jsx
 function About() {
-  return (
-    <div className="py-12">
-      <h1 className="text-3xl font-bold mb-4">About Us</h1>
-      <p className="text-gray-600 mb-4">
-        This is a sample React application using React Router for navigation.
-        We're learning how to create multi-page apps without page refresh!
-      </p>
-      <div className="bg-blue-50 p-4 rounded">
-        <h2 className="font-bold mb-2">Features:</h2>
-        <ul className="list-disc list-inside space-y-1">
-          <li>Client-side routing</li>
-          <li>Dynamic routes with parameters</li>
-          <li>404 error handling</li>
-          <li>Programmatic navigation</li>
-        </ul>
-      </div>
-    </div>
-  );
+return (
+<div className="py-12">
+<h1 className="text-3xl font-bold mb-4">About Us</h1>
+<p className="text-gray-600 mb-4">
+This is a sample React application using React Router for navigation.
+We're learning how to create multi-page apps without page refresh!
+</p>
+<div className="bg-blue-50 p-4 rounded">
+<h2 className="font-bold mb-2">Features:</h2>
+<ul className="list-disc list-inside space-y-1">
+<li>Client-side routing</li>
+<li>Dynamic routes with parameters</li>
+<li>404 error handling</li>
+<li>Programmatic navigation</li>
+</ul>
+</div>
+</div>
+);
 }
 
 export default About;
@@ -4547,40 +4615,39 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Users() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => {
-        setUsers(data);
-        setLoading(false);
-      });
-  }, []);
-  
-  if (loading) {
-    return <div className="text-center py-12">Loading users...</div>;
-  }
-  
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Users</h1>
-      <div className="grid gap-4 md:grid-cols-2">
-        {users.map(user => (
-          <Link
-            key={user.id}
-            to={`/users/${user.id}`}
-            className="border rounded-lg p-4 hover:shadow-lg transition block"
-          >
-            <h2 className="font-bold text-lg">{user.name}</h2>
-            <p className="text-gray-600">{user.email}</p>
-            <p className="text-sm text-gray-500 mt-2">Click to view details →</p>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+const [users, setUsers] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(res => res.json())
+.then(data => {
+setUsers(data);
+setLoading(false);
+});
+}, []);
+
+if (loading) {
+return <div className="text-center py-12">Loading users...</div>;
+}
+
+return (
+<div>
+<h1 className="text-3xl font-bold mb-6">Users</h1>
+<div className="grid gap-4 md:grid-cols-2">
+{users.map(user => (
+<Link
+key={user.id}
+to={`/users/${user.id}`}
+className="border rounded-lg p-4 hover:shadow-lg transition block" >
+<h2 className="font-bold text-lg">{user.name}</h2>
+<p className="text-gray-600">{user.email}</p>
+<p className="text-sm text-gray-500 mt-2">Click to view details →</p>
+</Link>
+))}
+</div>
+</div>
+);
 }
 
 export default Users;
@@ -4590,58 +4657,58 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 function UserDetail() {
-  const { id } = useParams(); // Get the :id from URL
-  const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('User not found');
-        }
-        return res.json();
-      })
-      .then(data => {
-        setUser(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [id]);
-  
-  if (loading) {
-    return <div className="text-center py-12">Loading user details...</div>;
-  }
-  
-  if (error) {
-    return (
-      <div className="text-center py-12">
-        <div className="bg-red-100 text-red-700 p-4 rounded mb-4">
-          Error: {error}
-        </div>
-        <Link to="/users" className="bg-blue-500 text-white px-4 py-2 rounded">
-          Back to Users
-        </Link>
-      </div>
-    );
-  }
-  
-  return (
-    <div>
-      <div className="mb-4">
-        <Link to="/users" className="text-blue-500 hover:text-blue-700">
-          ← Back to Users
-        </Link>
-      </div>
-      
+const { id } = useParams(); // Get the :id from URL
+const navigate = useNavigate();
+const [user, setUser] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+.then(res => {
+if (!res.ok) {
+throw new Error('User not found');
+}
+return res.json();
+})
+.then(data => {
+setUser(data);
+setLoading(false);
+})
+.catch(err => {
+setError(err.message);
+setLoading(false);
+});
+}, [id]);
+
+if (loading) {
+return <div className="text-center py-12">Loading user details...</div>;
+}
+
+if (error) {
+return (
+<div className="text-center py-12">
+<div className="bg-red-100 text-red-700 p-4 rounded mb-4">
+Error: {error}
+</div>
+<Link to="/users" className="bg-blue-500 text-white px-4 py-2 rounded">
+Back to Users
+</Link>
+</div>
+);
+}
+
+return (
+<div>
+<div className="mb-4">
+<Link to="/users" className="text-blue-500 hover:text-blue-700">
+← Back to Users
+</Link>
+</div>
+
       <div className="border rounded-lg p-6">
         <h1 className="text-3xl font-bold mb-4">{user.name}</h1>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <h2 className="text-xl font-semibold mb-2">Contact Info</h2>
@@ -4649,7 +4716,7 @@ function UserDetail() {
             <p className="mb-1"><strong>Phone:</strong> {user.phone}</p>
             <p className="mb-1"><strong>Website:</strong> {user.website}</p>
           </div>
-          
+
           <div>
             <h2 className="text-xl font-semibold mb-2">Address</h2>
             <p className="mb-1">
@@ -4659,7 +4726,7 @@ function UserDetail() {
               {user.address.city}, {user.address.zipcode}
             </p>
           </div>
-          
+
           <div>
             <h2 className="text-xl font-semibold mb-2">Company</h2>
             <p className="mb-1"><strong>Name:</strong> {user.company.name}</p>
@@ -4667,7 +4734,7 @@ function UserDetail() {
           </div>
         </div>
       </div>
-      
+
       {/* Navigation buttons */}
       <div className="flex gap-4 mt-6">
         <button
@@ -4684,7 +4751,8 @@ function UserDetail() {
         </button>
       </div>
     </div>
-  );
+
+);
 }
 
 export default UserDetail;
@@ -4694,44 +4762,45 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Contact() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    
+const navigate = useNavigate();
+const [formData, setFormData] = useState({
+name: '',
+email: '',
+message: ''
+});
+const [submitted, setSubmitted] = useState(false);
+
+const handleChange = (e) => {
+const { name, value } = e.target;
+setFormData({ ...formData, [name]: value });
+};
+
+const handleSubmit = (e) => {
+e.preventDefault();
+console.log('Form submitted:', formData);
+setSubmitted(true);
+
     // Redirect to home after 2 seconds
     setTimeout(() => {
       navigate('/');
     }, 2000);
-  };
-  
-  if (submitted) {
-    return (
-      <div className="text-center py-12">
-        <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
-          Thank you for contacting us! Redirecting to home...
-        </div>
-      </div>
-    );
-  }
-  
-  return (
-    <div className="max-w-lg mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      
+
+};
+
+if (submitted) {
+return (
+<div className="text-center py-12">
+<div className="bg-green-100 text-green-700 p-4 rounded mb-4">
+Thank you for contacting us! Redirecting to home...
+</div>
+</div>
+);
+}
+
+return (
+<div className="max-w-lg mx-auto py-8">
+<h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-1">Name:</label>
@@ -4744,7 +4813,7 @@ function Contact() {
             required
           />
         </div>
-        
+
         <div>
           <label className="block mb-1">Email:</label>
           <input
@@ -4756,7 +4825,7 @@ function Contact() {
             required
           />
         </div>
-        
+
         <div>
           <label className="block mb-1">Message:</label>
           <textarea
@@ -4768,7 +4837,7 @@ function Contact() {
             required
           />
         </div>
-        
+
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
@@ -4777,7 +4846,8 @@ function Contact() {
         </button>
       </form>
     </div>
-  );
+
+);
 }
 
 export default Contact;
@@ -4786,21 +4856,21 @@ jsx
 import { Link } from 'react-router-dom';
 
 function NotFound() {
-  return (
-    <div className="text-center py-12">
-      <h1 className="text-6xl font-bold text-gray-300 mb-4">404</h1>
-      <h2 className="text-2xl font-bold mb-4">Page Not Found</h2>
-      <p className="text-gray-600 mb-6">
-        The page you're looking for doesn't exist or has been moved.
-      </p>
-      <Link
+return (
+<div className="text-center py-12">
+<h1 className="text-6xl font-bold text-gray-300 mb-4">404</h1>
+<h2 className="text-2xl font-bold mb-4">Page Not Found</h2>
+<p className="text-gray-600 mb-6">
+The page you're looking for doesn't exist or has been moved.
+</p>
+<Link
         to="/"
         className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
       >
-        Go Home
-      </Link>
-    </div>
-  );
+Go Home
+</Link>
+</div>
+);
 }
 
 export default NotFound;
@@ -4808,35 +4878,36 @@ Nested Routes
 jsx
 // Dashboard Layout Component
 function DashboardLayout() {
-  return (
-    <div className="flex">
-      <aside className="w-64 bg-gray-800 text-white min-h-screen p-4">
-        <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-        <nav className="space-y-2">
-          <NavLink to="/dashboard" end className="block p-2 hover:bg-gray-700 rounded">
-            Overview
-          </NavLink>
-          <NavLink to="/dashboard/profile" className="block p-2 hover:bg-gray-700 rounded">
-            Profile
-          </NavLink>
-          <NavLink to="/dashboard/settings" className="block p-2 hover:bg-gray-700 rounded">
-            Settings
-          </NavLink>
-        </nav>
-      </aside>
-      
+return (
+<div className="flex">
+<aside className="w-64 bg-gray-800 text-white min-h-screen p-4">
+<h2 className="text-xl font-bold mb-4">Dashboard</h2>
+<nav className="space-y-2">
+<NavLink to="/dashboard" end className="block p-2 hover:bg-gray-700 rounded">
+Overview
+</NavLink>
+<NavLink to="/dashboard/profile" className="block p-2 hover:bg-gray-700 rounded">
+Profile
+</NavLink>
+<NavLink to="/dashboard/settings" className="block p-2 hover:bg-gray-700 rounded">
+Settings
+</NavLink>
+</nav>
+</aside>
+
       <div className="flex-1 p-6">
         <Outlet /> {/* This renders the nested routes */}
       </div>
     </div>
-  );
+
+);
 }
 
 // Add to your Routes
 <Route path="/dashboard" element={<DashboardLayout />}>
-  <Route index element={<DashboardOverview />} />
-  <Route path="profile" element={<DashboardProfile />} />
-  <Route path="settings" element={<DashboardSettings />} />
+<Route index element={<DashboardOverview />} />
+<Route path="profile" element={<DashboardProfile />} />
+<Route path="settings" element={<DashboardSettings />} />
 </Route>
 Protected Routes
 jsx
@@ -4844,29 +4915,28 @@ jsx
 import { Navigate } from 'react-router-dom';
 
 function ProtectedRoute({ children, isAuthenticated }) {
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  return children;
+if (!isAuthenticated) {
+return <Navigate to="/login" replace />;
+}
+
+return children;
 }
 
 // Usage in App.jsx
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  
-  return (
-    <Routes>
-      <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
-      <Route path="/dashboard" element={
-        <ProtectedRoute isAuthenticated={isAuthenticated}>
-          <Dashboard />
-        </ProtectedRoute>
-      } />
-    </Routes>
-  );
-}
-16. React Icons - Beautiful Icons Made Easy
+const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+return (
+<Routes>
+<Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+<Route path="/dashboard" element={
+<ProtectedRoute isAuthenticated={isAuthenticated}>
+<Dashboard />
+</ProtectedRoute>
+} />
+</Routes>
+);
+} 16. React Icons - Beautiful Icons Made Easy
 Installation
 bash
 npm install react-icons
@@ -4906,10 +4976,10 @@ import { MdDelete, MdEdit, MdSave, MdEmail } from 'react-icons/md';
 import { AiOutlineLoading, AiOutlineWarning } from 'react-icons/ai';
 
 function BasicIcons() {
-  return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Basic Icons</h1>
-      
+return (
+<div className="p-4 space-y-4">
+<h1 className="text-2xl font-bold">Basic Icons</h1>
+
       {/* Simple icons */}
       <div className="flex gap-4 text-3xl">
         <FaHeart className="text-red-500" />
@@ -4918,7 +4988,7 @@ function BasicIcons() {
         <FaHome className="text-green-500" />
         <FaSearch className="text-gray-500" />
       </div>
-      
+
       {/* Icons with different sizes */}
       <div className="flex gap-4 items-center">
         <MdDelete className="text-red-500 text-sm" />
@@ -4926,7 +4996,7 @@ function BasicIcons() {
         <MdSave className="text-green-500 text-4xl" />
         <MdEmail className="text-purple-500 text-6xl" />
       </div>
-      
+
       {/* Icons with styling */}
       <div className="flex gap-4">
         <FaHeart className="text-red-500 animate-pulse" />
@@ -4934,51 +5004,52 @@ function BasicIcons() {
         <AiOutlineWarning className="text-yellow-500 animate-bounce" />
       </div>
     </div>
-  );
+
+);
 }
 Icon Buttons
 jsx
 function IconButtons() {
-  const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
-  
-  return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Icon Buttons</h1>
-      
+const [liked, setLiked] = useState(false);
+const [saved, setSaved] = useState(false);
+
+return (
+<div className="p-4 space-y-4">
+<h1 className="text-2xl font-bold">Icon Buttons</h1>
+
       {/* Basic icon buttons */}
       <div className="flex gap-4">
         <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
           <FaHeart />
         </button>
-        
+
         <button className="bg-red-500 text-white p-2 rounded hover:bg-red-600">
           <MdDelete />
         </button>
-        
+
         <button className="bg-green-500 text-white p-2 rounded hover:bg-green-600">
           <MdSave />
         </button>
       </div>
-      
+
       {/* Buttons with text */}
       <div className="flex gap-4">
         <button className="bg-blue-500 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-blue-600">
           <FaHeart />
           Like
         </button>
-        
+
         <button className="bg-red-500 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-red-600">
           <MdDelete />
           Delete
         </button>
-        
+
         <button className="bg-green-500 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-green-600">
           <MdSave />
           Save
         </button>
       </div>
-      
+
       {/* Interactive icon buttons */}
       <div className="flex gap-4">
         <button
@@ -4990,7 +5061,7 @@ function IconButtons() {
           {liked ? <FaHeart /> : <FaHeart />}
           {liked ? 'Liked' : 'Like'}
         </button>
-        
+
         <button
           onClick={() => setSaved(!saved)}
           className={`p-2 rounded flex items-center gap-2 ${
@@ -5002,113 +5073,114 @@ function IconButtons() {
         </button>
       </div>
     </div>
-  );
+
+);
 }
 Icon Components
 jsx
 // components/Icon.jsx
 function Icon({ icon: IconComponent, size = 'md', color = 'currentColor', className = '' }) {
-  const sizes = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg',
-    xl: 'text-xl',
-    '2xl': 'text-2xl',
-    '3xl': 'text-3xl'
-  };
-  
-  return (
-    <IconComponent 
-      className={`${sizes[size]} ${className}`}
-      style={{ color }}
-    />
-  );
+const sizes = {
+sm: 'text-sm',
+md: 'text-base',
+lg: 'text-lg',
+xl: 'text-xl',
+'2xl': 'text-2xl',
+'3xl': 'text-3xl'
+};
+
+return (
+<IconComponent
+className={`${sizes[size]} ${className}`}
+style={{ color }}
+/>
+);
 }
 
 // components/IconButton.jsx
 function IconButton({ icon, onClick, label, variant = 'primary', disabled = false }) {
-  const variants = {
-    primary: 'bg-blue-500 hover:bg-blue-600 text-white',
-    danger: 'bg-red-500 hover:bg-red-600 text-white',
-    success: 'bg-green-500 hover:bg-green-600 text-white',
-    outline: 'border border-gray-300 hover:bg-gray-100 text-gray-700'
-  };
-  
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`px-4 py-2 rounded flex items-center gap-2 transition ${variants[variant]} ${
+const variants = {
+primary: 'bg-blue-500 hover:bg-blue-600 text-white',
+danger: 'bg-red-500 hover:bg-red-600 text-white',
+success: 'bg-green-500 hover:bg-green-600 text-white',
+outline: 'border border-gray-300 hover:bg-gray-100 text-gray-700'
+};
+
+return (
+<button
+onClick={onClick}
+disabled={disabled}
+className={`px-4 py-2 rounded flex items-center gap-2 transition ${variants[variant]} ${
         disabled ? 'opacity-50 cursor-not-allowed' : ''
-      }`}
-    >
-      {icon}
-      {label && <span>{label}</span>}
-    </button>
-  );
+      }`} >
+{icon}
+{label && <span>{label}</span>}
+</button>
+);
 }
 
 // Usage
 function App() {
-  return (
-    <div className="p-4 space-y-4">
-      <Icon icon={FaHeart} size="3xl" color="red" />
-      <Icon icon={FaStar} size="2xl" color="gold" />
-      
-      <IconButton 
+return (
+<div className="p-4 space-y-4">
+<Icon icon={FaHeart} size="3xl" color="red" />
+<Icon icon={FaStar} size="2xl" color="gold" />
+
+      <IconButton
         icon={<FaHeart />}
         label="Like"
         variant="primary"
         onClick={() => alert('Liked!')}
       />
-      
-      <IconButton 
+
+      <IconButton
         icon={<MdDelete />}
         label="Delete"
         variant="danger"
         onClick={() => alert('Deleted!')}
       />
     </div>
-  );
+
+);
 }
 Complete Icon Library Example
 jsx
 function IconLibraryDemo() {
-  const [search, setSearch] = useState('');
-  const [copied, setCopied] = useState(null);
-  
-  // Common icons with their names and components
-  const icons = [
-    { name: 'Home', component: FaHome, category: 'navigation' },
-    { name: 'User', component: FaUser, category: 'people' },
-    { name: 'Heart', component: FaHeart, category: 'actions' },
-    { name: 'Star', component: FaStar, category: 'actions' },
-    { name: 'Search', component: FaSearch, category: 'actions' },
-    { name: 'Settings', component: FaCog, category: 'actions' },
-    { name: 'Delete', component: MdDelete, category: 'actions' },
-    { name: 'Edit', component: MdEdit, category: 'actions' },
-    { name: 'Save', component: MdSave, category: 'actions' },
-    { name: 'Email', component: MdEmail, category: 'communication' },
-    { name: 'Phone', component: MdPhone, category: 'communication' },
-    { name: 'Location', component: MdLocationOn, category: 'navigation' },
-    { name: 'Loading', component: AiOutlineLoading, category: 'status' },
-    { name: 'Warning', component: AiOutlineWarning, category: 'status' }
-  ];
-  
-  const filteredIcons = icons.filter(icon =>
-    icon.name.toLowerCase().includes(search.toLowerCase())
-  );
-  
-  const copyIconName = (iconName) => {
-    navigator.clipboard.writeText(iconName);
-    setCopied(iconName);
-    setTimeout(() => setCopied(null), 2000);
-  };
-  
-  return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">React Icons Library</h1>
-      
+const [search, setSearch] = useState('');
+const [copied, setCopied] = useState(null);
+
+// Common icons with their names and components
+const icons = [
+{ name: 'Home', component: FaHome, category: 'navigation' },
+{ name: 'User', component: FaUser, category: 'people' },
+{ name: 'Heart', component: FaHeart, category: 'actions' },
+{ name: 'Star', component: FaStar, category: 'actions' },
+{ name: 'Search', component: FaSearch, category: 'actions' },
+{ name: 'Settings', component: FaCog, category: 'actions' },
+{ name: 'Delete', component: MdDelete, category: 'actions' },
+{ name: 'Edit', component: MdEdit, category: 'actions' },
+{ name: 'Save', component: MdSave, category: 'actions' },
+{ name: 'Email', component: MdEmail, category: 'communication' },
+{ name: 'Phone', component: MdPhone, category: 'communication' },
+{ name: 'Location', component: MdLocationOn, category: 'navigation' },
+{ name: 'Loading', component: AiOutlineLoading, category: 'status' },
+{ name: 'Warning', component: AiOutlineWarning, category: 'status' }
+];
+
+const filteredIcons = icons.filter(icon =>
+icon.name.toLowerCase().includes(search.toLowerCase())
+);
+
+const copyIconName = (iconName) => {
+navigator.clipboard.writeText(iconName);
+setCopied(iconName);
+setTimeout(() => setCopied(null), 2000);
+};
+
+return (
+<div className="max-w-4xl mx-auto p-4">
+<h1 className="text-3xl font-bold mb-6">React Icons Library</h1>
+
       {/* Search Bar */}
       <div className="mb-6">
         <div className="relative">
@@ -5122,7 +5194,7 @@ function IconLibraryDemo() {
           />
         </div>
       </div>
-      
+
       {/* Icons Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {filteredIcons.map(icon => {
@@ -5143,11 +5215,11 @@ function IconLibraryDemo() {
           );
         })}
       </div>
-      
+
       {/* Usage Examples */}
       <div className="mt-8 p-4 bg-gray-100 rounded">
         <h2 className="text-xl font-bold mb-4">Usage Examples</h2>
-        
+
         <div className="space-y-2">
           <p><strong>Import:</strong> <code className="bg-gray-800 text-white px-2 py-1 rounded">import {{ '{ FaHeart }' }} from 'react-icons/fa'</code></p>
           <p><strong>Usage:</strong> <code className="bg-gray-800 text-white px-2 py-1 rounded">&lt;FaHeart /&gt;</code></p>
@@ -5155,9 +5227,9 @@ function IconLibraryDemo() {
         </div>
       </div>
     </div>
-  );
-}
-17. Building Real Projects
+
+);
+} 17. Building Real Projects
 Project 1: Counter App with Explanation
 jsx
 // Complete Counter App with detailed comments
@@ -5165,53 +5237,53 @@ import { useState } from 'react';
 import { FaPlus, FaMinus, FaRedo } from 'react-icons/fa';
 
 function CounterApp() {
-  // State: 'count' holds the current number, 'setCount' updates it
-  // useState(0) initializes count with 0
-  const [count, setCount] = useState(0);
-  
-  // Helper functions for better readability
-  const increment = () => {
-    // Using functional update to ensure we get the latest value
-    setCount(prevCount => prevCount + 1);
-  };
-  
-  const decrement = () => {
-    setCount(prevCount => prevCount - 1);
-  };
-  
-  const reset = () => {
-    setCount(0);
-  };
-  
-  // Determine message based on count value
-  const getMessage = () => {
-    if (count > 10) return "Wow, you're on fire! 🔥";
-    if (count > 5) return "Getting there! 🚀";
-    if (count > 0) return "Keep going! 💪";
-    if (count === 0) return "Start counting! 🎯";
-    return "Going down? 📉";
-  };
-  
-  // Determine color based on count
-  const getCountColor = () => {
-    if (count > 10) return "text-red-600";
-    if (count > 5) return "text-orange-500";
-    if (count > 0) return "text-green-500";
-    if (count === 0) return "text-gray-500";
-    return "text-blue-500";
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
-        {/* Title */}
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Counter App
-        </h1>
-        <p className="text-center text-gray-500 mb-8">
-          Click the buttons to change the count
-        </p>
-        
+// State: 'count' holds the current number, 'setCount' updates it
+// useState(0) initializes count with 0
+const [count, setCount] = useState(0);
+
+// Helper functions for better readability
+const increment = () => {
+// Using functional update to ensure we get the latest value
+setCount(prevCount => prevCount + 1);
+};
+
+const decrement = () => {
+setCount(prevCount => prevCount - 1);
+};
+
+const reset = () => {
+setCount(0);
+};
+
+// Determine message based on count value
+const getMessage = () => {
+if (count > 10) return "Wow, you're on fire! 🔥";
+if (count > 5) return "Getting there! 🚀";
+if (count > 0) return "Keep going! 💪";
+if (count === 0) return "Start counting! 🎯";
+return "Going down? 📉";
+};
+
+// Determine color based on count
+const getCountColor = () => {
+if (count > 10) return "text-red-600";
+if (count > 5) return "text-orange-500";
+if (count > 0) return "text-green-500";
+if (count === 0) return "text-gray-500";
+return "text-blue-500";
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
+<div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+{/_ Title _/}
+<h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
+Counter App
+</h1>
+<p className="text-center text-gray-500 mb-8">
+Click the buttons to change the count
+</p>
+
         {/* Counter Display */}
         <div className="text-center mb-8">
           <div className={`text-7xl font-bold mb-2 ${getCountColor()}`}>
@@ -5219,7 +5291,7 @@ function CounterApp() {
           </div>
           <p className="text-gray-600">{getMessage()}</p>
         </div>
-        
+
         {/* Control Buttons */}
         <div className="flex gap-4 justify-center mb-8">
           {/* Decrement Button */}
@@ -5227,7 +5299,7 @@ function CounterApp() {
             onClick={decrement}
             disabled={count <= -10}
             className={`
-              bg-red-500 text-white px-6 py-3 rounded-xl flex items-center gap-2 
+              bg-red-500 text-white px-6 py-3 rounded-xl flex items-center gap-2
               transition-all duration-200 hover:bg-red-600 hover:scale-105
               disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
             `}
@@ -5235,23 +5307,23 @@ function CounterApp() {
           >
             <FaMinus /> Decrement
           </button>
-          
+
           {/* Reset Button */}
           <button
             onClick={reset}
-            className="bg-gray-500 text-white px-6 py-3 rounded-xl flex items-center gap-2 
+            className="bg-gray-500 text-white px-6 py-3 rounded-xl flex items-center gap-2
                        transition-all duration-200 hover:bg-gray-600 hover:scale-105"
             title="Reset count to zero"
           >
             <FaRedo /> Reset
           </button>
-          
+
           {/* Increment Button */}
           <button
             onClick={increment}
             disabled={count >= 10}
             className={`
-              bg-green-500 text-white px-6 py-3 rounded-xl flex items-center gap-2 
+              bg-green-500 text-white px-6 py-3 rounded-xl flex items-center gap-2
               transition-all duration-200 hover:bg-green-600 hover:scale-105
               disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
             `}
@@ -5260,7 +5332,7 @@ function CounterApp() {
             <FaPlus /> Increment
           </button>
         </div>
-        
+
         {/* Stats Section */}
         <div className="border-t pt-6">
           <h3 className="font-semibold text-gray-700 mb-3">Statistics:</h3>
@@ -5281,7 +5353,7 @@ function CounterApp() {
             </div>
           </div>
         </div>
-        
+
         {/* Tips */}
         <div className="mt-6 p-3 bg-blue-50 rounded-lg">
           <p className="text-sm text-blue-800">
@@ -5290,7 +5362,8 @@ function CounterApp() {
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 export default CounterApp;
@@ -5301,106 +5374,106 @@ import { useState, useEffect } from 'react';
 import { FaPlus, FaTrash, FaCheck, FaUndo } from 'react-icons/fa';
 
 function TodoApp() {
-  // State for todos - load from localStorage on initial render
-  const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem('todos');
-    return saved ? JSON.parse(saved) : [];
-  });
-  
-  // State for new todo input
-  const [input, setInput] = useState('');
-  
-  // State for filtering todos
-  const [filter, setFilter] = useState('all'); // 'all', 'active', 'completed'
-  
-  // State for edit mode
-  const [editingId, setEditingId] = useState(null);
-  const [editText, setEditText] = useState('');
-  
-  // Save todos to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
-  
-  // Add a new todo
-  const addTodo = () => {
-    if (input.trim()) {
-      const newTodo = {
-        id: Date.now(), // Unique ID based on timestamp
-        text: input.trim(),
-        completed: false,
-        createdAt: new Date().toISOString()
-      };
-      setTodos([...todos, newTodo]);
-      setInput(''); // Clear input field
-    }
-  };
-  
-  // Toggle todo completion status
-  const toggleTodo = (id) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
-  };
-  
-  // Delete a todo
-  const deleteTodo = (id) => {
-    if (confirm('Are you sure you want to delete this todo?')) {
-      setTodos(todos.filter(todo => todo.id !== id));
-    }
-  };
-  
-  // Start editing a todo
-  const startEdit = (todo) => {
-    setEditingId(todo.id);
-    setEditText(todo.text);
-  };
-  
-  // Save edited todo
-  const saveEdit = (id) => {
-    if (editText.trim()) {
-      setTodos(todos.map(todo =>
-        todo.id === id ? { ...todo, text: editText.trim() } : todo
-      ));
-      setEditingId(null);
-      setEditText('');
-    }
-  };
-  
-  // Cancel editing
-  const cancelEdit = () => {
-    setEditingId(null);
-    setEditText('');
-  };
-  
-  // Clear all completed todos
-  const clearCompleted = () => {
-    setTodos(todos.filter(todo => !todo.completed));
-  };
-  
-  // Filter todos based on selected filter
-  const filteredTodos = todos.filter(todo => {
-    if (filter === 'active') return !todo.completed;
-    if (filter === 'completed') return todo.completed;
-    return true;
-  });
-  
-  // Calculate statistics
-  const stats = {
-    total: todos.length,
-    completed: todos.filter(t => t.completed).length,
-    active: todos.filter(t => !t.completed).length
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">📝 Todo List</h1>
-          <p className="text-gray-600">Organize your tasks and get things done!</p>
-        </div>
-        
+// State for todos - load from localStorage on initial render
+const [todos, setTodos] = useState(() => {
+const saved = localStorage.getItem('todos');
+return saved ? JSON.parse(saved) : [];
+});
+
+// State for new todo input
+const [input, setInput] = useState('');
+
+// State for filtering todos
+const [filter, setFilter] = useState('all'); // 'all', 'active', 'completed'
+
+// State for edit mode
+const [editingId, setEditingId] = useState(null);
+const [editText, setEditText] = useState('');
+
+// Save todos to localStorage whenever they change
+useEffect(() => {
+localStorage.setItem('todos', JSON.stringify(todos));
+}, [todos]);
+
+// Add a new todo
+const addTodo = () => {
+if (input.trim()) {
+const newTodo = {
+id: Date.now(), // Unique ID based on timestamp
+text: input.trim(),
+completed: false,
+createdAt: new Date().toISOString()
+};
+setTodos([...todos, newTodo]);
+setInput(''); // Clear input field
+}
+};
+
+// Toggle todo completion status
+const toggleTodo = (id) => {
+setTodos(todos.map(todo =>
+todo.id === id ? { ...todo, completed: !todo.completed } : todo
+));
+};
+
+// Delete a todo
+const deleteTodo = (id) => {
+if (confirm('Are you sure you want to delete this todo?')) {
+setTodos(todos.filter(todo => todo.id !== id));
+}
+};
+
+// Start editing a todo
+const startEdit = (todo) => {
+setEditingId(todo.id);
+setEditText(todo.text);
+};
+
+// Save edited todo
+const saveEdit = (id) => {
+if (editText.trim()) {
+setTodos(todos.map(todo =>
+todo.id === id ? { ...todo, text: editText.trim() } : todo
+));
+setEditingId(null);
+setEditText('');
+}
+};
+
+// Cancel editing
+const cancelEdit = () => {
+setEditingId(null);
+setEditText('');
+};
+
+// Clear all completed todos
+const clearCompleted = () => {
+setTodos(todos.filter(todo => !todo.completed));
+};
+
+// Filter todos based on selected filter
+const filteredTodos = todos.filter(todo => {
+if (filter === 'active') return !todo.completed;
+if (filter === 'completed') return todo.completed;
+return true;
+});
+
+// Calculate statistics
+const stats = {
+total: todos.length,
+completed: todos.filter(t => t.completed).length,
+active: todos.filter(t => !t.completed).length
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
+<div className="max-w-2xl mx-auto">
+{/_ Header _/}
+<div className="text-center mb-8">
+<h1 className="text-4xl font-bold text-gray-800 mb-2">📝 Todo List</h1>
+<p className="text-gray-600">Organize your tasks and get things done!</p>
+</div>
+
         {/* Input Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex gap-2">
@@ -5420,14 +5493,14 @@ function TodoApp() {
             </button>
           </div>
         </div>
-        
+
         {/* Filter Tabs */}
         <div className="flex gap-2 mb-6">
           <button
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-lg transition ${
-              filter === 'all' 
-                ? 'bg-purple-500 text-white' 
+              filter === 'all'
+                ? 'bg-purple-500 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -5436,8 +5509,8 @@ function TodoApp() {
           <button
             onClick={() => setFilter('active')}
             className={`px-4 py-2 rounded-lg transition ${
-              filter === 'active' 
-                ? 'bg-purple-500 text-white' 
+              filter === 'active'
+                ? 'bg-purple-500 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -5446,8 +5519,8 @@ function TodoApp() {
           <button
             onClick={() => setFilter('completed')}
             className={`px-4 py-2 rounded-lg transition ${
-              filter === 'completed' 
-                ? 'bg-purple-500 text-white' 
+              filter === 'completed'
+                ? 'bg-purple-500 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -5462,7 +5535,7 @@ function TodoApp() {
             </button>
           )}
         </div>
-        
+
         {/* Todo List */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           {filteredTodos.length === 0 ? (
@@ -5483,7 +5556,7 @@ function TodoApp() {
                       onChange={() => toggleTodo(todo.id)}
                       className="w-5 h-5 rounded border-gray-300 text-purple-500 focus:ring-purple-500"
                     />
-                    
+
                     {/* Todo Content */}
                     {editingId === todo.id ? (
                       <div className="flex-1 flex gap-2">
@@ -5518,7 +5591,7 @@ function TodoApp() {
                         </p>
                       </div>
                     )}
-                    
+
                     {/* Action Buttons */}
                     {!editingId && (
                       <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition">
@@ -5546,7 +5619,7 @@ function TodoApp() {
             </ul>
           )}
         </div>
-        
+
         {/* Stats Footer */}
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>✅ {stats.completed} completed • 📝 {stats.active} remaining • 📊 {stats.total} total</p>
@@ -5554,7 +5627,8 @@ function TodoApp() {
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 export default TodoApp;
@@ -5565,37 +5639,37 @@ import { useState } from 'react';
 import { FaSearch, FaTemperatureHigh, FaTint, FaWind, FaSun, FaCloudRain, FaSnowflake } from 'react-icons/fa';
 
 function WeatherApp() {
-  const [city, setCity] = useState('');
-  const [weather, setWeather] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  
-  // API key - In real app, store this in environment variables
-  // Sign up at https://openweathermap.org to get your free API key
-  const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
-  const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
-  
-  const searchWeather = async () => {
-    if (!city.trim()) {
-      setError('Please enter a city name');
-      return;
-    }
-    
+const [city, setCity] = useState('');
+const [weather, setWeather] = useState(null);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+// API key - In real app, store this in environment variables
+// Sign up at https://openweathermap.org to get your free API key
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
+const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+
+const searchWeather = async () => {
+if (!city.trim()) {
+setError('Please enter a city name');
+return;
+}
+
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch(
         `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
       );
-      
+
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error('City not found. Please check the city name.');
         }
         throw new Error('Failed to fetch weather data');
       }
-      
+
       const data = await response.json();
       setWeather(data);
     } catch (err) {
@@ -5604,33 +5678,34 @@ function WeatherApp() {
     } finally {
       setLoading(false);
     }
-  };
-  
-  // Handle Enter key press
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      searchWeather();
-    }
-  };
-  
-  // Get weather icon based on condition
-  const getWeatherIcon = (condition) => {
-    const condition_lower = condition?.toLowerCase() || '';
-    if (condition_lower.includes('rain')) return <FaCloudRain className="text-blue-500" />;
-    if (condition_lower.includes('snow')) return <FaSnowflake className="text-blue-300" />;
-    if (condition_lower.includes('clear')) return <FaSun className="text-yellow-500" />;
-    return <FaSun className="text-yellow-500" />;
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 to-purple-500 py-8 px-4">
-      <div className="max-w-md mx-auto">
-        {/* Header */}
-        <div className="text-center text-white mb-8">
-          <h1 className="text-4xl font-bold mb-2">🌤️ Weather App</h1>
-          <p className="text-blue-100">Get current weather for any city</p>
-        </div>
-        
+
+};
+
+// Handle Enter key press
+const handleKeyPress = (e) => {
+if (e.key === 'Enter') {
+searchWeather();
+}
+};
+
+// Get weather icon based on condition
+const getWeatherIcon = (condition) => {
+const condition_lower = condition?.toLowerCase() || '';
+if (condition_lower.includes('rain')) return <FaCloudRain className="text-blue-500" />;
+if (condition_lower.includes('snow')) return <FaSnowflake className="text-blue-300" />;
+if (condition_lower.includes('clear')) return <FaSun className="text-yellow-500" />;
+return <FaSun className="text-yellow-500" />;
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-blue-400 to-purple-500 py-8 px-4">
+<div className="max-w-md mx-auto">
+{/_ Header _/}
+<div className="text-center text-white mb-8">
+<h1 className="text-4xl font-bold mb-2">🌤️ Weather App</h1>
+<p className="text-blue-100">Get current weather for any city</p>
+</div>
+
         {/* Search Section */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <div className="flex gap-2">
@@ -5651,14 +5726,14 @@ function WeatherApp() {
               Search
             </button>
           </div>
-          
+
           {error && (
             <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
               ⚠️ {error}
             </div>
           )}
         </div>
-        
+
         {/* Weather Display */}
         {weather && (
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -5673,7 +5748,7 @@ function WeatherApp() {
                 <span className="capitalize">{weather.weather[0].description}</span>
               </div>
             </div>
-            
+
             {/* Weather Details */}
             <div className="p-6">
               <h3 className="font-semibold text-gray-700 mb-4">Weather Details</h3>
@@ -5685,7 +5760,7 @@ function WeatherApp() {
                     <div className="font-semibold">{Math.round(weather.main.feels_like)}°C</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded">
                   <FaTint className="text-blue-500 text-xl" />
                   <div>
@@ -5693,7 +5768,7 @@ function WeatherApp() {
                     <div className="font-semibold">{weather.main.humidity}%</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded">
                   <FaWind className="text-gray-500 text-xl" />
                   <div>
@@ -5701,7 +5776,7 @@ function WeatherApp() {
                     <div className="font-semibold">{weather.wind.speed} m/s</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded">
                   <FaTemperatureHigh className="text-blue-500 text-xl" />
                   <div>
@@ -5710,7 +5785,7 @@ function WeatherApp() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Additional Info */}
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <div className="grid grid-cols-2 gap-2 text-sm">
@@ -5735,7 +5810,7 @@ function WeatherApp() {
             </div>
           </div>
         )}
-        
+
         {/* Welcome Message */}
         {!weather && !loading && !error && (
           <div className="bg-white rounded-lg shadow-lg p-8 text-center text-gray-500">
@@ -5746,7 +5821,8 @@ function WeatherApp() {
         )}
       </div>
     </div>
-  );
+
+);
 }
 
 export default WeatherApp;
@@ -5757,41 +5833,41 @@ import { useState } from 'react';
 import { FaSearch, FaStar, FaFilm, FaCalendar, FaImdb } from 'react-icons/fa';
 
 function MovieSearchApp() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  
-  // OMDB API - Get your free API key at http://www.omdbapi.com/apikey.aspx
-  const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
-  const API_URL = 'http://www.omdbapi.com/';
-  
-  const searchMovies = async () => {
-    if (!searchTerm.trim()) {
-      setError('Please enter a movie name');
-      return;
-    }
-    
+const [searchTerm, setSearchTerm] = useState('');
+const [movies, setMovies] = useState([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+const [selectedMovie, setSelectedMovie] = useState(null);
+
+// OMDB API - Get your free API key at http://www.omdbapi.com/apikey.aspx
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
+const API_URL = 'http://www.omdbapi.com/';
+
+const searchMovies = async () => {
+if (!searchTerm.trim()) {
+setError('Please enter a movie name');
+return;
+}
+
     setLoading(true);
     setError(null);
     setSelectedMovie(null);
-    
+
     try {
       const response = await fetch(
         `${API_URL}?s=${searchTerm}&apikey=${API_KEY}`
       );
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch movies');
       }
-      
+
       const data = await response.json();
-      
+
       if (data.Response === 'False') {
         throw new Error(data.Error || 'No movies found');
       }
-      
+
       setMovies(data.Search);
     } catch (err) {
       setError(err.message);
@@ -5799,38 +5875,39 @@ function MovieSearchApp() {
     } finally {
       setLoading(false);
     }
-  };
-  
-  const getMovieDetails = async (imdbID) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `${API_URL}?i=${imdbID}&apikey=${API_KEY}`
-      );
-      const data = await response.json();
-      setSelectedMovie(data);
-    } catch (err) {
-      console.error('Error fetching details:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  const closeModal = () => {
-    setSelectedMovie(null);
-  };
-  
-  return (
-    <div className="min-h-screen bg-gray-900 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center text-white mb-8">
-          <h1 className="text-5xl font-bold mb-2 flex items-center justify-center gap-2">
-            <FaFilm /> Movie Search
-          </h1>
-          <p className="text-gray-400">Find information about your favorite movies</p>
-        </div>
-        
+
+};
+
+const getMovieDetails = async (imdbID) => {
+setLoading(true);
+try {
+const response = await fetch(
+`${API_URL}?i=${imdbID}&apikey=${API_KEY}`
+);
+const data = await response.json();
+setSelectedMovie(data);
+} catch (err) {
+console.error('Error fetching details:', err);
+} finally {
+setLoading(false);
+}
+};
+
+const closeModal = () => {
+setSelectedMovie(null);
+};
+
+return (
+<div className="min-h-screen bg-gray-900 py-8 px-4">
+<div className="max-w-6xl mx-auto">
+{/_ Header _/}
+<div className="text-center text-white mb-8">
+<h1 className="text-5xl font-bold mb-2 flex items-center justify-center gap-2">
+<FaFilm /> Movie Search
+</h1>
+<p className="text-gray-400">Find information about your favorite movies</p>
+</div>
+
         {/* Search Section */}
         <div className="max-w-md mx-auto mb-8">
           <div className="flex gap-2">
@@ -5851,14 +5928,14 @@ function MovieSearchApp() {
               Search
             </button>
           </div>
-          
+
           {error && (
             <div className="mt-4 p-3 bg-red-900 text-red-200 rounded-lg">
               ⚠️ {error}
             </div>
           )}
         </div>
-        
+
         {/* Movies Grid */}
         {loading && !movies.length ? (
           <div className="text-center text-white py-12">
@@ -5905,26 +5982,27 @@ function MovieSearchApp() {
             </div>
           )
         )}
-        
+
         {/* Movie Details Modal */}
         {selectedMovie && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
             <div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-
+
 continue
 Project 4: Movie Search App (continued)
 jsx
-            <div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              {/* Modal Header */}
-              <div className="sticky top-0 bg-gray-800 p-4 border-b border-gray-700 flex justify-between items-center">
-                <h2 className="text-xl font-bold text-white">{selectedMovie.Title}</h2>
-                <button
+<div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+{/_ Modal Header _/}
+<div className="sticky top-0 bg-gray-800 p-4 border-b border-gray-700 flex justify-between items-center">
+<h2 className="text-xl font-bold text-white">{selectedMovie.Title}</h2>
+<button
                   onClick={closeModal}
                   className="text-gray-400 hover:text-white text-2xl"
                 >
-                  ✕
-                </button>
-              </div>
-              
+✕
+</button>
+</div>
+
               {/* Modal Content */}
               <div className="p-6">
                 <div className="flex flex-col md:flex-row gap-6">
@@ -5942,7 +6020,7 @@ jsx
                       </div>
                     )}
                   </div>
-                  
+
                   {/* Details */}
                   <div className="md:w-2/3 space-y-3">
                     <div className="flex items-center gap-2 text-gray-300">
@@ -5953,26 +6031,26 @@ jsx
                       <span className="mx-2">•</span>
                       <span>{selectedMovie.Genre}</span>
                     </div>
-                    
+
                     <div className="flex items-center gap-2">
                       <FaStar className="text-yellow-500" />
                       <span className="text-white font-semibold">{selectedMovie.imdbRating}</span>
                       <span className="text-gray-400">/10</span>
                       <span className="text-gray-400 ml-2">({selectedMovie.imdbVotes} votes)</span>
                     </div>
-                    
+
                     <div className="flex items-center gap-2 text-gray-300">
                       <FaImdb />
                       <span>IMDb ID: {selectedMovie.imdbID}</span>
                     </div>
-                    
+
                     <div className="border-t border-gray-700 pt-3 mt-3">
                       <h3 className="text-white font-semibold mb-2">Plot</h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
                         {selectedMovie.Plot}
                       </p>
                     </div>
-                    
+
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
                         <span className="text-gray-400">Director:</span>
@@ -5999,7 +6077,7 @@ jsx
                         <p className="text-white">{selectedMovie.Awards}</p>
                       </div>
                     </div>
-                    
+
                     {selectedMovie.BoxOffice && selectedMovie.BoxOffice !== 'N/A' && (
                       <div className="bg-green-900 bg-opacity-30 p-3 rounded-lg">
                         <span className="text-gray-400">Box Office:</span>
@@ -6009,7 +6087,7 @@ jsx
                   </div>
                 </div>
               </div>
-              
+
               {/* Modal Footer */}
               <div className="sticky bottom-0 bg-gray-800 p-4 border-t border-gray-700 flex justify-end">
                 <button
@@ -6024,7 +6102,8 @@ jsx
         )}
       </div>
     </div>
-  );
+
+);
 }
 
 export default MovieSearchApp;
@@ -6035,44 +6114,44 @@ import { useState, useEffect } from 'react';
 import { FaPlus, FaTrash, FaEdit, FaSave, FaTimes, FaSearch, FaTag } from 'react-icons/fa';
 
 function NotesApp() {
-  // State for notes
-  const [notes, setNotes] = useState(() => {
-    const saved = localStorage.getItem('notes');
-    return saved ? JSON.parse(saved) : [];
-  });
-  
-  // State for form
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [category, setCategory] = useState('personal');
-  const [editingId, setEditingId] = useState(null);
-  
-  // State for UI
-  const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [showForm, setShowForm] = useState(false);
-  
-  // Categories
-  const categories = [
-    { id: 'personal', name: 'Personal', color: 'blue', icon: '👤' },
-    { id: 'work', name: 'Work', color: 'green', icon: '💼' },
-    { id: 'ideas', name: 'Ideas', color: 'purple', icon: '💡' },
-    { id: 'todo', name: 'Todo', color: 'yellow', icon: '✓' },
-    { id: 'important', name: 'Important', color: 'red', icon: '⭐' }
-  ];
-  
-  // Save notes to localStorage
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notes));
-  }, [notes]);
-  
-  // Add or update note
-  const saveNote = () => {
-    if (!title.trim()) {
-      alert('Please enter a title');
-      return;
-    }
-    
+// State for notes
+const [notes, setNotes] = useState(() => {
+const saved = localStorage.getItem('notes');
+return saved ? JSON.parse(saved) : [];
+});
+
+// State for form
+const [title, setTitle] = useState('');
+const [content, setContent] = useState('');
+const [category, setCategory] = useState('personal');
+const [editingId, setEditingId] = useState(null);
+
+// State for UI
+const [search, setSearch] = useState('');
+const [selectedCategory, setSelectedCategory] = useState('all');
+const [showForm, setShowForm] = useState(false);
+
+// Categories
+const categories = [
+{ id: 'personal', name: 'Personal', color: 'blue', icon: '👤' },
+{ id: 'work', name: 'Work', color: 'green', icon: '💼' },
+{ id: 'ideas', name: 'Ideas', color: 'purple', icon: '💡' },
+{ id: 'todo', name: 'Todo', color: 'yellow', icon: '✓' },
+{ id: 'important', name: 'Important', color: 'red', icon: '⭐' }
+];
+
+// Save notes to localStorage
+useEffect(() => {
+localStorage.setItem('notes', JSON.stringify(notes));
+}, [notes]);
+
+// Add or update note
+const saveNote = () => {
+if (!title.trim()) {
+alert('Please enter a title');
+return;
+}
+
     if (editingId) {
       // Update existing note
       setNotes(notes.map(note =>
@@ -6098,74 +6177,75 @@ function NotesApp() {
         updatedAt: new Date().toISOString()
       }]);
     }
-    
+
     // Reset form
     setTitle('');
     setContent('');
     setCategory('personal');
     setShowForm(false);
-  };
-  
-  // Edit note
-  const editNote = (note) => {
-    setTitle(note.title);
-    setContent(note.content);
-    setCategory(note.category);
-    setEditingId(note.id);
-    setShowForm(true);
-  };
-  
-  // Delete note
-  const deleteNote = (id) => {
-    if (confirm('Are you sure you want to delete this note?')) {
-      setNotes(notes.filter(note => note.id !== id));
-    }
-  };
-  
-  // Cancel editing
-  const cancelEdit = () => {
-    setTitle('');
-    setContent('');
-    setCategory('personal');
-    setEditingId(null);
-    setShowForm(false);
-  };
-  
-  // Filter notes
-  const filteredNotes = notes.filter(note => {
-    const matchesSearch = note.title.toLowerCase().includes(search.toLowerCase()) ||
-                          note.content.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || note.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-  
-  // Get category color
-  const getCategoryColor = (categoryId) => {
-    const cat = categories.find(c => c.id === categoryId);
-    return cat ? cat.color : 'gray';
-  };
-  
-  // Get category icon
-  const getCategoryIcon = (categoryId) => {
-    const cat = categories.find(c => c.id === categoryId);
-    return cat ? cat.icon : '📝';
-  };
-  
-  // Format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="max-w-6xl mx-auto p-4">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">📝 Notes App</h1>
-          <p className="text-gray-600">Organize your thoughts with categories</p>
-        </div>
-        
+
+};
+
+// Edit note
+const editNote = (note) => {
+setTitle(note.title);
+setContent(note.content);
+setCategory(note.category);
+setEditingId(note.id);
+setShowForm(true);
+};
+
+// Delete note
+const deleteNote = (id) => {
+if (confirm('Are you sure you want to delete this note?')) {
+setNotes(notes.filter(note => note.id !== id));
+}
+};
+
+// Cancel editing
+const cancelEdit = () => {
+setTitle('');
+setContent('');
+setCategory('personal');
+setEditingId(null);
+setShowForm(false);
+};
+
+// Filter notes
+const filteredNotes = notes.filter(note => {
+const matchesSearch = note.title.toLowerCase().includes(search.toLowerCase()) ||
+note.content.toLowerCase().includes(search.toLowerCase());
+const matchesCategory = selectedCategory === 'all' || note.category === selectedCategory;
+return matchesSearch && matchesCategory;
+});
+
+// Get category color
+const getCategoryColor = (categoryId) => {
+const cat = categories.find(c => c.id === categoryId);
+return cat ? cat.color : 'gray';
+};
+
+// Get category icon
+const getCategoryIcon = (categoryId) => {
+const cat = categories.find(c => c.id === categoryId);
+return cat ? cat.icon : '📝';
+};
+
+// Format date
+const formatDate = (dateString) => {
+const date = new Date(dateString);
+return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+<div className="max-w-6xl mx-auto p-4">
+{/_ Header _/}
+<div className="text-center mb-8">
+<h1 className="text-4xl font-bold text-gray-800 mb-2">📝 Notes App</h1>
+<p className="text-gray-600">Organize your thoughts with categories</p>
+</div>
+
         {/* Action Bar */}
         <div className="flex flex-wrap gap-4 mb-6">
           <button
@@ -6174,7 +6254,7 @@ function NotesApp() {
           >
             <FaPlus /> {showForm ? 'Hide Form' : 'New Note'}
           </button>
-          
+
           <div className="flex-1 min-w-[200px]">
             <div className="relative">
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -6188,7 +6268,7 @@ function NotesApp() {
             </div>
           </div>
         </div>
-        
+
         {/* Category Filters */}
         <div className="flex flex-wrap gap-2 mb-6">
           <button
@@ -6218,14 +6298,14 @@ function NotesApp() {
             );
           })}
         </div>
-        
+
         {/* Note Form */}
         {showForm && (
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h2 className="text-xl font-bold mb-4">
               {editingId ? 'Edit Note' : 'Create New Note'}
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-gray-700 mb-2">Title *</label>
@@ -6237,7 +6317,7 @@ function NotesApp() {
                   placeholder="Enter note title..."
                 />
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Category</label>
                 <select
@@ -6252,7 +6332,7 @@ function NotesApp() {
                   ))}
                 </select>
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Content</label>
                 <textarea
@@ -6263,7 +6343,7 @@ function NotesApp() {
                   placeholder="Write your note here..."
                 />
               </div>
-              
+
               <div className="flex gap-2">
                 <button
                   onClick={saveNote}
@@ -6281,7 +6361,7 @@ function NotesApp() {
             </div>
           </div>
         )}
-        
+
         {/* Notes Grid */}
         {filteredNotes.length === 0 ? (
           <div className="text-center py-12">
@@ -6304,18 +6384,18 @@ function NotesApp() {
                   <FaTag className="text-xs" />
                   <span>{getCategoryIcon(note.category)} {categories.find(c => c.id === note.category)?.name}</span>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-2 line-clamp-2">{note.title}</h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">{note.content}</p>
-                  
+
                   {/* Metadata */}
                   <div className="text-xs text-gray-400 mb-4">
                     <div>Created: {formatDate(note.createdAt)}</div>
                     <div>Updated: {formatDate(note.updatedAt)}</div>
                   </div>
-                  
+
                   {/* Actions */}
                   <div className="flex gap-2 pt-3 border-t">
                     <button
@@ -6336,12 +6416,12 @@ function NotesApp() {
             ))}
           </div>
         )}
-        
+
         {/* Stats Footer */}
         <div className="mt-8 p-4 bg-white rounded-lg shadow text-center text-gray-600">
           <p>
-            📊 Total: {notes.length} notes • 
-            📝 Active: {filteredNotes.length} showing • 
+            📊 Total: {notes.length} notes •
+            📝 Active: {filteredNotes.length} showing •
             🏷️ {categories.length} categories
           </p>
           <p className="text-sm mt-1">
@@ -6350,7 +6430,8 @@ function NotesApp() {
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 export default NotesApp;
@@ -6361,58 +6442,58 @@ import { useState, useEffect } from 'react';
 import { FaPlus, FaTrash, FaEdit, FaChartLine, FaWallet, FaShoppingCart, FaHome, FaCar, FaUtensils, FaFilm } from 'react-icons/fa';
 
 function ExpenseTracker() {
-  // State for transactions
-  const [transactions, setTransactions] = useState(() => {
-    const saved = localStorage.getItem('transactions');
-    return saved ? JSON.parse(saved) : [];
-  });
-  
-  // State for form
-  const [description, setDescription] = useState('');
-  const [amount, setAmount] = useState('');
-  const [type, setType] = useState('expense');
-  const [category, setCategory] = useState('food');
-  const [editingId, setEditingId] = useState(null);
-  
-  // State for filters
-  const [filterType, setFilterType] = useState('all');
-  const [filterCategory, setFilterCategory] = useState('all');
-  const [dateRange, setDateRange] = useState({ start: '', end: '' });
-  
-  // Categories
-  const categories = {
-    expense: [
-      { id: 'food', name: 'Food & Dining', icon: FaUtensils, color: 'orange' },
-      { id: 'transport', name: 'Transportation', icon: FaCar, color: 'blue' },
-      { id: 'shopping', name: 'Shopping', icon: FaShoppingCart, color: 'pink' },
-      { id: 'entertainment', name: 'Entertainment', icon: FaFilm, color: 'purple' },
-      { id: 'bills', name: 'Bills & Utilities', icon: FaHome, color: 'red' }
-    ],
-    income: [
-      { id: 'salary', name: 'Salary', icon: FaWallet, color: 'green' },
-      { id: 'freelance', name: 'Freelance', icon: FaChartLine, color: 'teal' },
-      { id: 'investment', name: 'Investment', icon: FaChartLine, color: 'indigo' },
-      { id: 'gift', name: 'Gift', icon: FaWallet, color: 'yellow' }
-    ]
-  };
-  
-  // Save to localStorage
-  useEffect(() => {
-    localStorage.setItem('transactions', JSON.stringify(transactions));
-  }, [transactions]);
-  
-  // Add or update transaction
-  const saveTransaction = () => {
-    if (!description.trim()) {
-      alert('Please enter a description');
-      return;
-    }
-    
+// State for transactions
+const [transactions, setTransactions] = useState(() => {
+const saved = localStorage.getItem('transactions');
+return saved ? JSON.parse(saved) : [];
+});
+
+// State for form
+const [description, setDescription] = useState('');
+const [amount, setAmount] = useState('');
+const [type, setType] = useState('expense');
+const [category, setCategory] = useState('food');
+const [editingId, setEditingId] = useState(null);
+
+// State for filters
+const [filterType, setFilterType] = useState('all');
+const [filterCategory, setFilterCategory] = useState('all');
+const [dateRange, setDateRange] = useState({ start: '', end: '' });
+
+// Categories
+const categories = {
+expense: [
+{ id: 'food', name: 'Food & Dining', icon: FaUtensils, color: 'orange' },
+{ id: 'transport', name: 'Transportation', icon: FaCar, color: 'blue' },
+{ id: 'shopping', name: 'Shopping', icon: FaShoppingCart, color: 'pink' },
+{ id: 'entertainment', name: 'Entertainment', icon: FaFilm, color: 'purple' },
+{ id: 'bills', name: 'Bills & Utilities', icon: FaHome, color: 'red' }
+],
+income: [
+{ id: 'salary', name: 'Salary', icon: FaWallet, color: 'green' },
+{ id: 'freelance', name: 'Freelance', icon: FaChartLine, color: 'teal' },
+{ id: 'investment', name: 'Investment', icon: FaChartLine, color: 'indigo' },
+{ id: 'gift', name: 'Gift', icon: FaWallet, color: 'yellow' }
+]
+};
+
+// Save to localStorage
+useEffect(() => {
+localStorage.setItem('transactions', JSON.stringify(transactions));
+}, [transactions]);
+
+// Add or update transaction
+const saveTransaction = () => {
+if (!description.trim()) {
+alert('Please enter a description');
+return;
+}
+
     if (!amount || isNaN(amount) || Number(amount) <= 0) {
       alert('Please enter a valid amount');
       return;
     }
-    
+
     if (editingId) {
       // Update existing
       setTransactions(transactions.map(t =>
@@ -6440,88 +6521,91 @@ function ExpenseTracker() {
         createdAt: new Date().toISOString()
       }]);
     }
-    
+
     // Reset form
     setDescription('');
     setAmount('');
     setType('expense');
     setCategory('food');
-  };
-  
-  // Delete transaction
-  const deleteTransaction = (id) => {
-    if (confirm('Are you sure you want to delete this transaction?')) {
-      setTransactions(transactions.filter(t => t.id !== id));
-    }
-  };
-  
-  // Edit transaction
-  const editTransaction = (transaction) => {
-    setDescription(transaction.description);
-    setAmount(transaction.amount.toString());
-    setType(transaction.type);
-    setCategory(transaction.category);
-    setEditingId(transaction.id);
-  };
-  
-  // Calculate totals
-  const calculateTotals = () => {
-    const income = transactions
-      .filter(t => t.type === 'income')
-      .reduce((sum, t) => sum + t.amount, 0);
-    
+
+};
+
+// Delete transaction
+const deleteTransaction = (id) => {
+if (confirm('Are you sure you want to delete this transaction?')) {
+setTransactions(transactions.filter(t => t.id !== id));
+}
+};
+
+// Edit transaction
+const editTransaction = (transaction) => {
+setDescription(transaction.description);
+setAmount(transaction.amount.toString());
+setType(transaction.type);
+setCategory(transaction.category);
+setEditingId(transaction.id);
+};
+
+// Calculate totals
+const calculateTotals = () => {
+const income = transactions
+.filter(t => t.type === 'income')
+.reduce((sum, t) => sum + t.amount, 0);
+
     const expense = transactions
       .filter(t => t.type === 'expense')
       .reduce((sum, t) => sum + t.amount, 0);
-    
+
     const balance = income - expense;
-    
+
     return { income, expense, balance };
-  };
-  
-  // Filter transactions
-  const filteredTransactions = transactions.filter(t => {
-    // Type filter
-    if (filterType !== 'all' && t.type !== filterType) return false;
-    
+
+};
+
+// Filter transactions
+const filteredTransactions = transactions.filter(t => {
+// Type filter
+if (filterType !== 'all' && t.type !== filterType) return false;
+
     // Category filter
     if (filterCategory !== 'all' && t.category !== filterCategory) return false;
-    
+
     // Date range filter
     if (dateRange.start) {
       const tDate = new Date(t.date).toISOString().split('T')[0];
       if (dateRange.start && tDate < dateRange.start) return false;
       if (dateRange.end && tDate > dateRange.end) return false;
     }
-    
+
     return true;
-  });
-  
-  // Group transactions by date
-  const groupedTransactions = filteredTransactions.reduce((groups, transaction) => {
-    const date = new Date(transaction.date).toLocaleDateString();
-    if (!groups[date]) groups[date] = [];
-    groups[date].push(transaction);
-    return groups;
-  }, {});
-  
-  const totals = calculateTotals();
-  
-  // Get category details
-  const getCategoryDetails = (categoryId, type) => {
-    const catList = type === 'income' ? categories.income : categories.expense;
-    return catList.find(c => c.id === categoryId);
-  };
-  
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-6xl mx-auto p-4">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">💰 Expense Tracker</h1>
-          <p className="text-gray-600">Track your income and expenses</p>
-        </div>
-        
+
+});
+
+// Group transactions by date
+const groupedTransactions = filteredTransactions.reduce((groups, transaction) => {
+const date = new Date(transaction.date).toLocaleDateString();
+if (!groups[date]) groups[date] = [];
+groups[date].push(transaction);
+return groups;
+}, {});
+
+const totals = calculateTotals();
+
+// Get category details
+const getCategoryDetails = (categoryId, type) => {
+const catList = type === 'income' ? categories.income : categories.expense;
+return catList.find(c => c.id === categoryId);
+};
+
+return (
+<div className="min-h-screen bg-gray-100">
+<div className="max-w-6xl mx-auto p-4">
+{/_ Header _/}
+<div className="text-center mb-8">
+<h1 className="text-4xl font-bold text-gray-800 mb-2">💰 Expense Tracker</h1>
+<p className="text-gray-600">Track your income and expenses</p>
+</div>
+
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
@@ -6535,7 +6619,7 @@ function ExpenseTracker() {
               <FaWallet className="text-4xl text-gray-400" />
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -6547,7 +6631,7 @@ function ExpenseTracker() {
               <FaChartLine className="text-4xl text-green-500" />
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -6560,13 +6644,13 @@ function ExpenseTracker() {
             </div>
           </div>
         </div>
-        
+
         {/* Add Transaction Form */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">
             {editingId ? 'Edit Transaction' : 'Add New Transaction'}
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <input
               type="text"
@@ -6575,7 +6659,7 @@ function ExpenseTracker() {
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Description..."
             />
-            
+
             <input
               type="number"
               value={amount}
@@ -6584,7 +6668,7 @@ function ExpenseTracker() {
               placeholder="Amount..."
               step="0.01"
             />
-            
+
             <select
               value={type}
               onChange={(e) => {
@@ -6596,7 +6680,7 @@ function ExpenseTracker() {
               <option value="expense">Expense</option>
               <option value="income">Income</option>
             </select>
-            
+
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -6607,7 +6691,7 @@ function ExpenseTracker() {
               ))}
             </select>
           </div>
-          
+
           <div className="flex gap-2 mt-4">
             <button
               onClick={saveTransaction}
@@ -6631,7 +6715,7 @@ function ExpenseTracker() {
             )}
           </div>
         </div>
-        
+
         {/* Filters */}
         <div className="bg-white rounded-lg shadow p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -6644,7 +6728,7 @@ function ExpenseTracker() {
               <option value="income">Income Only</option>
               <option value="expense">Expense Only</option>
             </select>
-            
+
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
@@ -6655,7 +6739,7 @@ function ExpenseTracker() {
                 <option key={cat.id} value={cat.id}>{cat.name}</option>
               ))}
             </select>
-            
+
             <div className="flex gap-2">
               <input
                 type="date"
@@ -6682,7 +6766,7 @@ function ExpenseTracker() {
             </div>
           </div>
         </div>
-        
+
         {/* Transactions List */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="p-4 bg-gray-50 border-b">
@@ -6691,7 +6775,7 @@ function ExpenseTracker() {
               Showing {filteredTransactions.length} of {transactions.length} transactions
             </p>
           </div>
-          
+
           {filteredTransactions.length === 0 ? (
             <div className="text-center py-12 text-gray-500">
               No transactions found
@@ -6707,7 +6791,7 @@ function ExpenseTracker() {
                     const categoryDetails = getCategoryDetails(transaction.category, transaction.type);
                     const IconComponent = categoryDetails?.icon;
                     const isIncome = transaction.type === 'income';
-                    
+
                     return (
                       <div key={transaction.id} className="p-4 hover:bg-gray-50 transition flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -6721,7 +6805,7 @@ function ExpenseTracker() {
                             <p className="text-sm text-gray-500">{categoryDetails?.name}</p>
                           </div>
                         </div>
-                        
+
                         <div className="flex items-center gap-4">
                           <p className={`font-bold ${isIncome ? 'text-green-600' : 'text-red-600'}`}>
                             {isIncome ? '+' : '-'}${transaction.amount.toFixed(2)}
@@ -6749,7 +6833,8 @@ function ExpenseTracker() {
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 export default ExpenseTracker;
@@ -6760,41 +6845,41 @@ import { useState } from 'react';
 import { FaSearch, FaClock, FaUtensils, FaHeart, FaRegHeart, FaStar, FaExternalLinkAlt } from 'react-icons/fa';
 
 function RecipeFinder() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [favorites, setFavorites] = useState(() => {
-    const saved = localStorage.getItem('favoriteRecipes');
-    return saved ? JSON.parse(saved) : [];
-  });
-  
-  // Spoonacular API - Get your free API key at https://spoonacular.com/food-api
-  const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
-  const API_URL = 'https://api.spoonacular.com/recipes';
-  
-  const searchRecipes = async () => {
-    if (!searchTerm.trim()) {
-      setError('Please enter an ingredient or recipe name');
-      return;
-    }
-    
+const [searchTerm, setSearchTerm] = useState('');
+const [recipes, setRecipes] = useState([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+const [selectedRecipe, setSelectedRecipe] = useState(null);
+const [favorites, setFavorites] = useState(() => {
+const saved = localStorage.getItem('favoriteRecipes');
+return saved ? JSON.parse(saved) : [];
+});
+
+// Spoonacular API - Get your free API key at https://spoonacular.com/food-api
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your actual API key
+const API_URL = 'https://api.spoonacular.com/recipes';
+
+const searchRecipes = async () => {
+if (!searchTerm.trim()) {
+setError('Please enter an ingredient or recipe name');
+return;
+}
+
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch(
         `${API_URL}/complexSearch?query=${searchTerm}&number=12&apiKey=${API_KEY}`
       );
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch recipes');
       }
-      
+
       const data = await response.json();
       setRecipes(data.results);
-      
+
       if (data.results.length === 0) {
         setError('No recipes found. Try a different search term.');
       }
@@ -6804,51 +6889,53 @@ function RecipeFinder() {
     } finally {
       setLoading(false);
     }
-  };
-  
-  const getRecipeDetails = async (id) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `${API_URL}/${id}/information?apiKey=${API_KEY}`
-      );
-      const data = await response.json();
-      setSelectedRecipe(data);
-    } catch (err) {
-      console.error('Error fetching details:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  const toggleFavorite = (recipe) => {
-    const isFavorite = favorites.some(fav => fav.id === recipe.id);
-    
+
+};
+
+const getRecipeDetails = async (id) => {
+setLoading(true);
+try {
+const response = await fetch(
+`${API_URL}/${id}/information?apiKey=${API_KEY}`
+);
+const data = await response.json();
+setSelectedRecipe(data);
+} catch (err) {
+console.error('Error fetching details:', err);
+} finally {
+setLoading(false);
+}
+};
+
+const toggleFavorite = (recipe) => {
+const isFavorite = favorites.some(fav => fav.id === recipe.id);
+
     if (isFavorite) {
       setFavorites(favorites.filter(fav => fav.id !== recipe.id));
     } else {
       setFavorites([...favorites, { id: recipe.id, title: recipe.title, image: recipe.image }]);
     }
-  };
-  
-  const isFavorite = (recipeId) => {
-    return favorites.some(fav => fav.id === recipeId);
-  };
-  
-  // Save favorites to localStorage
-  useState(() => {
-    localStorage.setItem('favoriteRecipes', JSON.stringify(favorites));
-  }, [favorites]);
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
-      <div className="max-w-6xl mx-auto p-4">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-gray-800 mb-2">🍳 Recipe Finder</h1>
-          <p className="text-gray-600">Discover delicious recipes with ingredients you have</p>
-        </div>
-        
+
+};
+
+const isFavorite = (recipeId) => {
+return favorites.some(fav => fav.id === recipeId);
+};
+
+// Save favorites to localStorage
+useState(() => {
+localStorage.setItem('favoriteRecipes', JSON.stringify(favorites));
+}, [favorites]);
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+<div className="max-w-6xl mx-auto p-4">
+{/_ Header _/}
+<div className="text-center mb-8">
+<h1 className="text-5xl font-bold text-gray-800 mb-2">🍳 Recipe Finder</h1>
+<p className="text-gray-600">Discover delicious recipes with ingredients you have</p>
+</div>
+
         {/* Search Section */}
         <div className="max-w-2xl mx-auto mb-8">
           <div className="flex gap-2">
@@ -6869,14 +6956,14 @@ function RecipeFinder() {
               Search
             </button>
           </div>
-          
+
           {error && (
             <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
               ⚠️ {error}
             </div>
           )}
         </div>
-        
+
         {/* Favorites Section */}
         {favorites.length > 0 && (
           <div className="mb-8">
@@ -6903,7 +6990,7 @@ function RecipeFinder() {
             </div>
           </div>
         )}
-        
+
         {/* Recipes Grid */}
         {loading && !selectedRecipe ? (
           <div className="text-center py-12">
@@ -6966,7 +7053,7 @@ function RecipeFinder() {
             </div>
           )
         )}
-        
+
         {/* Recipe Details Modal */}
         {selectedRecipe && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 overflow-y-auto">
@@ -6981,7 +7068,7 @@ function RecipeFinder() {
                   ✕
                 </button>
               </div>
-              
+
               {/* Modal Content */}
               <div className="p-6">
                 <img
@@ -6989,7 +7076,7 @@ function RecipeFinder() {
                   alt={selectedRecipe.title}
                   className="w-full max-h-96 object-cover rounded-lg mb-6"
                 />
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                   <div className="bg-gray-50 p-3 rounded-lg text-center">
                     <FaClock className="inline-block text-orange-500 mb-1" />
@@ -7007,7 +7094,7 @@ function RecipeFinder() {
                     <p className="font-bold">{selectedRecipe.healthScore || 'N/A'}</p>
                   </div>
                 </div>
-                
+
                 {/* Ingredients */}
                 <div className="mb-6">
                   <h3 className="text-xl font-bold mb-3">Ingredients</h3>
@@ -7020,7 +7107,7 @@ function RecipeFinder() {
                     ))}
                   </ul>
                 </div>
-                
+
                 {/* Instructions */}
                 <div className="mb-6">
                   <h3 className="text-xl font-bold mb-3">Instructions</h3>
@@ -7030,7 +7117,7 @@ function RecipeFinder() {
                     <p className="text-gray-500">No instructions available.</p>
                   )}
                 </div>
-                
+
                 {/* Source Link */}
                 {selectedRecipe.sourceUrl && (
                   <a
@@ -7048,7 +7135,8 @@ function RecipeFinder() {
         )}
       </div>
     </div>
-  );
+
+);
 }
 
 export default RecipeFinder;
@@ -7059,56 +7147,56 @@ import { useState, useEffect } from 'react';
 import { FaUserPlus, FaEdit, FaTrash, FaSearch, FaUsers, FaUserCheck, FaUserTimes } from 'react-icons/fa';
 
 function UserManagementDashboard() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [search, setSearch] = useState('');
-  const [showForm, setShowForm] = useState(false);
-  const [editingUser, setEditingUser] = useState(null);
-  
-  // Form state
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    role: 'user',
-    status: 'active'
-  });
-  
-  // Fetch users from API
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-  
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await response.json();
-      // Transform data to match our format
-      const formattedUsers = data.map(user => ({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-        role: user.id === 1 ? 'admin' : user.id === 2 ? 'manager' : 'user',
-        status: user.id % 2 === 0 ? 'active' : 'inactive',
-        createdAt: new Date().toISOString()
-      }));
-      setUsers(formattedUsers);
-    } catch (err) {
-      setError('Failed to fetch users');
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  // Add or update user
-  const saveUser = () => {
-    if (!formData.name || !formData.email) {
-      alert('Please fill in all required fields');
-      return;
-    }
-    
+const [users, setUsers] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+const [search, setSearch] = useState('');
+const [showForm, setShowForm] = useState(false);
+const [editingUser, setEditingUser] = useState(null);
+
+// Form state
+const [formData, setFormData] = useState({
+name: '',
+email: '',
+phone: '',
+role: 'user',
+status: 'active'
+});
+
+// Fetch users from API
+useEffect(() => {
+fetchUsers();
+}, []);
+
+const fetchUsers = async () => {
+try {
+const response = await fetch('https://jsonplaceholder.typicode.com/users');
+const data = await response.json();
+// Transform data to match our format
+const formattedUsers = data.map(user => ({
+id: user.id,
+name: user.name,
+email: user.email,
+phone: user.phone,
+role: user.id === 1 ? 'admin' : user.id === 2 ? 'manager' : 'user',
+status: user.id % 2 === 0 ? 'active' : 'inactive',
+createdAt: new Date().toISOString()
+}));
+setUsers(formattedUsers);
+} catch (err) {
+setError('Failed to fetch users');
+} finally {
+setLoading(false);
+}
+};
+
+// Add or update user
+const saveUser = () => {
+if (!formData.name || !formData.email) {
+alert('Please fill in all required fields');
+return;
+}
+
     if (editingUser) {
       // Update existing user
       setUsers(users.map(user =>
@@ -7125,91 +7213,92 @@ function UserManagementDashboard() {
       };
       setUsers([newUser, ...users]);
     }
-    
+
     resetForm();
-  };
-  
-  // Edit user
-  const editUser = (user) => {
-    setEditingUser(user);
-    setFormData({
-      name: user.name,
-      email: user.email,
-      phone: user.phone || '',
-      role: user.role,
-      status: user.status
-    });
-    setShowForm(true);
-  };
-  
-  // Delete user
-  const deleteUser = (id) => {
-    if (confirm('Are you sure you want to delete this user?')) {
-      setUsers(users.filter(user => user.id !== id));
-    }
-  };
-  
-  // Reset form
-  const resetForm = () => {
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      role: 'user',
-      status: 'active'
-    });
-    setEditingUser(null);
-    setShowForm(false);
-  };
-  
-  // Filter users
-  const filteredUsers = users.filter(user =>
-    user.name.toLowerCase().includes(search.toLowerCase()) ||
-    user.email.toLowerCase().includes(search.toLowerCase())
-  );
-  
-  // Statistics
-  const stats = {
-    total: users.length,
-    active: users.filter(u => u.status === 'active').length,
-    inactive: users.filter(u => u.status === 'inactive').length,
-    admins: users.filter(u => u.role === 'admin').length
-  };
-  
-  // Get role badge color
-  const getRoleColor = (role) => {
-    switch(role) {
-      case 'admin': return 'bg-red-100 text-red-700';
-      case 'manager': return 'bg-purple-100 text-purple-700';
-      default: return 'bg-blue-100 text-blue-700';
-    }
-  };
-  
-  // Get status badge color
-  const getStatusColor = (status) => {
-    return status === 'active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700';
-  };
-  
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-          <p className="mt-4 text-gray-600">Loading users...</p>
-        </div>
-      </div>
-    );
-  }
-  
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-7xl mx-auto p-4">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">User Management Dashboard</h1>
-          <p className="text-gray-600">Manage users, roles, and permissions</p>
-        </div>
-        
+
+};
+
+// Edit user
+const editUser = (user) => {
+setEditingUser(user);
+setFormData({
+name: user.name,
+email: user.email,
+phone: user.phone || '',
+role: user.role,
+status: user.status
+});
+setShowForm(true);
+};
+
+// Delete user
+const deleteUser = (id) => {
+if (confirm('Are you sure you want to delete this user?')) {
+setUsers(users.filter(user => user.id !== id));
+}
+};
+
+// Reset form
+const resetForm = () => {
+setFormData({
+name: '',
+email: '',
+phone: '',
+role: 'user',
+status: 'active'
+});
+setEditingUser(null);
+setShowForm(false);
+};
+
+// Filter users
+const filteredUsers = users.filter(user =>
+user.name.toLowerCase().includes(search.toLowerCase()) ||
+user.email.toLowerCase().includes(search.toLowerCase())
+);
+
+// Statistics
+const stats = {
+total: users.length,
+active: users.filter(u => u.status === 'active').length,
+inactive: users.filter(u => u.status === 'inactive').length,
+admins: users.filter(u => u.role === 'admin').length
+};
+
+// Get role badge color
+const getRoleColor = (role) => {
+switch(role) {
+case 'admin': return 'bg-red-100 text-red-700';
+case 'manager': return 'bg-purple-100 text-purple-700';
+default: return 'bg-blue-100 text-blue-700';
+}
+};
+
+// Get status badge color
+const getStatusColor = (status) => {
+return status === 'active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700';
+};
+
+if (loading) {
+return (
+<div className="min-h-screen flex items-center justify-center">
+<div className="text-center">
+<div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+<p className="mt-4 text-gray-600">Loading users...</p>
+</div>
+</div>
+);
+}
+
+return (
+<div className="min-h-screen bg-gray-100">
+<div className="max-w-7xl mx-auto p-4">
+{/_ Header _/}
+<div className="mb-8">
+<h1 className="text-3xl font-bold text-gray-800 mb-2">User Management Dashboard</h1>
+<p className="text-gray-600">Manage users, roles, and permissions</p>
+</div>
+
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
@@ -7221,7 +7310,7 @@ function UserManagementDashboard() {
               <p className="text-2xl font-bold">{stats.total}</p>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
             <div className="bg-green-100 p-3 rounded-full">
               <FaUserCheck className="text-green-600 text-xl" />
@@ -7231,7 +7320,7 @@ function UserManagementDashboard() {
               <p className="text-2xl font-bold">{stats.active}</p>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
             <div className="bg-gray-100 p-3 rounded-full">
               <FaUserTimes className="text-gray-600 text-xl" />
@@ -7241,7 +7330,7 @@ function UserManagementDashboard() {
               <p className="text-2xl font-bold">{stats.inactive}</p>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
             <div className="bg-red-100 p-3 rounded-full">
               <FaUserCheck className="text-red-600 text-xl" />
@@ -7252,7 +7341,7 @@ function UserManagementDashboard() {
             </div>
           </div>
         </div>
-        
+
         {/* Action Bar */}
         <div className="flex flex-wrap gap-4 mb-6">
           <button
@@ -7261,7 +7350,7 @@ function UserManagementDashboard() {
           >
             <FaUserPlus /> {showForm ? 'Cancel' : 'Add User'}
           </button>
-          
+
           <div className="flex-1 min-w-[200px]">
             <div className="relative">
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -7275,14 +7364,14 @@ function UserManagementDashboard() {
             </div>
           </div>
         </div>
-        
+
         {/* User Form */}
         {showForm && (
           <div className="bg-white rounded-lg shadow p-6 mb-6">
             <h2 className="text-xl font-bold mb-4">
               {editingUser ? 'Edit User' : 'Add New User'}
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-700 mb-2">Name *</label>
@@ -7293,7 +7382,7 @@ function UserManagementDashboard() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Email *</label>
                 <input
@@ -7303,7 +7392,7 @@ function UserManagementDashboard() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Phone</label>
                 <input
@@ -7313,7 +7402,7 @@ function UserManagementDashboard() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Role</label>
                 <select
@@ -7326,7 +7415,7 @@ function UserManagementDashboard() {
                   <option value="admin">Admin</option>
                 </select>
               </div>
-              
+
               <div>
                 <label className="block text-gray-700 mb-2">Status</label>
                 <select
@@ -7339,7 +7428,7 @@ function UserManagementDashboard() {
                 </select>
               </div>
             </div>
-            
+
             <div className="flex gap-2 mt-4">
               <button
                 onClick={saveUser}
@@ -7356,7 +7445,7 @@ function UserManagementDashboard() {
             </div>
           </div>
         )}
-        
+
         {/* Users Table */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="overflow-x-auto">
@@ -7417,7 +7506,7 @@ function UserManagementDashboard() {
               </tbody>
             </table>
           </div>
-          
+
           {filteredUsers.length === 0 && (
             <div className="text-center py-12 text-gray-500">
               No users found
@@ -7426,7 +7515,8 @@ function UserManagementDashboard() {
         </div>
       </div>
     </div>
-  );
+
+);
 }
 
 export default UserManagementDashboard;
@@ -7437,70 +7527,71 @@ import { useState, useEffect } from 'react';
 import { FaHeart, FaRegHeart, FaComment, FaShare, FaCalendar, FaUser, FaPlus, FaTimes } from 'react-icons/fa';
 
 function BlogApp() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [showCreateForm, setShowCreateForm] = useState(false);
-  const [newPost, setNewPost] = useState({ title: '', content: '', author: '' });
-  const [commentText, setCommentText] = useState('');
-  
-  // Fetch posts from API
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => {
-        // Add additional fields
-        const formattedPosts = data.slice(0, 10).map(post => ({
-          ...post,
-          author: `Author ${post.userId}`,
-          likes: Math.floor(Math.random() * 100),
-          liked: false,
-          comments: [
-            { id: 1, author: 'John Doe', text: 'Great post!', date: new Date().toISOString() },
-            { id: 2, author: 'Jane Smith', text: 'Thanks for sharing!', date: new Date().toISOString() }
-          ],
-          createdAt: new Date().toISOString()
-        }));
-        setPosts(formattedPosts);
-        setLoading(false);
-      });
-  }, []);
-  
-  // Like a post
-  const likePost = (postId) => {
-    setPosts(posts.map(post =>
-      post.id === postId
-        ? { ...post, liked: !post.liked, likes: post.liked ? post.likes - 1 : post.likes + 1 }
-        : post
-    ));
-  };
-  
-  // Add comment
-  const addComment = (postId) => {
-    if (!commentText.trim()) return;
-    
+const [posts, setPosts] = useState([]);
+const [loading, setLoading] = useState(true);
+const [selectedPost, setSelectedPost] = useState(null);
+const [showCreateForm, setShowCreateForm] = useState(false);
+const [newPost, setNewPost] = useState({ title: '', content: '', author: '' });
+const [commentText, setCommentText] = useState('');
+
+// Fetch posts from API
+useEffect(() => {
+fetch('https://jsonplaceholder.typicode.com/posts')
+.then(res => res.json())
+.then(data => {
+// Add additional fields
+const formattedPosts = data.slice(0, 10).map(post => ({
+...post,
+author: `Author ${post.userId}`,
+likes: Math.floor(Math.random() \* 100),
+liked: false,
+comments: [
+{ id: 1, author: 'John Doe', text: 'Great post!', date: new Date().toISOString() },
+{ id: 2, author: 'Jane Smith', text: 'Thanks for sharing!', date: new Date().toISOString() }
+],
+createdAt: new Date().toISOString()
+}));
+setPosts(formattedPosts);
+setLoading(false);
+});
+}, []);
+
+// Like a post
+const likePost = (postId) => {
+setPosts(posts.map(post =>
+post.id === postId
+? { ...post, liked: !post.liked, likes: post.liked ? post.likes - 1 : post.likes + 1 }
+: post
+));
+};
+
+// Add comment
+const addComment = (postId) => {
+if (!commentText.trim()) return;
+
     const newComment = {
       id: Date.now(),
       author: 'You',
       text: commentText,
       date: new Date().toISOString()
     };
-    
+
     setPosts(posts.map(post =>
       post.id === postId
         ? { ...post, comments: [...post.comments, newComment] }
         : post
     ));
     setCommentText('');
-  };
-  
-  // Create new post
-  const createPost = () => {
-    if (!newPost.title || !newPost.content || !newPost.author) {
-      alert('Please fill in all fields');
-      return;
-    }
-    
+
+};
+
+// Create new post
+const createPost = () => {
+if (!newPost.title || !newPost.content || !newPost.author) {
+alert('Please fill in all fields');
+return;
+}
+
     const post = {
       id: Date.now(),
       title: newPost.title,
@@ -7511,48 +7602,48 @@ function BlogApp() {
       comments: [],
       createdAt: new Date().toISOString()
     };
-    
+
     setPosts([post, ...posts]);
     setNewPost({ title: '', content: '', author: '' });
     setShowCreateForm(false);
-  };
-  
-  // Format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  };
-  
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-          <p className="mt-4 text-gray-600">Loading blog posts...</p>
-        </div>
-      </div>
-    );
-  }
-  
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-4xl mx-auto p-4">
-        {/* Header */}
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800">📝 Blog Posts</h1>
-              <p className="text-gray-600 mt-1">Share your thoughts with the world</p>
-            </div>
-            <button
-              onClick={() => setShowCreateForm(true)}
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-600 transition"
-            >
-              <FaPlus /> New Post
-            </button>
-          </div>
-        </div>
-        
+
+};
+
+// Format date
+const formatDate = (dateString) => {
+const date = new Date(dateString);
+return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+};
+
+if (loading) {
+return (
+<div className="min-h-screen flex items-center justify-center">
+<div className="text-center">
+<div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+<p className="mt-4 text-gray-600">Loading blog posts...</p>
+</div>
+</div>
+);
+}
+
+return (
+<div className="min-h-screen bg-gray-100">
+<div className="max-w-4xl mx-auto p-4">
+{/_ Header _/}
+<div className="bg-white rounded-lg shadow p-6 mb-6">
+<div className="flex justify-between items-center">
+<div>
+<h1 className="text-3xl font-bold text-gray-800">📝 Blog Posts</h1>
+<p className="text-gray-600 mt-1">Share your thoughts with the world</p>
+</div>
+<button
+onClick={() => setShowCreateForm(true)}
+className="bg-blue-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-600 transition" >
+<FaPlus /> New Post
+</button>
+</div>
+</div>
+
         {/* Posts List */}
         <div className="space-y-6">
           {posts.map(post => (
@@ -7574,10 +7665,10 @@ function BlogApp() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Post Content */}
                 <p className="text-gray-700 mb-4 leading-relaxed">{post.body}</p>
-                
+
                 {/* Post Actions */}
                 <div className="flex items-center gap-6 pt-4 border-t">
                   <button
@@ -7587,7 +7678,7 @@ function BlogApp() {
                     {post.liked ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
                     <span>{post.likes} likes</span>
                   </button>
-                  
+
                   <button
                     onClick={() => setSelectedPost(selectedPost?.id === post.id ? null : post)}
                     className="flex items-center gap-2 text-gray-500 hover:text-blue-500 transition"
@@ -7595,18 +7686,18 @@ function BlogApp() {
                     <FaComment />
                     <span>{post.comments.length} comments</span>
                   </button>
-                  
+
                   <button className="flex items-center gap-2 text-gray-500 hover:text-green-500 transition">
                     <FaShare />
                     <span>Share</span>
                   </button>
                 </div>
-                
+
                 {/* Comments Section */}
                 {selectedPost?.id === post.id && (
                   <div className="mt-6 pt-4 border-t">
                     <h3 className="font-semibold mb-3">Comments ({post.comments.length})</h3>
-                    
+
                     {/* Add Comment */}
                     <div className="flex gap-2 mb-4">
                       <input
@@ -7623,7 +7714,7 @@ function BlogApp() {
                         Post
                       </button>
                     </div>
-                    
+
                     {/* Comments List */}
                     <div className="space-y-3">
                       {post.comments.map(comment => (
@@ -7642,7 +7733,7 @@ function BlogApp() {
             </div>
           ))}
         </div>
-        
+
         {/* Create Post Modal */}
         {showCreateForm && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -7657,7 +7748,7 @@ function BlogApp() {
                     <FaTimes />
                   </button>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <label className="block text-gray-700 mb-2">Author Name *</label>
@@ -7669,7 +7760,7 @@ function BlogApp() {
                       placeholder="Your name..."
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-gray-700 mb-2">Title *</label>
                     <input
@@ -7680,7 +7771,7 @@ function BlogApp() {
                       placeholder="Post title..."
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-gray-700 mb-2">Content *</label>
                     <textarea
@@ -7691,7 +7782,7 @@ function BlogApp() {
                       placeholder="Write your post content here..."
                     />
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <button
                       onClick={createPost}
@@ -7713,7 +7804,8 @@ function BlogApp() {
         )}
       </div>
     </div>
-  );
+
+);
 }
 
 export default BlogApp;
@@ -7724,110 +7816,109 @@ import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaMapMarker, FaBriefcase, FaGraduationCap, FaCode, FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3, FaJs } from 'react-icons/fa';
 
 function PortfolioWebsite() {
-  const [activeSection, setActiveSection] = useState('home');
-  const [showContact, setShowContact] = useState(false);
-  
-  // Portfolio data
-  const portfolio = {
-    name: 'John Developer',
-    title: 'Full Stack Developer',
-    bio: 'Passionate developer with 5+ years of experience building web applications. Love creating beautiful and functional websites that solve real-world problems.',
-    email: 'john@example.com',
-    phone: '+1 234 567 890',
-    location: 'San Francisco, CA',
-    social: {
-      github: 'https://github.com/johndeveloper',
-      linkedin: 'https://linkedin.com/in/johndeveloper',
-      twitter: 'https://twitter.com/johndeveloper'
-    },
-    skills: [
-      { name: 'React', icon: FaReact, level: 90, color: 'blue' },
-      { name: 'Node.js', icon: FaNodeJs, level: 85, color: 'green' },
-      { name: 'JavaScript', icon: FaJs, level: 95, color: 'yellow' },
-      { name: 'HTML5', icon: FaHtml5, level: 95, color: 'orange' },
-      { name: 'CSS3', icon: FaCss3, level: 90, color: 'blue' },
-      { name: 'MongoDB', icon: FaDatabase, level: 80, color: 'green' }
-    ],
-    experience: [
-      {
-        company: 'Tech Corp',
-        position: 'Senior Full Stack Developer',
-        period: '2021 - Present',
-        description: 'Leading development of enterprise web applications, mentoring junior developers, and implementing best practices.'
-      },
-      {
-        company: 'Web Solutions Inc',
-        position: 'Frontend Developer',
-        period: '2019 - 2021',
-        description: 'Developed responsive web applications using React, collaborated with design team, and optimized performance.'
-      }
-    ],
-    education: [
-      {
-        school: 'University of Technology',
-        degree: 'Bachelor of Science in Computer Science',
-        period: '2015 - 2019',
-        description: 'Graduated with honors, focus on web development and software engineering.'
-      }
-    ],
-    projects: [
-      {
-        title: 'E-commerce Platform',
-        description: 'Full-stack e-commerce application with React, Node.js, and MongoDB',
-        tech: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
-        image: 'https://via.placeholder.com/300x200',
-        link: '#'
-      },
-      {
-        title: 'Task Management App',
-        description: 'Productivity app for managing tasks and projects',
-        tech: ['React', 'Firebase', 'Material-UI'],
-        image: 'https://via.placeholder.com/300x200',
-        link: '#'
-      },
-      {
-        title: 'Weather Dashboard',
-        description: 'Real-time weather application with API integration',
-        tech: ['React', 'OpenWeather API', 'Chart.js'],
-        image: 'https://via.placeholder.com/300x200',
-        link: '#'
-      }
-    ]
-  };
-  
-  // Scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-white shadow-md z-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-blue-600">{portfolio.name}</h1>
-            <div className="hidden md:flex space-x-6">
-              {['home', 'about', 'skills', 'experience', 'projects', 'contact'].map(section => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`capitalize hover:text-blue-600 transition ${
+const [activeSection, setActiveSection] = useState('home');
+const [showContact, setShowContact] = useState(false);
+
+// Portfolio data
+const portfolio = {
+name: 'John Developer',
+title: 'Full Stack Developer',
+bio: 'Passionate developer with 5+ years of experience building web applications. Love creating beautiful and functional websites that solve real-world problems.',
+email: 'john@example.com',
+phone: '+1 234 567 890',
+location: 'San Francisco, CA',
+social: {
+github: 'https://github.com/johndeveloper',
+linkedin: 'https://linkedin.com/in/johndeveloper',
+twitter: 'https://twitter.com/johndeveloper'
+},
+skills: [
+{ name: 'React', icon: FaReact, level: 90, color: 'blue' },
+{ name: 'Node.js', icon: FaNodeJs, level: 85, color: 'green' },
+{ name: 'JavaScript', icon: FaJs, level: 95, color: 'yellow' },
+{ name: 'HTML5', icon: FaHtml5, level: 95, color: 'orange' },
+{ name: 'CSS3', icon: FaCss3, level: 90, color: 'blue' },
+{ name: 'MongoDB', icon: FaDatabase, level: 80, color: 'green' }
+],
+experience: [
+{
+company: 'Tech Corp',
+position: 'Senior Full Stack Developer',
+period: '2021 - Present',
+description: 'Leading development of enterprise web applications, mentoring junior developers, and implementing best practices.'
+},
+{
+company: 'Web Solutions Inc',
+position: 'Frontend Developer',
+period: '2019 - 2021',
+description: 'Developed responsive web applications using React, collaborated with design team, and optimized performance.'
+}
+],
+education: [
+{
+school: 'University of Technology',
+degree: 'Bachelor of Science in Computer Science',
+period: '2015 - 2019',
+description: 'Graduated with honors, focus on web development and software engineering.'
+}
+],
+projects: [
+{
+title: 'E-commerce Platform',
+description: 'Full-stack e-commerce application with React, Node.js, and MongoDB',
+tech: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
+image: 'https://via.placeholder.com/300x200',
+link: '#'
+},
+{
+title: 'Task Management App',
+description: 'Productivity app for managing tasks and projects',
+tech: ['React', 'Firebase', 'Material-UI'],
+image: 'https://via.placeholder.com/300x200',
+link: '#'
+},
+{
+title: 'Weather Dashboard',
+description: 'Real-time weather application with API integration',
+tech: ['React', 'OpenWeather API', 'Chart.js'],
+image: 'https://via.placeholder.com/300x200',
+link: '#'
+}
+]
+};
+
+// Scroll to section
+const scrollToSection = (sectionId) => {
+const element = document.getElementById(sectionId);
+if (element) {
+element.scrollIntoView({ behavior: 'smooth' });
+setActiveSection(sectionId);
+}
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+{/_ Navigation _/}
+<nav className="sticky top-0 bg-white shadow-md z-50">
+<div className="max-w-6xl mx-auto px-4">
+<div className="flex justify-between items-center py-4">
+<h1 className="text-2xl font-bold text-blue-600">{portfolio.name}</h1>
+<div className="hidden md:flex space-x-6">
+{['home', 'about', 'skills', 'experience', 'projects', 'contact'].map(section => (
+<button
+key={section}
+onClick={() => scrollToSection(section)}
+className={`capitalize hover:text-blue-600 transition ${
                     activeSection === section ? 'text-blue-600 font-semibold' : 'text-gray-600'
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-      
+                  }`} >
+{section}
+</button>
+))}
+</div>
+</div>
+</div>
+</nav>
+
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="text-center px-4">
@@ -7842,7 +7933,7 @@ function PortfolioWebsite() {
           </button>
         </div>
       </section>
-      
+
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -7885,7 +7976,7 @@ function PortfolioWebsite() {
           </div>
         </div>
       </section>
-      
+
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -7912,7 +8003,7 @@ function PortfolioWebsite() {
           </div>
         </div>
       </section>
-      
+
       {/* Experience & Education */}
       <section id="experience" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -7934,7 +8025,7 @@ function PortfolioWebsite() {
                 ))}
               </div>
             </div>
-            
+
             {/* Education */}
             <div>
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -7954,7 +8045,7 @@ function PortfolioWebsite() {
           </div>
         </div>
       </section>
-      
+
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -7985,7 +8076,7 @@ function PortfolioWebsite() {
           </div>
         </div>
       </section>
-      
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -8015,7 +8106,7 @@ function PortfolioWebsite() {
               <FaLinkedin /> LinkedIn
             </a>
           </div>
-          
+
           {/* Contact Form */}
           <div className="bg-white text-gray-800 rounded-lg p-6 mt-8">
             <h3 className="text-2xl font-bold mb-4">Send a Message</h3>
@@ -8052,366 +8143,368 @@ function PortfolioWebsite() {
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-6 text-center">
         <p>© 2024 {portfolio.name}. All rights reserved.</p>
         <p className="text-sm text-gray-400 mt-2">Built with React & Tailwind CSS</p>
       </footer>
     </div>
-  );
+
+);
 }
 
-export default PortfolioWebsite;
-18. Common Mistakes and How to Fix Them
+export default PortfolioWebsite; 18. Common Mistakes and How to Fix Them
 Mistake 1: Directly Modifying State
 jsx
 // ❌ WRONG
 function WrongUpdate() {
-  const [user, setUser] = useState({ name: 'John', age: 25 });
-  
-  const updateAge = () => {
-    user.age = 26; // Direct mutation
-    setUser(user); // Won't trigger re-render
-  };
-  
-  return <button onClick={updateAge}>Update Age</button>;
+const [user, setUser] = useState({ name: 'John', age: 25 });
+
+const updateAge = () => {
+user.age = 26; // Direct mutation
+setUser(user); // Won't trigger re-render
+};
+
+return <button onClick={updateAge}>Update Age</button>;
 }
 
 // ✅ CORRECT
 function CorrectUpdate() {
-  const [user, setUser] = useState({ name: 'John', age: 25 });
-  
-  const updateAge = () => {
-    setUser({ ...user, age: 26 }); // Create new object
-  };
-  
-  return <button onClick={updateAge}>Update Age</button>;
+const [user, setUser] = useState({ name: 'John', age: 25 });
+
+const updateAge = () => {
+setUser({ ...user, age: 26 }); // Create new object
+};
+
+return <button onClick={updateAge}>Update Age</button>;
 }
 Mistake 2: Not Using Keys in Lists
 jsx
 // ❌ WRONG
 function WrongList() {
-  const items = ['Apple', 'Banana', 'Orange'];
-  
-  return (
-    <ul>
-      {items.map(item => (
-        <li>{item}</li> // No key
-      ))}
-    </ul>
-  );
+const items = ['Apple', 'Banana', 'Orange'];
+
+return (
+<ul>
+{items.map(item => (
+<li>{item}</li> // No key
+))}
+</ul>
+);
 }
 
 // ✅ CORRECT
 function CorrectList() {
-  const items = ['Apple', 'Banana', 'Orange'];
-  
-  return (
-    <ul>
-      {items.map((item, index) => (
-        <li key={index}>{item}</li> // Use key
-      ))}
-    </ul>
-  );
+const items = ['Apple', 'Banana', 'Orange'];
+
+return (
+<ul>
+{items.map((item, index) => (
+<li key={index}>{item}</li> // Use key
+))}
+</ul>
+);
 }
 
 // ✅ EVEN BETTER
 function BetterList() {
-  const items = [
-    { id: 1, name: 'Apple' },
-    { id: 2, name: 'Banana' },
-    { id: 3, name: 'Orange' }
-  ];
-  
-  return (
-    <ul>
-      {items.map(item => (
-        <li key={item.id}>{item.name}</li> // Use unique ID
-      ))}
-    </ul>
-  );
+const items = [
+{ id: 1, name: 'Apple' },
+{ id: 2, name: 'Banana' },
+{ id: 3, name: 'Orange' }
+];
+
+return (
+<ul>
+{items.map(item => (
+<li key={item.id}>{item.name}</li> // Use unique ID
+))}
+</ul>
+);
 }
 Mistake 3: Forgetting to Prevent Default in Forms
 jsx
 // ❌ WRONG
 function WrongForm() {
-  const handleSubmit = () => {
-    console.log('Form submitted');
-    // Page will refresh!
-  };
-  
-  return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-    </form>
-  );
+const handleSubmit = () => {
+console.log('Form submitted');
+// Page will refresh!
+};
+
+return (
+<form onSubmit={handleSubmit}>
+<button type="submit">Submit</button>
+</form>
+);
 }
 
 // ✅ CORRECT
 function CorrectForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
-    console.log('Form submitted');
-  };
-  
-  return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-    </form>
-  );
+const handleSubmit = (e) => {
+e.preventDefault(); // Prevent page refresh
+console.log('Form submitted');
+};
+
+return (
+<form onSubmit={handleSubmit}>
+<button type="submit">Submit</button>
+</form>
+);
 }
 Mistake 4: Using State in useEffect Without Dependencies
 jsx
 // ❌ WRONG
 function WrongEffect() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    // This will run infinitely!
-    setCount(count + 1);
-  }); // No dependencies
-  
-  return <div>{count}</div>;
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+// This will run infinitely!
+setCount(count + 1);
+}); // No dependencies
+
+return <div>{count}</div>;
 }
 
 // ✅ CORRECT
 function CorrectEffect() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    // Runs only when count changes
-    document.title = `Count: ${count}`;
-  }, [count]); // Add dependency
-  
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+// Runs only when count changes
+document.title = `Count: ${count}`;
+}, [count]); // Add dependency
+
+return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 Mistake 5: Not Handling Loading and Error States
 jsx
 // ❌ WRONG
 function WrongFetch() {
-  const [data, setData] = useState(null);
-  
-  useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => res.json())
-      .then(data => setData(data));
-  }, []);
-  
-  return <div>{data.name}</div>; // Crashes if data is null!
+const [data, setData] = useState(null);
+
+useEffect(() => {
+fetch('https://api.example.com/data')
+.then(res => res.json())
+.then(data => setData(data));
+}, []);
+
+return <div>{data.name}</div>; // Crashes if data is null!
 }
 
 // ✅ CORRECT
 function CorrectFetch() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-  
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  return <div>{data.name}</div>;
+const [data, setData] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+fetch('https://api.example.com/data')
+.then(res => res.json())
+.then(data => {
+setData(data);
+setLoading(false);
+})
+.catch(err => {
+setError(err.message);
+setLoading(false);
+});
+}, []);
+
+if (loading) return <div>Loading...</div>;
+if (error) return <div>Error: {error}</div>;
+return <div>{data.name}</div>;
 }
 Mistake 6: Forgetting to Cleanup Effects
 jsx
 // ❌ WRONG
 function WrongTimer() {
-  const [seconds, setSeconds] = useState(0);
-  
-  useEffect(() => {
-    // Creates new interval every time component re-renders!
-    setInterval(() => {
-      setSeconds(s => s + 1);
-    }, 1000);
-  }, []);
-  
-  return <div>{seconds} seconds</div>;
+const [seconds, setSeconds] = useState(0);
+
+useEffect(() => {
+// Creates new interval every time component re-renders!
+setInterval(() => {
+setSeconds(s => s + 1);
+}, 1000);
+}, []);
+
+return <div>{seconds} seconds</div>;
 }
 
 // ✅ CORRECT
 function CorrectTimer() {
-  const [seconds, setSeconds] = useState(0);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(s => s + 1);
-    }, 1000);
-    
+const [seconds, setSeconds] = useState(0);
+
+useEffect(() => {
+const interval = setInterval(() => {
+setSeconds(s => s + 1);
+}, 1000);
+
     return () => clearInterval(interval); // Cleanup
-  }, []);
-  
-  return <div>{seconds} seconds</div>;
+
+}, []);
+
+return <div>{seconds} seconds</div>;
 }
 Mistake 7: Using Index as Key in Dynamic Lists
 jsx
 // ❌ WRONG
 function WrongDynamicList() {
-  const [items, setItems] = useState(['A', 'B', 'C']);
-  
-  const removeItem = (index) => {
-    setItems(items.filter((_, i) => i !== index));
-  };
-  
-  return (
-    <ul>
-      {items.map((item, index) => (
-        <li key={index}>  {/* Index as key - will cause bugs */}
-          {item}
-          <button onClick={() => removeItem(index)}>Delete</button>
-        </li>
-      ))}
-    </ul>
-  );
+const [items, setItems] = useState(['A', 'B', 'C']);
+
+const removeItem = (index) => {
+setItems(items.filter((\_, i) => i !== index));
+};
+
+return (
+<ul>
+{items.map((item, index) => (
+<li key={index}> {/_ Index as key - will cause bugs _/}
+{item}
+<button onClick={() => removeItem(index)}>Delete</button>
+</li>
+))}
+</ul>
+);
 }
 
 // ✅ CORRECT
 function CorrectDynamicList() {
-  const [items, setItems] = useState([
-    { id: 1, text: 'A' },
-    { id: 2, text: 'B' },
-    { id: 3, text: 'C' }
-  ]);
-  
-  const removeItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-  
-  return (
-    <ul>
-      {items.map(item => (
-        <li key={item.id}>  {/* Unique ID as key */}
-          {item.text}
-          <button onClick={() => removeItem(item.id)}>Delete</button>
-        </li>
-      ))}
-    </ul>
-  );
+const [items, setItems] = useState([
+{ id: 1, text: 'A' },
+{ id: 2, text: 'B' },
+{ id: 3, text: 'C' }
+]);
+
+const removeItem = (id) => {
+setItems(items.filter(item => item.id !== id));
+};
+
+return (
+<ul>
+{items.map(item => (
+<li key={item.id}> {/_ Unique ID as key _/}
+{item.text}
+<button onClick={() => removeItem(item.id)}>Delete</button>
+</li>
+))}
+</ul>
+);
 }
 Mistake 8: Calling Hooks Conditionally
 jsx
 // ❌ WRONG
 function WrongHooks() {
-  const [count, setCount] = useState(0);
-  
-  if (count > 5) {
-    // Can't call hook conditionally!
-    useEffect(() => {
-      console.log('Count is high');
-    }, [count]);
-  }
-  
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+const [count, setCount] = useState(0);
+
+if (count > 5) {
+// Can't call hook conditionally!
+useEffect(() => {
+console.log('Count is high');
+}, [count]);
+}
+
+return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 
 // ✅ CORRECT
 function CorrectHooks() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    if (count > 5) {
-      console.log('Count is high');
-    }
-  }, [count]); // Condition inside the hook
-  
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+if (count > 5) {
+console.log('Count is high');
+}
+}, [count]); // Condition inside the hook
+
+return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 Mistake 9: Not Using Functional Updates When Needed
 jsx
 // ❌ WRONG
 function WrongCounter() {
-  const [count, setCount] = useState(0);
-  
-  const incrementThree = () => {
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    // Only increments by 1!
-  };
-  
-  return (
-    <div>
-      <p>{count}</p>
-      <button onClick={incrementThree}>+3</button>
-    </div>
-  );
+const [count, setCount] = useState(0);
+
+const incrementThree = () => {
+setCount(count + 1);
+setCount(count + 1);
+setCount(count + 1);
+// Only increments by 1!
+};
+
+return (
+<div>
+<p>{count}</p>
+<button onClick={incrementThree}>+3</button>
+</div>
+);
 }
 
 // ✅ CORRECT
 function CorrectCounter() {
-  const [count, setCount] = useState(0);
-  
-  const incrementThree = () => {
-    setCount(prev => prev + 1);
-    setCount(prev => prev + 1);
-    setCount(prev => prev + 1);
-    // Increments by 3!
-  };
-  
-  return (
-    <div>
-      <p>{count}</p>
-      <button onClick={incrementThree}>+3</button>
-    </div>
-  );
+const [count, setCount] = useState(0);
+
+const incrementThree = () => {
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);
+// Increments by 3!
+};
+
+return (
+<div>
+<p>{count}</p>
+<button onClick={incrementThree}>+3</button>
+</div>
+);
 }
 Mistake 10: Forgetting to Handle Promise Rejections
 jsx
 // ❌ WRONG
 function WrongPromise() {
-  useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => res.json())
-      .then(data => setData(data));
-    // No .catch() for errors!
-  }, []);
+useEffect(() => {
+fetch('https://api.example.com/data')
+.then(res => res.json())
+.then(data => setData(data));
+// No .catch() for errors!
+}, []);
 }
 
 // ✅ CORRECT
 function CorrectPromise() {
-  useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => res.json())
-      .then(data => setData(data))
-      .catch(err => setError(err.message));
-    // Handles errors
-  }, []);
+useEffect(() => {
+fetch('https://api.example.com/data')
+.then(res => res.json())
+.then(data => setData(data))
+.catch(err => setError(err.message));
+// Handles errors
+}, []);
 }
 
 // ✅ EVEN BETTER with async/await
 function BetterPromise() {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('https://api.example.com/data');
-        const data = await res.json();
-        setData(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-    
-    fetchData();
-  }, []);
+useEffect(() => {
+const fetchData = async () => {
+try {
+const res = await fetch('https://api.example.com/data');
+const data = await res.json();
+setData(data);
+} catch (err) {
+setError(err.message);
 }
-19. Best Practices for Clean Code
+};
+
+    fetchData();
+
+}, []);
+} 19. Best Practices for Clean Code
+
 1. Component Structure
-jsx
-// Good component structure
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import './Component.css';
+   jsx
+   // Good component structure
+   import { useState, useEffect } from 'react';
+   import PropTypes from 'prop-types';
+   import './Component.css';
 
 // 1. Imports
 // 2. Constants
@@ -8423,43 +8516,42 @@ import './Component.css';
 const MAX_ITEMS = 10;
 
 const formatDate = (date) => {
-  return new Date(date).toLocaleDateString();
+return new Date(date).toLocaleDateString();
 };
 
 function UserCard({ user, onEdit, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
-  
-  useEffect(() => {
-    // Effect logic
-  }, []);
-  
-  const handleEdit = () => {
-    setIsEditing(true);
-    onEdit(user);
-  };
-  
-  return (
-    <div className="user-card">
-      <h3>{user.name}</h3>
-      <p>{user.email}</p>
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={() => onDelete(user.id)}>Delete</button>
-    </div>
-  );
+const [isEditing, setIsEditing] = useState(false);
+
+useEffect(() => {
+// Effect logic
+}, []);
+
+const handleEdit = () => {
+setIsEditing(true);
+onEdit(user);
+};
+
+return (
+<div className="user-card">
+<h3>{user.name}</h3>
+<p>{user.email}</p>
+<button onClick={handleEdit}>Edit</button>
+<button onClick={() => onDelete(user.id)}>Delete</button>
+</div>
+);
 }
 
 UserCard.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired
-  }).isRequired,
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+user: PropTypes.shape({
+id: PropTypes.number.isRequired,
+name: PropTypes.string.isRequired,
+email: PropTypes.string.isRequired
+}).isRequired,
+onEdit: PropTypes.func.isRequired,
+onDelete: PropTypes.func.isRequired
 };
 
-export default UserCard;
-2. Naming Conventions
+export default UserCard; 2. Naming Conventions
 jsx
 // ✅ GOOD NAMES
 // Components - PascalCase
@@ -8490,14 +8582,13 @@ const handleInputChange = () => {};
 const User = () => {}; // Too generic
 const a = 'John'; // Meaningless
 const func = () => {}; // Not descriptive
-const data = fetchData(); // Too vague
-3. Organizing State
+const data = fetchData(); // Too vague 3. Organizing State
 jsx
 // ✅ GOOD - Group related state
 const [user, setUser] = useState({
-  name: '',
-  email: '',
-  age: 0
+name: '',
+email: '',
+age: 0
 });
 
 // Instead of:
@@ -8512,24 +8603,24 @@ const [error, setError] = useState(null);
 
 // Instead of:
 const [state, setState] = useState({
-  user: {},
-  isLoading: false,
-  error: null
-}); // Harder to update
-4. Conditional Rendering
+user: {},
+isLoading: false,
+error: null
+}); // Harder to update 4. Conditional Rendering
 jsx
 // ✅ GOOD - Extract complex conditions
 const renderContent = () => {
-  if (isLoading) return <Spinner />;
-  if (error) return <ErrorMessage error={error} />;
-  if (!data) return <EmptyState />;
-  return <DataDisplay data={data} />;
+if (isLoading) return <Spinner />;
+if (error) return <ErrorMessage error={error} />;
+if (!data) return <EmptyState />;
+return <DataDisplay data={data} />;
 };
 
 return <div>{renderContent()}</div>;
 
 // Instead of:
 return (
+
   <div>
     {isLoading && <Spinner />}
     {error && <ErrorMessage error={error} />}
@@ -8546,53 +8637,51 @@ function UserCard({ user, onEdit, onDelete, className }) {
 
 // Instead of:
 function UserCard(props) {
-  return <div className={props.className}>...</div>;
+return <div className={props.className}>...</div>;
 }
 
 // ✅ GOOD - Destructure objects
-const { name, email, age } = user;
-6. File Organization
+const { name, email, age } = user; 6. File Organization
 text
 src/
-├── components/           # Reusable components
-│   ├── common/          # Very generic components
-│   │   ├── Button.jsx
-│   │   ├── Input.jsx
-│   │   └── Card.jsx
-│   └── features/        # Feature-specific components
-│       ├── UserCard.jsx
-│       └── TodoItem.jsx
-├── pages/               # Page components
-│   ├── Home.jsx
-│   ├── About.jsx
-│   └── Contact.jsx
-├── hooks/               # Custom hooks
-│   ├── useFetch.js
-│   └── useLocalStorage.js
-├── utils/               # Helper functions
-│   ├── api.js
-│   └── formatters.js
-├── constants/           # Constants
-│   └── config.js
-├── styles/              # Global styles
-│   └── global.css
+├── components/ # Reusable components
+│ ├── common/ # Very generic components
+│ │ ├── Button.jsx
+│ │ ├── Input.jsx
+│ │ └── Card.jsx
+│ └── features/ # Feature-specific components
+│ ├── UserCard.jsx
+│ └── TodoItem.jsx
+├── pages/ # Page components
+│ ├── Home.jsx
+│ ├── About.jsx
+│ └── Contact.jsx
+├── hooks/ # Custom hooks
+│ ├── useFetch.js
+│ └── useLocalStorage.js
+├── utils/ # Helper functions
+│ ├── api.js
+│ └── formatters.js
+├── constants/ # Constants
+│ └── config.js
+├── styles/ # Global styles
+│ └── global.css
 ├── App.jsx
-└── main.jsx
-7. Performance Tips
+└── main.jsx 7. Performance Tips
 jsx
 // 1. Use React.memo for expensive components
 const ExpensiveComponent = React.memo(({ data }) => {
-  // Component logic
+// Component logic
 });
 
 // 2. Use useCallback for functions passed to child components
 const handleClick = useCallback(() => {
-  // Function logic
+// Function logic
 }, [dependency]);
 
 // 3. Use useMemo for expensive calculations
 const expensiveValue = useMemo(() => {
-  return computeExpensiveValue(data);
+return computeExpensiveValue(data);
 }, [data]);
 
 // 4. Lazy load components
@@ -8604,8 +8693,7 @@ const LazyComponent = React.lazy(() => import('./HeavyComponent'));
 
 // ✅ GOOD
 const handleButtonClick = () => handleClick(id);
-<button onClick={handleButtonClick}>Click</button>
-20. Next Steps in Your React Journey
+<button onClick={handleButtonClick}>Click</button> 20. Next Steps in Your React Journey
 What You've Learned
 ✅ JSX syntax and how it works
 ✅ Creating and using components
@@ -8623,8 +8711,9 @@ What You've Learned
 ✅ Building 10 complete projects
 
 What to Learn Next
+
 1. Advanced React Concepts
-useReducer for complex state management
+   useReducer for complex state management
 
 useRef for DOM access
 
@@ -8639,7 +8728,7 @@ Render props pattern
 Error Boundaries
 
 2. State Management Libraries
-Redux Toolkit
+   Redux Toolkit
 
 Zustand
 
@@ -8648,33 +8737,33 @@ Jotai
 Recoil
 
 3. Testing React Apps
-Jest for unit testing
+   Jest for unit testing
 
 React Testing Library
 
 Cypress for end-to-end testing
 
 4. Type Safety with TypeScript
-Adding TypeScript to React
+   Adding TypeScript to React
 
 Type checking props and state
 
 Creating typed custom hooks
 
 5. Build Production Apps
-Next.js (React framework)
+   Next.js (React framework)
 
 Gatsby (static site generator)
 
 Remix (full-stack framework)
 
 6. Mobile Development
-React Native for iOS and Android
+   React Native for iOS and Android
 
 Expo for easier React Native development
 
 7. Backend Integration
-GraphQL with Apollo Client
+   GraphQL with Apollo Client
 
 Firebase for backend services
 
